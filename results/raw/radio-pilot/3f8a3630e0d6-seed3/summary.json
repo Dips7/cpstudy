@@ -1,0 +1,17 @@
+{
+  "backend": "ns-3.46.1 static 802.11p PHY + AdhocWifiMac; offline verification replay",
+  "seed": 3,
+  "opportunity_receiver_pairs": 7110,
+  "generated_receiver_pairs": 7110,
+  "terminal_counts": {
+    "success": 7110
+  },
+  "opportunity_success_rate": 1.0,
+  "generated_success_rate": 1.0,
+  "mean_success_latency_ms": 16.06422513544304,
+  "fresh_opportunity_pairs": 7110,
+  "opportunity_freshness_rate": 1.0,
+  "mean_time_freshness_fraction": 0.8393587545,
+  "excluded_opportunities": 210,
+  "applicability": "Radio pilot only; no mobility, standards conformance, or policy improvement claim"
+}

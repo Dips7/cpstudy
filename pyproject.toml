@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cpstudy"
+version = "0.1.0"
+description = "Reproducible cooperative perception communication and verification study"
+requires-python = ">=3.12"
+dependencies = ["numpy", "scipy", "PyYAML", "matplotlib"]
+
+[tool.setuptools.packages.find]
+include = ["cpstudy*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

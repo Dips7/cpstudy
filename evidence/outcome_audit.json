@@ -1,0 +1,2947 @@
+{
+  "failures": [
+    {
+      "details": "ValueError(\"malformed or truncated opportunity row: {'source_id': '10', 'sequence': '12', 'acquisition_ns': '', 'deadline_ns': None, 'generated': None, 'x': None, 'y': None, 'receiver_ids': None, 'trace_order': None}\")",
+      "issue": "raw audit error",
+      "run": "results/raw/major_revision/stress_v30_calibrated_s3"
+    },
+    {
+      "details": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "issue": "raw audit error",
+      "run": "results/raw/major_revision/stress_v30_fixed_s1"
+    },
+    {
+      "details": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "issue": "raw audit error",
+      "run": "results/raw/major_revision/stress_v30_fixed_s3"
+    },
+    {
+      "details": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "issue": "raw audit error",
+      "run": "results/raw/major_revision/stress_v60_calibrated_s1"
+    },
+    {
+      "details": "ValueError(\"malformed or truncated opportunity row: {'source_id': '39', 'sequence': '10', 'acquisition_ns': '1049462822', 'deadline_ns': '1149462822', 'generated': '1', 'x': '-1', 'y': None, 'receiver_ids': None, 'trace_order': None}\")",
+      "issue": "raw audit error",
+      "run": "results/raw/major_revision/stress_v60_calibrated_s3"
+    },
+    {
+      "details": "ValueError(\"malformed or truncated opportunity row: {'source_id': '36', 'sequence': '27', 'acquisition_ns': '2773212819', 'deadline_ns': '2873212', 'generated': None, 'x': None, 'y': None, 'receiver_ids': None, 'trace_order': None}\")",
+      "issue": "raw audit error",
+      "run": "results/raw/major_revision/stress_v60_fixed_s1"
+    },
+    {
+      "details": "ValueError('3872 generated pairs lack a terminal; examples: [(0, 0, 2), (0, 0, 3), (0, 0, 4), (0, 0, 10), (0, 0, 11)]')",
+      "issue": "raw audit error",
+      "run": "results/raw/major_revision/stress_v60_joint_s3"
+    },
+    {
+      "details": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "issue": "raw audit error",
+      "run": "results/raw/major_revision/stress_v60_radio_s2"
+    },
+    {
+      "details": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "issue": "raw audit error",
+      "run": "results/raw/major_revision/stress_v60_radio_s3"
+    },
+    {
+      "details": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "issue": "raw audit error",
+      "run": "results/raw/major_revision/stress_v75_radio_s3"
+    }
+  ],
+  "families_passed": {
+    "factorial": 180,
+    "major_revision": 100,
+    "paired20": 80
+  },
+  "passed_conservation": 360,
+  "passed_run_records": [
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 398,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 210,
+      "run": "results/raw/evaluation/highway/sources12_verify1/dcc/f3e73ab34a46-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1107,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 601,
+      "run": "results/raw/evaluation/highway/sources12_verify1/dcc/f3e73ab34a46-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 431,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 227,
+      "run": "results/raw/evaluation/highway/sources12_verify1/dcc/f3e73ab34a46-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 398,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 470,
+      "run": "results/raw/evaluation/highway/sources12_verify1/fixed/d54e7ea236ae-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1107,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1404,
+      "run": "results/raw/evaluation/highway/sources12_verify1/fixed/d54e7ea236ae-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 431,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 511,
+      "run": "results/raw/evaluation/highway/sources12_verify1/fixed/d54e7ea236ae-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 398,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 470,
+      "run": "results/raw/evaluation/highway/sources12_verify1/joint/33d648bd4e12-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1107,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1404,
+      "run": "results/raw/evaluation/highway/sources12_verify1/joint/33d648bd4e12-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 431,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 511,
+      "run": "results/raw/evaluation/highway/sources12_verify1/joint/33d648bd4e12-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 398,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 470,
+      "run": "results/raw/evaluation/highway/sources12_verify1/radio/9f5bba92a3ed-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1107,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1404,
+      "run": "results/raw/evaluation/highway/sources12_verify1/radio/9f5bba92a3ed-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 431,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 511,
+      "run": "results/raw/evaluation/highway/sources12_verify1/radio/9f5bba92a3ed-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 398,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 470,
+      "run": "results/raw/evaluation/highway/sources12_verify1/receiver/735a590373bc-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1107,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1404,
+      "run": "results/raw/evaluation/highway/sources12_verify1/receiver/735a590373bc-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 431,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 511,
+      "run": "results/raw/evaluation/highway/sources12_verify1/receiver/735a590373bc-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 398,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 210,
+      "run": "results/raw/evaluation/highway/sources12_verify3/dcc/28c263dcec32-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1107,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 601,
+      "run": "results/raw/evaluation/highway/sources12_verify3/dcc/28c263dcec32-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 431,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 227,
+      "run": "results/raw/evaluation/highway/sources12_verify3/dcc/28c263dcec32-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 398,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 470,
+      "run": "results/raw/evaluation/highway/sources12_verify3/fixed/647a78b349f9-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1107,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1404,
+      "run": "results/raw/evaluation/highway/sources12_verify3/fixed/647a78b349f9-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 431,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 511,
+      "run": "results/raw/evaluation/highway/sources12_verify3/fixed/647a78b349f9-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 398,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 470,
+      "run": "results/raw/evaluation/highway/sources12_verify3/joint/802cca64cfef-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1107,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1404,
+      "run": "results/raw/evaluation/highway/sources12_verify3/joint/802cca64cfef-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 431,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 511,
+      "run": "results/raw/evaluation/highway/sources12_verify3/joint/802cca64cfef-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 398,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 470,
+      "run": "results/raw/evaluation/highway/sources12_verify3/radio/47e8f0c195c3-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1107,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1404,
+      "run": "results/raw/evaluation/highway/sources12_verify3/radio/47e8f0c195c3-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 431,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 511,
+      "run": "results/raw/evaluation/highway/sources12_verify3/radio/47e8f0c195c3-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 398,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 470,
+      "run": "results/raw/evaluation/highway/sources12_verify3/receiver/3eab09279e62-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1107,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1404,
+      "run": "results/raw/evaluation/highway/sources12_verify3/receiver/3eab09279e62-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 431,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 511,
+      "run": "results/raw/evaluation/highway/sources12_verify3/receiver/3eab09279e62-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1386,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 737,
+      "run": "results/raw/evaluation/highway/sources24_verify1/dcc/12900e6933f1-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1385,
+      "run": "results/raw/evaluation/highway/sources24_verify1/dcc/12900e6933f1-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2278,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1204,
+      "run": "results/raw/evaluation/highway/sources24_verify1/dcc/12900e6933f1-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1386,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1672,
+      "run": "results/raw/evaluation/highway/sources24_verify1/fixed/d12c5787963c-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 3242,
+      "run": "results/raw/evaluation/highway/sources24_verify1/fixed/d12c5787963c-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2278,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2762,
+      "run": "results/raw/evaluation/highway/sources24_verify1/fixed/d12c5787963c-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1386,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1672,
+      "run": "results/raw/evaluation/highway/sources24_verify1/joint/36b56166bebc-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 3242,
+      "run": "results/raw/evaluation/highway/sources24_verify1/joint/36b56166bebc-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2278,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2762,
+      "run": "results/raw/evaluation/highway/sources24_verify1/joint/36b56166bebc-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1386,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1672,
+      "run": "results/raw/evaluation/highway/sources24_verify1/radio/61086e9a6668-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 3242,
+      "run": "results/raw/evaluation/highway/sources24_verify1/radio/61086e9a6668-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2278,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2762,
+      "run": "results/raw/evaluation/highway/sources24_verify1/radio/61086e9a6668-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1386,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1672,
+      "run": "results/raw/evaluation/highway/sources24_verify1/receiver/08d5dd1924d6-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 3242,
+      "run": "results/raw/evaluation/highway/sources24_verify1/receiver/08d5dd1924d6-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2278,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2762,
+      "run": "results/raw/evaluation/highway/sources24_verify1/receiver/08d5dd1924d6-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1386,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 737,
+      "run": "results/raw/evaluation/highway/sources24_verify3/dcc/c819bf0c697d-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1385,
+      "run": "results/raw/evaluation/highway/sources24_verify3/dcc/c819bf0c697d-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2278,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1204,
+      "run": "results/raw/evaluation/highway/sources24_verify3/dcc/c819bf0c697d-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1386,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1672,
+      "run": "results/raw/evaluation/highway/sources24_verify3/fixed/2cad81e0aec7-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 3242,
+      "run": "results/raw/evaluation/highway/sources24_verify3/fixed/2cad81e0aec7-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2278,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2762,
+      "run": "results/raw/evaluation/highway/sources24_verify3/fixed/2cad81e0aec7-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1386,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1672,
+      "run": "results/raw/evaluation/highway/sources24_verify3/joint/c36746784782-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 3242,
+      "run": "results/raw/evaluation/highway/sources24_verify3/joint/c36746784782-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2278,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2762,
+      "run": "results/raw/evaluation/highway/sources24_verify3/joint/c36746784782-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1386,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1672,
+      "run": "results/raw/evaluation/highway/sources24_verify3/radio/d151127bbd3d-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 3242,
+      "run": "results/raw/evaluation/highway/sources24_verify3/radio/d151127bbd3d-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2278,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2762,
+      "run": "results/raw/evaluation/highway/sources24_verify3/radio/d151127bbd3d-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 1386,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1672,
+      "run": "results/raw/evaluation/highway/sources24_verify3/receiver/b2831b216afe-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 3242,
+      "run": "results/raw/evaluation/highway/sources24_verify3/receiver/b2831b216afe-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2278,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2762,
+      "run": "results/raw/evaluation/highway/sources24_verify3/receiver/b2831b216afe-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10595,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5619,
+      "run": "results/raw/evaluation/highway/sources48_verify1/dcc/18fe8a7a4981-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10808,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5795,
+      "run": "results/raw/evaluation/highway/sources48_verify1/dcc/18fe8a7a4981-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 9747,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5180,
+      "run": "results/raw/evaluation/highway/sources48_verify1/dcc/18fe8a7a4981-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10595,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 12918,
+      "run": "results/raw/evaluation/highway/sources48_verify1/fixed/454d0f943477-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10808,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 13463,
+      "run": "results/raw/evaluation/highway/sources48_verify1/fixed/454d0f943477-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 9747,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 11913,
+      "run": "results/raw/evaluation/highway/sources48_verify1/fixed/454d0f943477-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10595,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 12918,
+      "run": "results/raw/evaluation/highway/sources48_verify1/joint/d51b17cc9527-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10808,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 13463,
+      "run": "results/raw/evaluation/highway/sources48_verify1/joint/d51b17cc9527-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 9747,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 11913,
+      "run": "results/raw/evaluation/highway/sources48_verify1/joint/d51b17cc9527-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10595,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 12918,
+      "run": "results/raw/evaluation/highway/sources48_verify1/radio/66bfb6bc7626-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10808,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 13463,
+      "run": "results/raw/evaluation/highway/sources48_verify1/radio/66bfb6bc7626-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 9747,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 11913,
+      "run": "results/raw/evaluation/highway/sources48_verify1/radio/66bfb6bc7626-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10595,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 12918,
+      "run": "results/raw/evaluation/highway/sources48_verify1/receiver/248b3b30efa9-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10808,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 13463,
+      "run": "results/raw/evaluation/highway/sources48_verify1/receiver/248b3b30efa9-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 9747,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 11913,
+      "run": "results/raw/evaluation/highway/sources48_verify1/receiver/248b3b30efa9-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10595,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5619,
+      "run": "results/raw/evaluation/highway/sources48_verify3/dcc/75aed97e9363-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10808,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5795,
+      "run": "results/raw/evaluation/highway/sources48_verify3/dcc/75aed97e9363-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 9747,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5180,
+      "run": "results/raw/evaluation/highway/sources48_verify3/dcc/75aed97e9363-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10595,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 12918,
+      "run": "results/raw/evaluation/highway/sources48_verify3/fixed/b373dd4687a6-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10808,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 13463,
+      "run": "results/raw/evaluation/highway/sources48_verify3/fixed/b373dd4687a6-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 9747,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 11913,
+      "run": "results/raw/evaluation/highway/sources48_verify3/fixed/b373dd4687a6-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10595,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 12918,
+      "run": "results/raw/evaluation/highway/sources48_verify3/joint/9c729ff559ad-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10808,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 13463,
+      "run": "results/raw/evaluation/highway/sources48_verify3/joint/9c729ff559ad-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 9747,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 11913,
+      "run": "results/raw/evaluation/highway/sources48_verify3/joint/9c729ff559ad-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10595,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 12918,
+      "run": "results/raw/evaluation/highway/sources48_verify3/radio/b34b6e87ec2f-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10808,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 13463,
+      "run": "results/raw/evaluation/highway/sources48_verify3/radio/b34b6e87ec2f-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 9747,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 11913,
+      "run": "results/raw/evaluation/highway/sources48_verify3/radio/b34b6e87ec2f-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10595,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 12918,
+      "run": "results/raw/evaluation/highway/sources48_verify3/receiver/906a9733ab9e-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10808,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 13463,
+      "run": "results/raw/evaluation/highway/sources48_verify3/receiver/906a9733ab9e-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 9747,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 11913,
+      "run": "results/raw/evaluation/highway/sources48_verify3/receiver/906a9733ab9e-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 297,
+      "run": "results/raw/evaluation/intersection/sources12_verify1/dcc/c4ba4b28ec8e-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1205,
+      "run": "results/raw/evaluation/intersection/sources12_verify1/dcc/c4ba4b28ec8e-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 921,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 498,
+      "run": "results/raw/evaluation/intersection/sources12_verify1/dcc/c4ba4b28ec8e-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 689,
+      "run": "results/raw/evaluation/intersection/sources12_verify1/fixed/98a24bc4c06d-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2747,
+      "run": "results/raw/evaluation/intersection/sources12_verify1/fixed/98a24bc4c06d-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 921,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1149,
+      "run": "results/raw/evaluation/intersection/sources12_verify1/fixed/98a24bc4c06d-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 689,
+      "run": "results/raw/evaluation/intersection/sources12_verify1/joint/bfb2ef2090a9-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2747,
+      "run": "results/raw/evaluation/intersection/sources12_verify1/joint/bfb2ef2090a9-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 921,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1149,
+      "run": "results/raw/evaluation/intersection/sources12_verify1/joint/bfb2ef2090a9-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 689,
+      "run": "results/raw/evaluation/intersection/sources12_verify1/radio/4ba1a187f08d-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2747,
+      "run": "results/raw/evaluation/intersection/sources12_verify1/radio/4ba1a187f08d-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 921,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1149,
+      "run": "results/raw/evaluation/intersection/sources12_verify1/radio/4ba1a187f08d-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 689,
+      "run": "results/raw/evaluation/intersection/sources12_verify1/receiver/81e5294c7674-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2747,
+      "run": "results/raw/evaluation/intersection/sources12_verify1/receiver/81e5294c7674-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 921,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1149,
+      "run": "results/raw/evaluation/intersection/sources12_verify1/receiver/81e5294c7674-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 297,
+      "run": "results/raw/evaluation/intersection/sources12_verify3/dcc/dbc5dd3292ae-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1205,
+      "run": "results/raw/evaluation/intersection/sources12_verify3/dcc/dbc5dd3292ae-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 921,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 498,
+      "run": "results/raw/evaluation/intersection/sources12_verify3/dcc/dbc5dd3292ae-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 689,
+      "run": "results/raw/evaluation/intersection/sources12_verify3/fixed/9168840de6d1-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2747,
+      "run": "results/raw/evaluation/intersection/sources12_verify3/fixed/9168840de6d1-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 921,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1149,
+      "run": "results/raw/evaluation/intersection/sources12_verify3/fixed/9168840de6d1-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 689,
+      "run": "results/raw/evaluation/intersection/sources12_verify3/joint/a8bed694e1c1-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2747,
+      "run": "results/raw/evaluation/intersection/sources12_verify3/joint/a8bed694e1c1-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 921,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1149,
+      "run": "results/raw/evaluation/intersection/sources12_verify3/joint/a8bed694e1c1-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 689,
+      "run": "results/raw/evaluation/intersection/sources12_verify3/radio/fd9b6488a230-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2747,
+      "run": "results/raw/evaluation/intersection/sources12_verify3/radio/fd9b6488a230-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 921,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1149,
+      "run": "results/raw/evaluation/intersection/sources12_verify3/radio/fd9b6488a230-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 561,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 689,
+      "run": "results/raw/evaluation/intersection/sources12_verify3/receiver/dbb0ed3d5777-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 2275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2747,
+      "run": "results/raw/evaluation/intersection/sources12_verify3/receiver/dbb0ed3d5777-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 921,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 1149,
+      "run": "results/raw/evaluation/intersection/sources12_verify3/receiver/dbb0ed3d5777-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4111,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2144,
+      "run": "results/raw/evaluation/intersection/sources24_verify1/dcc/e3f631c32e58-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4707,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2533,
+      "run": "results/raw/evaluation/intersection/sources24_verify1/dcc/e3f631c32e58-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4627,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2437,
+      "run": "results/raw/evaluation/intersection/sources24_verify1/dcc/e3f631c32e58-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4111,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 4805,
+      "run": "results/raw/evaluation/intersection/sources24_verify1/fixed/07d5c55b0558-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4707,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5856,
+      "run": "results/raw/evaluation/intersection/sources24_verify1/fixed/07d5c55b0558-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4627,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5575,
+      "run": "results/raw/evaluation/intersection/sources24_verify1/fixed/07d5c55b0558-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4111,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 4805,
+      "run": "results/raw/evaluation/intersection/sources24_verify1/joint/2ba247abc535-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4707,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5856,
+      "run": "results/raw/evaluation/intersection/sources24_verify1/joint/2ba247abc535-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4627,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5575,
+      "run": "results/raw/evaluation/intersection/sources24_verify1/joint/2ba247abc535-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4111,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 4805,
+      "run": "results/raw/evaluation/intersection/sources24_verify1/radio/9dc8341291e0-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4707,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5856,
+      "run": "results/raw/evaluation/intersection/sources24_verify1/radio/9dc8341291e0-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4627,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5575,
+      "run": "results/raw/evaluation/intersection/sources24_verify1/radio/9dc8341291e0-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4111,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 4805,
+      "run": "results/raw/evaluation/intersection/sources24_verify1/receiver/1037c2e9a28f-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4707,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5856,
+      "run": "results/raw/evaluation/intersection/sources24_verify1/receiver/1037c2e9a28f-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4627,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5575,
+      "run": "results/raw/evaluation/intersection/sources24_verify1/receiver/1037c2e9a28f-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4111,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2144,
+      "run": "results/raw/evaluation/intersection/sources24_verify3/dcc/72fed3caafa7-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4707,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2533,
+      "run": "results/raw/evaluation/intersection/sources24_verify3/dcc/72fed3caafa7-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4627,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 2437,
+      "run": "results/raw/evaluation/intersection/sources24_verify3/dcc/72fed3caafa7-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4111,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 4805,
+      "run": "results/raw/evaluation/intersection/sources24_verify3/fixed/60c86dce9ef8-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4707,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5856,
+      "run": "results/raw/evaluation/intersection/sources24_verify3/fixed/60c86dce9ef8-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4627,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5575,
+      "run": "results/raw/evaluation/intersection/sources24_verify3/fixed/60c86dce9ef8-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4111,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 4805,
+      "run": "results/raw/evaluation/intersection/sources24_verify3/joint/e99b1abc9278-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4707,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5856,
+      "run": "results/raw/evaluation/intersection/sources24_verify3/joint/e99b1abc9278-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4627,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5575,
+      "run": "results/raw/evaluation/intersection/sources24_verify3/joint/e99b1abc9278-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4111,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 4805,
+      "run": "results/raw/evaluation/intersection/sources24_verify3/radio/9e5d019b4557-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4707,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5856,
+      "run": "results/raw/evaluation/intersection/sources24_verify3/radio/9e5d019b4557-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4627,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5575,
+      "run": "results/raw/evaluation/intersection/sources24_verify3/radio/9e5d019b4557-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4111,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 4805,
+      "run": "results/raw/evaluation/intersection/sources24_verify3/receiver/11a915d74b6a-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4707,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5856,
+      "run": "results/raw/evaluation/intersection/sources24_verify3/receiver/11a915d74b6a-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 4627,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5575,
+      "run": "results/raw/evaluation/intersection/sources24_verify3/receiver/11a915d74b6a-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 22463,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 11826,
+      "run": "results/raw/evaluation/intersection/sources48_verify1/dcc/bef4dd37c124-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 11347,
+      "run": "results/raw/evaluation/intersection/sources48_verify1/dcc/bef4dd37c124-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20144,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 10582,
+      "run": "results/raw/evaluation/intersection/sources48_verify1/dcc/bef4dd37c124-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 22463,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 26812,
+      "run": "results/raw/evaluation/intersection/sources48_verify1/fixed/0a5b6c4ee165-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 26026,
+      "run": "results/raw/evaluation/intersection/sources48_verify1/fixed/0a5b6c4ee165-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20144,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 24169,
+      "run": "results/raw/evaluation/intersection/sources48_verify1/fixed/0a5b6c4ee165-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 22463,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 20289,
+      "run": "results/raw/evaluation/intersection/sources48_verify1/joint/85b2d5b1a631-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 15811,
+      "run": "results/raw/evaluation/intersection/sources48_verify1/joint/85b2d5b1a631-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20144,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 13997,
+      "run": "results/raw/evaluation/intersection/sources48_verify1/joint/85b2d5b1a631-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 22463,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 26812,
+      "run": "results/raw/evaluation/intersection/sources48_verify1/radio/9c09b75f464c-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 23196,
+      "run": "results/raw/evaluation/intersection/sources48_verify1/radio/9c09b75f464c-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20144,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 20382,
+      "run": "results/raw/evaluation/intersection/sources48_verify1/radio/9c09b75f464c-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 22463,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 26812,
+      "run": "results/raw/evaluation/intersection/sources48_verify1/receiver/e76a9456776d-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 26026,
+      "run": "results/raw/evaluation/intersection/sources48_verify1/receiver/e76a9456776d-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20144,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 24169,
+      "run": "results/raw/evaluation/intersection/sources48_verify1/receiver/e76a9456776d-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 22463,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 11826,
+      "run": "results/raw/evaluation/intersection/sources48_verify3/dcc/262835c91d41-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 11347,
+      "run": "results/raw/evaluation/intersection/sources48_verify3/dcc/262835c91d41-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20144,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 10582,
+      "run": "results/raw/evaluation/intersection/sources48_verify3/dcc/262835c91d41-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 22463,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 26812,
+      "run": "results/raw/evaluation/intersection/sources48_verify3/fixed/96db155edc03-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 26026,
+      "run": "results/raw/evaluation/intersection/sources48_verify3/fixed/96db155edc03-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20144,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 24169,
+      "run": "results/raw/evaluation/intersection/sources48_verify3/fixed/96db155edc03-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 22463,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5664,
+      "run": "results/raw/evaluation/intersection/sources48_verify3/joint/ca1e1745d72c-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5111,
+      "run": "results/raw/evaluation/intersection/sources48_verify3/joint/ca1e1745d72c-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20144,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 4517,
+      "run": "results/raw/evaluation/intersection/sources48_verify3/joint/ca1e1745d72c-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 22463,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 26812,
+      "run": "results/raw/evaluation/intersection/sources48_verify3/radio/be4ffebfafb5-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 23196,
+      "run": "results/raw/evaluation/intersection/sources48_verify3/radio/be4ffebfafb5-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20144,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 20382,
+      "run": "results/raw/evaluation/intersection/sources48_verify3/radio/be4ffebfafb5-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 22463,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5664,
+      "run": "results/raw/evaluation/intersection/sources48_verify3/receiver/3cb792c8c5cb-seed101",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21275,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 5111,
+      "run": "results/raw/evaluation/intersection/sources48_verify3/receiver/3cb792c8c5cb-seed102",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20144,
+      "family": "factorial",
+      "generated_pairs_all_opportunities": 4517,
+      "run": "results/raw/evaluation/intersection/sources48_verify3/receiver/3cb792c8c5cb-seed103",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 26944,
+      "run": "results/raw/major_revision/ab_Fixed_10Hz_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 19591,
+      "run": "results/raw/major_revision/ab_Fixed_10Hz_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 26873,
+      "run": "results/raw/major_revision/ab_Fixed_10Hz_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 17326,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 21961,
+      "run": "results/raw/major_revision/ab_Fixed_10Hz_s4",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15762,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 20127,
+      "run": "results/raw/major_revision/ab_Fixed_10Hz_s5",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 16036,
+      "run": "results/raw/major_revision/ab_Q_thresh_16_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 11878,
+      "run": "results/raw/major_revision/ab_Q_thresh_16_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 17357,
+      "run": "results/raw/major_revision/ab_Q_thresh_16_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 17326,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 13505,
+      "run": "results/raw/major_revision/ab_Q_thresh_16_s4",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15762,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 13680,
+      "run": "results/raw/major_revision/ab_Q_thresh_16_s5",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 15574,
+      "run": "results/raw/major_revision/ab_Q_thresh_24_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 11878,
+      "run": "results/raw/major_revision/ab_Q_thresh_24_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 16564,
+      "run": "results/raw/major_revision/ab_Q_thresh_24_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 17326,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 13505,
+      "run": "results/raw/major_revision/ab_Q_thresh_24_s4",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15762,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 13680,
+      "run": "results/raw/major_revision/ab_Q_thresh_24_s5",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 5649,
+      "run": "results/raw/major_revision/ab_Q_thresh_4_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 5884,
+      "run": "results/raw/major_revision/ab_Q_thresh_4_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 5779,
+      "run": "results/raw/major_revision/ab_Q_thresh_4_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 17326,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 8206,
+      "run": "results/raw/major_revision/ab_Q_thresh_4_s4",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15762,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 6302,
+      "run": "results/raw/major_revision/ab_Q_thresh_4_s5",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 10590,
+      "run": "results/raw/major_revision/ab_Q_thresh_8_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 11878,
+      "run": "results/raw/major_revision/ab_Q_thresh_8_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 11563,
+      "run": "results/raw/major_revision/ab_Q_thresh_8_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 17326,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 14020,
+      "run": "results/raw/major_revision/ab_Q_thresh_8_s4",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15762,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 12045,
+      "run": "results/raw/major_revision/ab_Q_thresh_8_s5",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 21003,
+      "run": "results/raw/major_revision/ab_Radio_Only_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 15296,
+      "run": "results/raw/major_revision/ab_Radio_Only_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 25190,
+      "run": "results/raw/major_revision/ab_Radio_Only_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 17326,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 19178,
+      "run": "results/raw/major_revision/ab_Radio_Only_s4",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15762,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 20127,
+      "run": "results/raw/major_revision/ab_Radio_Only_s5",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 4726,
+      "run": "results/raw/major_revision/ab_Uncalibrated_Joint_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 4242,
+      "run": "results/raw/major_revision/ab_Uncalibrated_Joint_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 4915,
+      "run": "results/raw/major_revision/ab_Uncalibrated_Joint_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 17326,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 4812,
+      "run": "results/raw/major_revision/ab_Uncalibrated_Joint_s4",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15762,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 5127,
+      "run": "results/raw/major_revision/ab_Uncalibrated_Joint_s5",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 16632,
+      "run": "results/raw/major_revision/stress_v100_calibrated_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 13594,
+      "run": "results/raw/major_revision/stress_v100_calibrated_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 19423,
+      "run": "results/raw/major_revision/stress_v100_calibrated_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 11399,
+      "run": "results/raw/major_revision/stress_v100_dcc_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 8308,
+      "run": "results/raw/major_revision/stress_v100_dcc_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 11250,
+      "run": "results/raw/major_revision/stress_v100_dcc_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 26944,
+      "run": "results/raw/major_revision/stress_v100_fixed_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 19591,
+      "run": "results/raw/major_revision/stress_v100_fixed_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 26873,
+      "run": "results/raw/major_revision/stress_v100_fixed_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 4734,
+      "run": "results/raw/major_revision/stress_v100_joint_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 3461,
+      "run": "results/raw/major_revision/stress_v100_joint_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 4878,
+      "run": "results/raw/major_revision/stress_v100_joint_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 21003,
+      "run": "results/raw/major_revision/stress_v100_radio_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 15296,
+      "run": "results/raw/major_revision/stress_v100_radio_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 25190,
+      "run": "results/raw/major_revision/stress_v100_radio_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 15574,
+      "run": "results/raw/major_revision/stress_v10_calibrated_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 11878,
+      "run": "results/raw/major_revision/stress_v10_calibrated_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 16564,
+      "run": "results/raw/major_revision/stress_v10_calibrated_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 11399,
+      "run": "results/raw/major_revision/stress_v10_dcc_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 8308,
+      "run": "results/raw/major_revision/stress_v10_dcc_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 11250,
+      "run": "results/raw/major_revision/stress_v10_dcc_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 26944,
+      "run": "results/raw/major_revision/stress_v10_fixed_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 19591,
+      "run": "results/raw/major_revision/stress_v10_fixed_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 26873,
+      "run": "results/raw/major_revision/stress_v10_fixed_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 15600,
+      "run": "results/raw/major_revision/stress_v10_joint_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 11878,
+      "run": "results/raw/major_revision/stress_v10_joint_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 16564,
+      "run": "results/raw/major_revision/stress_v10_joint_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 21003,
+      "run": "results/raw/major_revision/stress_v10_radio_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 15296,
+      "run": "results/raw/major_revision/stress_v10_radio_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 25190,
+      "run": "results/raw/major_revision/stress_v10_radio_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 16036,
+      "run": "results/raw/major_revision/stress_v30_calibrated_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 11878,
+      "run": "results/raw/major_revision/stress_v30_calibrated_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 11399,
+      "run": "results/raw/major_revision/stress_v30_dcc_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 8308,
+      "run": "results/raw/major_revision/stress_v30_dcc_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 11250,
+      "run": "results/raw/major_revision/stress_v30_dcc_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 19591,
+      "run": "results/raw/major_revision/stress_v30_fixed_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 4726,
+      "run": "results/raw/major_revision/stress_v30_joint_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 4242,
+      "run": "results/raw/major_revision/stress_v30_joint_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 4915,
+      "run": "results/raw/major_revision/stress_v30_joint_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 21003,
+      "run": "results/raw/major_revision/stress_v30_radio_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 15296,
+      "run": "results/raw/major_revision/stress_v30_radio_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 25190,
+      "run": "results/raw/major_revision/stress_v30_radio_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 3953,
+      "run": "results/raw/major_revision/stress_v60_calibrated_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 11399,
+      "run": "results/raw/major_revision/stress_v60_dcc_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 8308,
+      "run": "results/raw/major_revision/stress_v60_dcc_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 11250,
+      "run": "results/raw/major_revision/stress_v60_dcc_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 19591,
+      "run": "results/raw/major_revision/stress_v60_fixed_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 26873,
+      "run": "results/raw/major_revision/stress_v60_fixed_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 4728,
+      "run": "results/raw/major_revision/stress_v60_joint_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 3334,
+      "run": "results/raw/major_revision/stress_v60_joint_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 21003,
+      "run": "results/raw/major_revision/stress_v60_radio_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 5696,
+      "run": "results/raw/major_revision/stress_v75_calibrated_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 4242,
+      "run": "results/raw/major_revision/stress_v75_calibrated_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 6059,
+      "run": "results/raw/major_revision/stress_v75_calibrated_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 11399,
+      "run": "results/raw/major_revision/stress_v75_dcc_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 8308,
+      "run": "results/raw/major_revision/stress_v75_dcc_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 11250,
+      "run": "results/raw/major_revision/stress_v75_dcc_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 26944,
+      "run": "results/raw/major_revision/stress_v75_fixed_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 19591,
+      "run": "results/raw/major_revision/stress_v75_fixed_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 26873,
+      "run": "results/raw/major_revision/stress_v75_fixed_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 4734,
+      "run": "results/raw/major_revision/stress_v75_joint_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 3373,
+      "run": "results/raw/major_revision/stress_v75_joint_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 4865,
+      "run": "results/raw/major_revision/stress_v75_joint_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 21003,
+      "run": "results/raw/major_revision/stress_v75_radio_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "major_revision",
+      "generated_pairs_all_opportunities": 15296,
+      "run": "results/raw/major_revision/stress_v75_radio_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 16036,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 14475,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 11460,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s10",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 14254,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 9720,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s11",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 23771,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 23415,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s12",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 18409,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 13971,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s13",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 12027,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 9381,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s14",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 12155,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 7952,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s15",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10577,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 12218,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s16",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 16694,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 12145,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s17",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 14624,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 11522,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s18",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 18913,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 17846,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s19",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 11878,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 16255,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 13466,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s20",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 17357,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 17326,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 13505,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s4",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15762,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 13680,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s5",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 12173,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 10057,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s6",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 16037,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 11493,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s7",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 12520,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 11196,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s8",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 19133,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 13858,
+      "run": "results/raw/paired_intersection_n48_v30/calibrated_s9",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 26944,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 14475,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 18752,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s10",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 14254,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 18843,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s11",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 23771,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 30645,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s12",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 18409,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 23505,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s13",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 12027,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 14718,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s14",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 12155,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 15819,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s15",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10577,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 13255,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s16",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 16694,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 20444,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s17",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 14624,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 18905,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s18",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 18913,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 23808,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s19",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 19591,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 16255,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 21539,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s20",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 26873,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 17326,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 21961,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s4",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15762,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 20127,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s5",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 12173,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 16050,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s6",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 16037,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 19667,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s7",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 12520,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 16222,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s8",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 19133,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 25253,
+      "run": "results/raw/paired_intersection_n48_v30/fixed_s9",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 4726,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 14475,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 3797,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s10",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 14254,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 4396,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s11",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 23771,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 5540,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s12",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 18409,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 4272,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s13",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 12027,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 3403,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s14",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 12155,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 2968,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s15",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10577,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 10770,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s16",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 16694,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 4010,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s17",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 14624,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 3868,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s18",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 18913,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 4975,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s19",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 4242,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 16255,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 4165,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s20",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 4915,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 17326,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 4812,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s4",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15762,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 5127,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s5",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 12173,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 4145,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s6",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 16037,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 3904,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s7",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 12520,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 3717,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s8",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 19133,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 5253,
+      "run": "results/raw/paired_intersection_n48_v30/joint_s9",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 21322,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 21003,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s1",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 14475,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 16424,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s10",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 14254,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 14318,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s11",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 23771,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 28142,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s12",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 18409,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 18805,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s13",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 12027,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 12498,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s14",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 12155,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 11540,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s15",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 10577,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 13255,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s16",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 16694,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 17187,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s17",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 14624,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 16906,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s18",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 18913,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 23808,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s19",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15677,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 15296,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s2",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 16255,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 19526,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s20",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 20922,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 25190,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s3",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 17326,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 19178,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s4",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 15762,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 20127,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s5",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 12173,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 14425,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s6",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 16037,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 15170,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s7",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 12520,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 16222,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s8",
+      "summary_match": true
+    },
+    {
+      "conservation_pass": true,
+      "evaluated_demand_pairs": 19133,
+      "family": "paired20",
+      "generated_pairs_all_opportunities": 22201,
+      "run": "results/raw/paired_intersection_n48_v30/radio_s9",
+      "summary_match": true
+    }
+  ],
+  "passed_summary_match": 360,
+  "runs_discovered": 370,
+  "runs_passed": 360,
+  "runs_with_errors_or_summary_mismatch": 10,
+  "scope_note": "Freshness coverage can credit a later update to multiple earlier demand queries; this audit checks terminal conservation for each generated pair separately."
+}

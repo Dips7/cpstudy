@@ -1,0 +1,30 @@
+{
+  "joint": {
+    "total_decisions": 7056,
+    "total_decreases": 1330,
+    "total_increases": 5,
+    "total_holds": 5721,
+    "reasons": {
+      "both_cbr_and_backlog": 87,
+      "backlog_only": 1242,
+      "cbr_only": 1
+    },
+    "pct_backlog_only": 93.38345864661655,
+    "pct_both": 6.541353383458646,
+    "pct_cbr_only": 0.07518796992481204
+  },
+  "calibrated": {
+    "total_decisions": 7056,
+    "total_decreases": 255,
+    "total_increases": 33,
+    "total_holds": 6768,
+    "reasons": {
+      "cbr_only": 100,
+      "both_cbr_and_backlog": 123,
+      "backlog_only": 32
+    },
+    "pct_backlog_only": 12.549019607843137,
+    "pct_both": 48.23529411764706,
+    "pct_cbr_only": 39.21568627450981
+  }
+}

@@ -1,0 +1,10 @@
+duration_s: 4.0
+feedback_ms: 500.0
+feedback_stale_ms: 1500.0
+output: results/raw/closed-loop-checks1/intersection/receiver
+policy: receiver
+radio: ns3-closed-loop
+scenario: intersection
+sources: 16
+verify_ms: 3.0
+warmup_s: 0.5

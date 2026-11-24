@@ -1,0 +1,30 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0 -- /Users/dips/Library/CloudStorage/OneDrive-LordBuddhaEducationFoundation/Working Paper/cpstudy/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/dips/Library/CloudStorage/OneDrive-LordBuddhaEducationFoundation/Working Paper/cpstudy
+configfile: pyproject.toml
+collecting ... collected 21 items
+
+tests/test_core.py::test_units_and_broadcast PASSED                      [  4%]
+tests/test_core.py::test_queue_known_mm1_limit PASSED                    [  9%]
+tests/test_core.py::test_controller_hysteresis_bounds_and_staleness PASSED [ 14%]
+tests/test_core.py::test_config_validation PASSED                        [ 19%]
+tests/test_core.py::test_single_update_exact_timing_and_authentication_order PASSED [ 23%]
+tests/test_core.py::test_finite_queue_overflow_and_expiry PASSED         [ 28%]
+tests/test_core.py::test_out_of_order_never_regresses_age PASSED         [ 33%]
+tests/test_core.py::test_published_three_stage_equation PASSED           [ 38%]
+tests/test_dcc.py::test_published_adaptive_core_and_physical_units PASSED [ 42%]
+tests/test_engine.py::test_ideal_latency_and_conservation PASSED         [ 47%]
+tests/test_engine.py::test_suppression_never_removes_demand PASSED       [ 52%]
+tests/test_engine.py::test_determinism_and_receiver_overload PASSED      [ 57%]
+tests/test_engine.py::test_fully_observed_deadline_is_a_miss_not_boundary_censoring PASSED [ 61%]
+tests/test_engine.py::test_non_divisor_rate_preserves_requested_average PASSED [ 66%]
+tests/test_engine.py::test_cli_audit_and_tamper_rejection PASSED         [ 71%]
+tests/test_metrics.py::test_newer_observation_can_cover_suppressed_demand PASSED [ 76%]
+tests/test_metrics.py::test_time_coverage_accounts_for_initial_outage_and_stale_updates PASSED [ 80%]
+tests/test_network_audit.py::test_feedback_is_available_only_after_authentication PASSED [ 85%]
+tests/test_network_audit.py::test_oracle_feedback_is_rejected PASSED     [ 90%]
+tests/test_radio.py::test_actual_receives_and_missing_receptions_are_distinguished PASSED [ 95%]
+tests/test_radio.py::test_receiver_replay_does_not_duplicate_datagrams PASSED [100%]
+
+============================== 21 passed in 1.25s ==============================

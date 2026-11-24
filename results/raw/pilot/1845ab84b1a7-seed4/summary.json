@@ -1,0 +1,17 @@
+{
+  "backend": "ideal internal harness",
+  "seed": 4,
+  "opportunity_receiver_pairs": 7110,
+  "generated_receiver_pairs": 7110,
+  "terminal_counts": {
+    "success": 7110
+  },
+  "opportunity_success_rate": 1.0,
+  "generated_success_rate": 1.0,
+  "mean_success_latency_ms": 15.0,
+  "fresh_opportunity_pairs": 7110,
+  "opportunity_freshness_rate": 1.0,
+  "mean_time_freshness_fraction": 0.85,
+  "excluded_opportunities": 210,
+  "applicability": "Internal accounting verification only; no radio or perception validation"
+}

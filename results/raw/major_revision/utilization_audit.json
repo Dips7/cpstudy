@@ -1,0 +1,67 @@
+{
+  "1.0": {
+    "verify_ms": 1.0,
+    "rate_min": 50.0,
+    "rate_mean": 237.01909722222223,
+    "rate_median": 271.5,
+    "rate_max": 378.0,
+    "rho_min": 0.05,
+    "rho_mean": 0.23701909722222225,
+    "rho_median": 0.27149999999999996,
+    "rho_max": 0.378,
+    "mean_nodes_over_1": 0.0,
+    "mean_drops": 0.0
+  },
+  "3.0": {
+    "verify_ms": 3.0,
+    "rate_min": 105.25,
+    "rate_mean": 222.03645833333334,
+    "rate_median": 218.25,
+    "rate_max": 321.25,
+    "rho_min": 0.31575000000000003,
+    "rho_mean": 0.6661093750000001,
+    "rho_median": 0.65475,
+    "rho_max": 0.96375,
+    "mean_nodes_over_1": 0.0,
+    "mean_drops": 0.0
+  },
+  "6.0": {
+    "verify_ms": 6.0,
+    "rate_min": 50.0,
+    "rate_mean": 237.01909722222223,
+    "rate_median": 271.5,
+    "rate_max": 378.0,
+    "rho_min": 0.3,
+    "rho_mean": 1.4221145833333335,
+    "rho_median": 1.629,
+    "rho_max": 2.2680000000000002,
+    "mean_nodes_over_1": 32.333333333333336,
+    "mean_drops": 10846.666666666666
+  },
+  "7.5": {
+    "verify_ms": 7.5,
+    "rate_min": 50.0,
+    "rate_mean": 237.01909722222223,
+    "rate_median": 271.5,
+    "rate_max": 378.0,
+    "rho_min": 0.375,
+    "rho_mean": 1.7776432291666668,
+    "rho_median": 2.03625,
+    "rho_max": 2.835,
+    "mean_nodes_over_1": 36.666666666666664,
+    "mean_drops": 15787.333333333334
+  },
+  "10.0": {
+    "verify_ms": 10.0,
+    "rate_min": 50.0,
+    "rate_mean": 237.01909722222223,
+    "rate_median": 271.5,
+    "rate_max": 378.0,
+    "rho_min": 0.5,
+    "rho_mean": 2.3701909722222223,
+    "rho_median": 2.715,
+    "rho_max": 3.7800000000000002,
+    "mean_nodes_over_1": 44.333333333333336,
+    "mean_drops": 21369.0
+  }
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "ablation": "Q_thresh_4",
+    "policy": "calibrated",
+    "q_high": 4,
+    "mean_succ": 0.21366188784944734,
+    "std_succ": 0.07513021676059835,
+    "mean_lat": 24.47588765975255,
+    "mean_supp": 14335.0,
+    "mean_q_drop": 0.0
+  },
+  {
+    "ablation": "Q_thresh_8",
+    "policy": "calibrated",
+    "q_high": 8,
+    "mean_succ": 0.47422409662322984,
+    "std_succ": 0.10289634724985018,
+    "mean_lat": 29.347590487492294,
+    "mean_supp": 9313.6,
+    "mean_q_drop": 0.0
+  },
+  {
+    "ablation": "Q_thresh_16",
+    "policy": "calibrated",
+    "q_high": 16,
+    "mean_succ": 0.5530958079778413,
+    "std_succ": 0.030621336975740415,
+    "mean_lat": 34.260818650498706,
+    "mean_supp": 7380.4,
+    "mean_q_drop": 0.6
+  },
+  {
+    "ablation": "Q_thresh_24",
+    "policy": "calibrated",
+    "q_high": 24,
+    "mean_succ": 0.5429084774038425,
+    "std_succ": 0.037214249167020236,
+    "mean_lat": 35.50056096971319,
+    "mean_supp": 7601.8,
+    "mean_q_drop": 6.8
+  },
+  {
+    "ablation": "Uncalibrated_Joint",
+    "policy": "joint",
+    "q_high": 8,
+    "mean_succ": 0.13006022359411176,
+    "std_succ": 0.030069955932364074,
+    "mean_lat": 25.227334608487602,
+    "mean_supp": 15790.0,
+    "mean_q_drop": 0.0
+  },
+  {
+    "ablation": "Radio_Only",
+    "policy": "radio",
+    "q_high": 8,
+    "mean_succ": 0.8148550792596978,
+    "std_succ": 0.0795748834258392,
+    "mean_lat": 20.482629627160133,
+    "mean_supp": 2531.6,
+    "mean_q_drop": 0.0
+  },
+  {
+    "ablation": "Fixed_10Hz",
+    "policy": "fixed",
+    "q_high": 8,
+    "mean_succ": 0.9405736659865285,
+    "std_succ": 0.02280652359419464,
+    "mean_lat": 21.120422938242694,
+    "mean_supp": 0.0,
+    "mean_q_drop": 0.0
+  }
+]

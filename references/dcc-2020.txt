@@ -1,0 +1,1652 @@
+Received October 13, 2020, accepted October 24, 2020, date of publication October 30, 2020, date of current version November 11, 2020.
+Digital Object Identifier 10.1 109/ACCESS.2020.3035 1 19
+Cooperative Perception for Connected and
+Automated Vehicles: Evaluation and Impact
+of Congestion Control
+GOKULNATH THANDAVARAYAN
+, (Graduate Student Member, IEEE),
+MIGUEL SEPULCRE
+ , (Senior Member, IEEE), AND JAVIER GOZAL VEZ
+ , (Senior Member, IEEE)
+UWICORE Laboratory, Universidad Miguel Hernández de Elche (UMH), 03202 Elche, Spain
+Corresponding author: Gokulnath Thandavarayan (gthandavarayan@umh.es)
+This work was supported by the TransAID Project through the Horizon 2020 Framework Programme under Agreement 723390.
+ABSTRACT Automated vehicles make use of multiple sensors to detect their surroundings. Sensors have
+signiﬁcantly improved over the years but still face challenges due to the presence of obstacles or adverse
+weather conditions, among others. Cooperative or collective perception has been proposed to help mitigate
+these challenges through the exchange of sensor data among vehicles using V2X (V ehicle-to-Everything)
+communications. Recent studies have shown that cooperative perception can complement on-board sensors
+and increase the vehicle’s awareness beyond its sensors ﬁeld of view. However, cooperative perception
+signiﬁcantly increases the amount of information exchanged by vehicles which can degrade the V2X
+communication performance and ultimately the effectiveness of cooperative perception. In this context,
+this study conducts ﬁrst a dimensioning analysis to evaluate the impact of the sensors’ characteristics and
+the market penetration rate on the operation and performance of cooperative perception. The study then
+investigates the impact of congestion control on cooperative perception using the Decentralized Congestion
+Control (DCC) framework deﬁned by ETSI. The study demonstrates that congestion control can negatively
+impact the perception and latency of cooperative perception if not adequately conﬁgured. In this context,
+this study demonstrates for the ﬁrst time that the combination of congestion control functions at the
+Access and Facilities layers can improve the perception achieved with cooperative perception and ensure
+a timely transmission of the information. The results obtained demonstrate the importance of an adequate
+conﬁguration of DCC for the development of connected and automated vehicles.
+INDEX TERMS Cooperative perception, collective perception, cooperative sensing, message generation,
+CPM, connected automated vehicles, CA V , automated vehicles, autonomous vehicles, V2X, vehicular
+networks, C-ITS, ITS-G5, congestion control, DCC, ETSI.
+I. INTRODUCTION
+Automated vehicles use embedded sensors to drive
+autonomously with low or no human intervention. To this
+aim, the vehicle’s planning system uses perception and
+localization data to determine the travel path and driving
+actions (e.g. lane changes, acceleration or braking) that are
+executed by the vehicle’s control platform. For perception and
+localization, automated vehicles equip multiple exteroceptive
+sensors (e.g. lidars, radars and cameras) that locally perceive
+the driving environment [1]. This environment includes static
+The associate editor coordinating the review of this manuscript and
+approving it for publication was Maged Abdullah Esmail
+.
+elements (e.g. road shape and curvature, lane marks and trees)
+and dynamic ones (e.g. other vehicles, bicycles, pedestrians).
+Sensors for automated vehicles have signiﬁcantly improved
+their perception range and detection accuracy over the last
+years [2]. However, the capabilities of these sensors can still
+be impaired due to the presence of obstacles, adverse weather
+conditions, or sensitivity to lighting conditions among other
+factors [3]. These limitations can negatively inﬂuence the
+safety and efﬁciency of automated vehicles. V2X (V ehicle-
+to-Everything) communications can reduce this negative
+impact and improve the perception or sensing capabilities of
+Connected and Automated V ehicles (CA Vs) by facilitating
+the exchange of sensor data among vehicles. This process
+VOLUME 8, 2020 This work is licensed under a Creative Commons Attribution 4.0 License. For more information, see https://creativecommons.org/licenses/by/4.0/ 197665
+G. Thandavarayan et al.: Cooperative Perception for CAVs: Evaluation and Impact of Congestion Control
+FIGURE 1. Basic architecture of cooperative perception.
+is generally referred to as cooperative perception, collective
+perception or cooperative sensing [4], [5]. Figure 1 depicts the
+basic architecture for cooperative perception [6]. On-board
+sensors locally perceive the environment and perform the
+necessary processing, fusion and detection tasks to support
+the automated driving functions. The information gathered
+by the sensors is also used as an input for the cooperative
+perception component. This component selects the informa-
+tion to be exchanged among vehicles. For example, it decides
+which detected objects should be included in a cooperative
+perception message and how often these messages should
+be transmitted. Congestion control protocols may adapt the
+rate at which cooperative perception messages are generated
+and transmitted to control the communications channel load.
+It should be noted that the received cooperative perception
+messages are fused with the information obtained from the
+on-board sensors to improve and extend the vehicles’ percep-
+tion of the driving environment.
+Cooperative perception enables vehicles to exchange their
+sensors’ data. This provides vehicles with additional sensor
+data about the driving environment, including data beyond
+their on-board sensors’ ﬁeld of view (FoV). Cooperative or
+collective perception can also help improve the vehicles’
+sensor detection accuracy and increase the conﬁdence about
+the detected objects. This is the case because vehicles can
+correlate and compare the information from their on-board
+sensors with sensor information gathered from nearby vehi-
+cles using V2X communications. Cooperative perception also
+helps mitigating the negative impact of adverse weather con-
+ditions or the negative effect of lighting conditions on the
+sensitivity.
+Cooperative perception relies on V2X communications
+for vehicles to exchange sensor data. The development of
+V2X communications was initially focused on the so-called
+Day One Services [7]. These services include, among others,
+a basic cooperative awareness service where vehicles regu-
+larly broadcast their position, speed and basic status infor-
+mation through CAMs (Cooperative Awareness Messages)
+based on ETSI (European Telecommunications Standards
+Institute) standards [8] or BSMs (Basic Safety Messages)
+based on SAE (Society of Automotive Engineers) stan-
+dards [9]. This basic cooperative awareness service improves
+the awareness of vehicles, but the information exchanged is
+limited and does not exploit the rich sensor data gathered by
+CA Vs. ETSI [4] and SAE [5] have then recently launched
+activities to deﬁne new V2X standards to implement collec-
+tive or cooperative perception for CA Vs to exchange sensor
+data. ETSI has recently ﬁnalized a Technical Report to deﬁne
+the so-called Collective Perception Service (CPS). This ser-
+vice includes the deﬁnition of the Collective Perception Mes-
+sage (CPM) format and the generation rules to decide when
+a new CPM should be generated and what information it
+should include. These efforts highlight the industrial inter-
+est and potential of V2X communications to support the
+development and deployment of connected and automated
+vehicles. However, the work is still at its early stages, and
+has initially focused on drafting a framework to develop
+cooperative perception and deﬁne ﬁrst CPM messages and
+generation rules. It is then necessary to better understand the
+operation of cooperative perception and optimize the related
+V2X communication protocols to maximize the effective-
+ness of cooperative perception while ensuring the network’s
+scalability. This is important since exchanging sensor data
+signiﬁcantly increases the communication channel load.
+This study goes beyond the state-of-the-art and presents
+a dimensioning study that analyzes the performance and
+effectiveness of cooperative perception using V2X commu-
+nications. The study ﬁrst shows how cooperative perception
+mitigates the perception limitations of on-board sensors. The
+study then analyzes the impact of the market penetration
+rate and different sensor conﬁgurations on the operation and
+performance of cooperative perception. This analysis shows
+that cooperative perception can signiﬁcantly increase the
+communication channel load and activate the operation of
+congestion control protocols. The study investigates then the
+impact of these protocols on the performance and operation of
+cooperative perception. The study is based on ETSI’s Decen-
+tralized Congestion Control (DCC), one of the most impor-
+tant congestion control frameworks to date that operates
+across multiple layers of the V2X communication protocol
+stack. The study demonstrates that using congestion control
+protocols only at the Access layer augments the latency (or
+information age) of cooperative perception messages. This
+negatively impacts connected automated driving that requires
+197666 VOLUME 8, 2020
+G. Thandavarayan et al.: Cooperative Perception for CAVs: Evaluation and Impact of Congestion Control
+low latency for a safe driving. This study demonstrates then
+for the ﬁrst time that this challenge can be addressed through
+the combination of congestion control functions at the Access
+and Facilities layers. This combination increases the percep-
+tion and reduces the latency through the dynamic adaptation
+of the rate at which cooperative messages are generated and
+transmitted.
+II. STATE OF THE ART
+Perception of automated vehicles has advanced signiﬁcantly
+over the past years [2], [10], [11]. However, there are still
+relevant perception challenges that need to be solved [3], [11].
+For example, the detection accuracy under poor weather and
+lighting conditions must be improved to reduce uncertainty.
+This is particularly the case of lidars and cameras. Lidar
+sensing can be restricted by high refraction and reﬂection
+caused by dense fog, smoke and rain [3]. Also, high sun
+angles may increase the noise level in lidar pulses which
+will affect the perception. In addition, their detection range
+depends on the reﬂectivity of the objects that are reached by
+the laser beams [2]. Cameras are very good for classifying
+objects and provide additional information about the envi-
+ronment (color, texture, etc.) [3]. However, cameras also see
+their performance degrade under adverse weather conditions
+and are very sensitive to lighting conditions. In addition, they
+require intensive and diverse training data for their AI-based
+image processing [10]. Moreover, velocity and distance infor-
+mation to detected objects cannot be directly measured with
+cameras but must be calculated [3]. Radars perform better
+than lidars and cameras in poor weather conditions (rain,
+snow, fog, etc.) [3], and some radars can detect objects at
+250 m distance [12]. However, they provide lower resolution
+than lidars, and their ﬁeld of view is limited [3]. In fact, the
+range and speed resolution of a radar is determined by its
+bandwidth. Products available on the market provide accura-
+cies of 10 cm up to 1% to 5% of the distance to the object [12].
+Radars also suffer from multipath fading, which reduces the
+accuracy of the detected objects [3]. The perception of auto-
+mated vehicles also needs to be improved in complex urban
+environments. In particular, it is necessary to improve the
+accuracy, certainty and reliability of the sensors’ perception.
+This is especially the case due to the presence of occluding
+objects (e.g. other vehicles or buildings) that can limit the
+sensor’s range [11]. Lidar, radar and cameras can only work
+under Line-of-Sight (LOS) conditions. All these challenges
+and constraints limit the perception capabilities of automated
+vehicles that exclusively rely on their on-board sensors. This
+can in turn impact their safety and driving efﬁciency.
+Cooperative perception has been proposed to improve
+the perception capabilities of CA Vs. Cooperative percep-
+tion makes use of V2X communications so that vehicles
+can exchange sensed data. Most of the studies conducted
+to date consider that vehicles exchange information about
+the detected objects (e.g. their position, speed and size).
+Recent studies have analyzed what information should be
+exchanged about detected objects in cooperative perception.
+Günther et al. propose in [13] to include in cooperative per-
+ception messages not only basic information about detected
+objects (e.g. their speed and position) but also information
+about the on-board sensors and the characteristics of the
+transmitting vehicle. This allows the receiving vehicles to
+understand the capabilities of the transmitting vehicles and
+better identify free-space and unknown areas. The authors
+show in [13] that their proposal allows earlier detection of
+possible obstructions and hence augment the driver’s reaction
+time in the presence of a potential safety risk. The proposal
+from [13] was evaluated in [14]. This study compares the
+perception achieved when the information about the detected
+objects is attached to existing CAMs or is transmitted in
+separate messages that are transmitted following the CAM
+generation rules. Authors of [15] propose a message format
+to decrease the transmitted information without affecting
+the accuracy of the perception system. The proposed format
+includes information about the correlation and higher order
+derivatives (e.g. the acceleration or yaw rate) of the detected
+objects, and this information is transmitted less frequently.
+The work in [16] proposes and evaluates different content
+control schemes for cooperative perception. The study con-
+cludes that cooperative perception should prioritize the trans-
+mission of content related to objects that are located farther
+away from the transmitting vehicle but near the edge of
+its on-board sensor range in order to optimize the tracking
+error. The authors show that coupling this proposal with a
+multiplicative decrease and additive increase transmit rate
+control can also control the communication channel load and
+improve the channel utilization.
+Controlling the channel load is critical for the performance
+of V2X communications and hence for the effectiveness of
+cooperative perception. Recent studies have then focused
+on optimizing the exchange of information about detected
+objects in cooperative perception. For example, the work
+in [17] proposes the concept of value-anticipating networking
+so that an object is included in a cooperative perception
+message and transmitted only if the transmitter estimates that
+it could have value for potential receivers. This approach
+reduces the transmission rate of less valuable information
+and can help control the channel load in congested scenarios.
+The challenge is to obtain an accurate estimation of the
+value of the information. This challenge has been partially
+addressed in a recent study by the same authors in [18]
+where they propose the use of deep reinforcement learning to
+select the data to transmit. A similar concept was proposed
+in [19] where authors present a method for each vehicle
+to dynamically adapt the message transmission rate taking
+into account the area covered with their sensors and that
+is not covered by nearby vehicles. In [20], authors evaluate
+the impact of congestion control on cooperative perception.
+To this aim, authors consider the Reactive approach that is
+part of ETSI’s DCC framework at the Access layer, and
+evaluate the impact of considering different DCC Proﬁles (or
+DPs) for the collective perception messages. This study was
+one of the ﬁrst to consider the impact of congestion control.
+VOLUME 8, 2020 197667
+G. Thandavarayan et al.: Cooperative Perception for CAVs: Evaluation and Impact of Congestion Control
+The authors demonstrate that congestion control does impact
+the performance and operation of cooperative perception, and
+should hence be carefully designed. This should include the
+congestion control functions at the Access layer that were the
+focus of the study in [20]. However, it should also consider
+those functions that control and adapt the generation rate
+of cooperative perception messages, since the message rate
+has a notable impact on the communication channel load.
+The same authors recently proposed in [21] message gener-
+ation rules for cooperative perception based on the dynam-
+ics of vehicles. These generation rules decide when a new
+cooperative perception message should be created and what
+should be its content. The message generation rules proposed
+in [21] have been adopted within the ETSI Technical Report1
+for collective perception [4]. These generation rules were
+evaluated in detail in [22] where authors found that they
+can frequently generate messages with a small number of
+objects. This increases the channel load since packets with
+a small payload create a relatively high overhead due to
+the message headers. The study also found that the ETSI
+generation rules for cooperative perception can signiﬁcantly
+increase the number of updates received per second about
+the same object. It is unclear whether this really beneﬁts
+perception while it signiﬁcantly increases the communication
+channel load. Similar conclusions were reached by authors
+of [23], [24] and [25] that also argue for the need to control the
+information exchanged with cooperative perception in order
+to avoid exceeding the communication channel capacity.
+Existing studies demonstrate the industrial interest and
+potential of cooperative perception to improve connected
+automated driving. However, a more comprehensive under-
+standing of cooperative perception is necessary for its correct
+dimensioning and conﬁguration. This is exactly the objec-
+tive of this study that ﬁrst looks into the impact of the
+type of sensors and market penetration rate on cooperative
+perception. This study analyzes then in detail the impact
+that V2X congestion control has on cooperative perception.
+This is important since congestion control protocols mod-
+ify the transmission of messages, and this can signiﬁcantly
+impact the effectiveness of cooperative perception. The study
+demonstrates for the ﬁrst time how a careful combination of
+congestion control functions at different layers of the protocol
+stack can improve the performance of cooperative perception.
+III. COLLECTIVE PERCEPTION SERVICE
+ETSI has recently approved the Technical Report [4] that
+proposes the Collective 2 Perception Service (CPS) and that
+will serve as a baseline for the Technical Speciﬁcation TS
+103 324. The following subsections describe the current
+1This Technical Report has been recently approved and will be used as a
+starting point for the ETSI Technical Speciﬁcation of collective perception.
+2ETSI generally refers to cooperative perception as collective perception.
+We will then maintain the term collective perception in this section and when
+referring to ETSI content or discussions.
+Collective Perception Message (CPM) format and the CPM
+generation rules deﬁned in [4] and that are used in this study.
+A. COLLECTIVE PERCEPTION MESSAGE
+The CPM is a broadcast message that includes an ITS (Intel-
+ligent Transport System) PDU (Protocol Data Unit) header
+and 5 types of containers: a Management Container (MC),
+a Station Data Container (SDC), a Sensor Information Con-
+tainer (SIC), a Perceived Object Containers (POC) and a
+Free Space Addendum Container (FSAC). It also contains a
+data element that speciﬁes the current number of perceived
+objects. This number does not necessarily match with the
+number of objects included in the CPM because all objects are
+not included in all CPMs, as explained in the next subsection.
+The main containers and data elements are next described.
+1) ITS PDU HEADER
+The ITS PDU header was speciﬁed in [26] and includes data
+elements such as the protocol version, the message ID and the
+station ID.
+2) MANAGEMENT CONTAINER
+The MC is mandatory in the CPM and contains basic infor-
+mation about the transmitter, including its type (e.g. vehicle
+or RSU) and position. The MC also includes an optional
+container to inform about whether the data of a CPM has
+been split up into multiple messages due to message size
+constraints.
+3) STATION DATA CONTAINER
+The SDC is optional and includes additional information
+about the originating vehicle or RSU. The SDC can include
+the Originating V ehicle Container (OVC) or the Originating
+RSU Container (ORC) depending on whether a vehicle or
+RSU generates and transmits the CPM. The OVC describes
+the vehicle data elements, such as the heading, speed and
+angle, and its size. The ORC includes information such as
+the Intersection Reference ID or Road Segment ID. This
+information is useful for the receiver to match the received
+objects to the deﬁned intersection or road segment.
+4) SENSOR INFORMATION CONTAINER
+The SIC is optional and describes the sensing capabilities of
+the transmitter. The SIC is used by the receiver to derive the
+areas that are currently sensed by the transmitter. For each
+sensor, the SIC includes data elements such as the sensor ID,
+sensor type (e.g. radar, lidar or a sensor fusion system) and
+its detection area. The SIC can optionally specify for each
+sensor its Free Space Conﬁdence, which is the isotropic free
+space conﬁdence that can be assumed for its entire detection
+area. When sensor fusion is not used, the SIC includes the
+capabilities of each of the on-board sensors; the CPM can
+report about up to 128 sensors. When using sensor fusion,
+all the sensors capabilities are combined and reported in the
+SIC as a single sensor.
+197668 VOLUME 8, 2020
+G. Thandavarayan et al.: Cooperative Perception for CAVs: Evaluation and Impact of Congestion Control
+5) PERCEIVED OBJECT CONTAINER
+The POC is set optional and describes the dynamic state
+and properties of the detected objects. The POC contains
+information about up to 128 detected objects. For each object,
+the following data elements are included in the POC: (1)
+the object ID that identiﬁes the object and can be used for
+tracking purposes; (2) the Time of Measurement that provides
+the time difference between the message generation time and
+the object measurement time 3; (3) the IDs of the sensors that
+have detected the object; (4) the position, speed, acceleration
+and size of the object (among other ﬁelds); (5) the conﬁdence
+associated to the object; (6) and its classiﬁcation (vehicle,
+person, animal, other). These and other data elements provide
+a detailed description of the detected object and enable the
+receiver to coordinate and track the detected object in a
+three-dimensional space.
+6) FREE SPACE ADDENDUM CONTAINER
+The FSAC is optional and describes the free space areas
+within the sensor detection areas. In addition, it includes their
+associated conﬁdence levels. This information can be used by
+the receiver to better estimate the free space areas around the
+transmitting vehicle.
+B. CPM GENERATION RULES
+The CPM generation rules deﬁne how often a vehicle should
+generate a CPM and what information should be included
+in each CPM. A vehicle should check every T_GenCpm if
+a new CPM should be generated. T_GenCpm should be set
+between 100 ms and 1000 ms. It is important to highlight that
+the DCC can adapt T_GenCpm based on the channel load as
+we will describe in detail in the next section. A vehicle should
+generate a new CPM if it has detected a new vehicle, or if
+any previously detected vehicles satisfy any of the following
+conditions:
+• its absolute position has changed by more than 4m since
+the last time its data was included in a CPM;
+• its absolute speed has changed by more than 0.5m/s
+since the last time its data was included in a CPM;
+• its absolute velocity has changed by more than 4 ◦ since
+the last time its data was included in a CPM;
+• the last time it was included in a CPM was 1 (or
+more) seconds ago.
+A vehicle includes in a new CPM all new detected vehicles
+and those previously detected vehicles that satisfy at least one
+of the previous conditions. The CPM generation rules prior-
+itize then the transmission of information about the detected
+vehicles that are moving faster or have higher acceleration.
+These vehicles are included in CPMs more frequently so that
+other vehicles can have an accurate and updated knowledge
+of the driving environment.
+We should note that a vehicle generates a CPM every sec-
+ond even if none of the detected vehicles satisfy any of the
+3This information is useful to accurately compute the information age for
+each object at the receiver.
+previous conditions. In this case, the CPM will not contain
+the Perceived Object Container, but only the Management
+Container, the Station Data Container, and the Sensor Infor-
+mation Containers. In addition, the SIC is only included in a
+CPM once per second since the sensor information does not
+change.
+IV. DECENTRALIZED CONGESTION CONTROL
+Cooperative perception relies on the V2X exchange of infor-
+mation about detected objects. Its effectiveness depends on
+the correct reception of the exchanged V2X messages. The
+performance of V2X communications is highly inﬂuenced by
+the communication channel load since high channel load lev-
+els increase the risk of packet collisions. V ehicular networks
+integrate congestion control algorithms to control the channel
+load and avoid channel congestion [27]. These protocols can
+modify the rate or the power at which messages are trans-
+mitted and even drop packets. Congestion control algorithms
+can then alter the transmission of V2X messages and could
+then impact the effectiveness of cooperative perception. This
+paper studies this impact in detail using the Decentralized
+Congestion Control (DCC) solution deﬁned by ETSI. This
+is one of the most complete solutions to control congestion
+in vehicular networks since it deﬁnes DCC components and
+functions at all relevant layers of the protocol stack.
+A. ITS COMMUNICATIONS ARCHITECTURE
+DCC is implemented over the ITS Communications Archi-
+tecture deﬁned by ETSI [28] and illustrated in Figure 2.
+This architecture follows the principles of the OSI (Open
+System Interconnection) model and is divided in different
+layers. The Access layer covers the PHY (Physical) and MAC
+(Medium Access Control) layers of the protocol stack. It con-
+trols the access to the radio channel and enables the wireless
+transmission and reception of information. The Transport &
+Network layer is used to multiplex messages from different
+services and route them from source to destination nodes. The
+Facilities layer includes components and services, such as the
+Collective Perception Service, that are used to support V2X
+applications. Applications are implemented on the top and
+are abstracted from the underlying protocols. The transversal
+FIGURE 2. ETSI ITS Communications Architecture with DCC components.
+VOLUME 8, 2020 197669
+G. Thandavarayan et al.: Cooperative Perception for CAVs: Evaluation and Impact of Congestion Control
+Management layer is in charge of the management of the
+communications and the protocol stack. The Security layer
+provides the necessary security services, such as privacy or
+encryption.
+CPMs are generated by the Collective Perception Service
+at the Facilities layer and sent down to the lower layers for
+their transmission. At the Transport & Network layer, CPMs
+make use of the BTP (Basic Transport Protocol) that mul-
+tiplexes messages from different applications/services. In the
+same layer, the GeoNetworking protocol conﬁgures the trans-
+mission of the CPM in broadcast mode to all 1-hop neigh-
+boring nodes. At the Access layer, CPMs can be transmitted
+using the ITS-G5 [29] radio access technology. ITS-G5
+is an adaptation of IEEE 802.11p, which was speciﬁcally
+designed for vehicular environments. IEEE 802.11p uses
+OFDM (Orthogonal Frequency Division Multiplexing) with
+a channel bandwidth of 10 MHz. It supports data rates from
+3 to 27 Mbps using coding rates of 1/2, 2/3 or 3/4 (convolu-
+tional coding) and BPSK (Binary Phase Shift Keying), QPSK
+(Quadrature Phase Shift Keying), 16-QAM (16-Quadrature
+Amplitude Modulation) or 64-QAM modulations. The basic
+radio channel access method of IEEE 802.11p is known
+as Carrier Sense Multiple Access with Collision Avoidance
+(CSMA/CA). In CSMA/CA, a node must sense the radio
+channel before transmitting a packet. If the channel is sensed
+as idle, the node can start its transmission. If the channel
+is sensed as busy, the node defers its transmission until the
+end of the current transmission. At the end of the channel
+busy period, the node waits for a random backoff time.
+This backoff is used to minimize collisions between multiple
+nodes that also deferred their transmission since they also
+detected the channel as busy. The node decreases the backoff
+time when it senses the channel as idle and can start its
+transmission when its backoff time reaches zero. To provide
+different channel access times to different types of packets,
+IEEE 802.11p makes use of EDCA (Enhanced Distributed
+Channel Access) that differentiates 4 access categories. Each
+category has different channel access parameters (e.g. backoff
+times).
+B. DCC FRAMEWORK
+The generation and transmission of messages using the
+ITS Communications Architecture is controlled by DCC.
+DCC is a cross-layer function that spans over multiple lay-
+ers of the protocol stack. In particular, ETSI has deﬁned
+DCC_ACC, DCC_NET, DCC_FAC and DCC_CROSS com-
+ponents (see Figure 2). The DCC_ACC [30] component is
+in the Access layer and has been the target of most of the
+research conducted to date. It operates as a gatekeeper to con-
+trol the trafﬁc that is effectively transmitted by each vehicle.
+DCC_NET [31] is optional and implemented at the Network-
+ing & Transport layer. It enables vehicles to exchange infor-
+mation about the channel load they sense so that each vehicle
+is aware of the channel load experienced by its one-hop and
+two-hop neighbours. The Technical Speciﬁcation that deﬁnes
+DCC_FAC [32] is still a draft and has not been approved
+yet. In the current draft, DCC_FAC is deﬁned as optional
+and is implemented at the facilities layer when considered.
+It controls the number of messages generated by each appli-
+cation/service within each vehicle. The control takes into
+account the messages’ trafﬁc classes or DCC proﬁles (DPs).
+Thus, DCC_FAC distributes access to the channel among the
+different applications/services within each vehicle.
+DCC_CROSS [33] deﬁnes the necessary management sup-
+port functions for DCC and the required interface parameters
+between the DCC management entity and the DCC entities
+in the Facilities, the Networking & Transport and the Access
+layers. For all DCC components, the upper limits of the
+maximum transmission duration and minimum time interval
+between two consecutive transmissions are deﬁned in ETSI
+EN 302 571 [34]. In this study, we analyze the impact of
+DCC_ACC and DCC_FAC on cooperative perception since
+they contain the main mechanisms that control congestion
+and that can affect the V2X communications performance.
+C. DCC ACCESS
+The DCC_ACC component is located in the Access layer.
+It controls the trafﬁc at the Access layer and acts as a gate-
+keeper. To this aim, it adapts the amount of time that each
+vehicle can access the channel as a function of the channel
+load. The channel load used as input for the algorithm can
+be the one locally measured by a vehicle or the one provided
+by DCC_NET if vehicles share their channel load measure-
+ments. ETSI deﬁnes in [30] the DCC_ACC component for
+ITS-G5. It makes use of Prioritization, Queuing and Flow
+Control, as described below.
+Prioritization: The packets that are received by the DCC
+Access component from the upper layers are ﬁrst classiﬁed
+according to their trafﬁc class. The trafﬁc class is deﬁned
+by the Facilities layer to provide different priority levels
+to different types of messages. Four different trafﬁc classes
+are differentiated by DCC Access and mapped to four DCC
+proﬁles (DPs): DP0, DP1, DP2 and DP3, where DP0 has the
+highest priority. At the lower layers, these DCC proﬁles are
+mapped to the EDCA access categories of ITS-G5 [35].
+Queuing: DCC Access implements 4 different queues, one
+for each trafﬁc class or DCC proﬁle. Each queue follows a
+ﬁrst-in-ﬁrst-out (FIFO) scheduling policy so that the packet
+that has been waiting longer in the queue is transmitted ﬁrst.
+The DCC Access queuing mechanism drops those packets
+that have been waiting in the queue for a time longer than their
+lifetime. When a queue is full, no more packets are accepted.
+Flow control: Flow control is applied to de-queue packets
+from the DCC queues and send them to the lower layers for
+their radio transmission. Packets with higher priorities are
+de-queued ﬁrst. A packet is only de-queued if there is no
+packet with a higher priority waiting in its corresponding
+queue. As a result, lower priority packets can suffer from
+starvation and never be transmitted.
+DCC Access deﬁnes in [30] two approaches to con-
+trol the rate of packets transmitted per vehicle: Reactive
+and Adaptive. Both approaches adapt the time between
+197670 VOLUME 8, 2020
+G. Thandavarayan et al.: Cooperative Perception for CAVs: Evaluation and Impact of Congestion Control
+consecutive packet transmissions based on the channel load
+or CBR (Channel Busy Ratio). The CBR is deﬁned as the
+percentage of time that the channel is sensed as busy. These
+two approaches are described below.
+1) REACTIVE APPROACH
+The Reactive approach makes use of a state machine for ﬂow
+control. Each state is mapped to a range of CBR values and
+to a time Toff . Toff is the minimum time interval allowed
+between message transmissions for each vehicle and is dif-
+ferent for each state. Therefore, Toff is the inverse of the
+maximum message transmission rate allowed per vehicle in
+each state. When the CBR changes, the Reactive approach
+switches to the corresponding state, changing the minimum
+Toff and maximum message rate allowed per vehicle. As a
+result, vehicles dynamically adapt their message rate to the
+CBR.
+The Restrictive state is the state associated with the highest
+CBR and the Relaxed state is associated to the lowest one.
+A number of intermediate states called Active states can also
+be deﬁned. Each state can only be reached by a neighbouring
+state. Table 1 shows the mapping of CBR values to states
+and Toff reported as Informative Annex in [30]. This table
+is derived considering that the packet duration Ton is below
+0.5 ms. Other conﬁgurations are possible but we have used
+the one shown in Table 1 because it is the one adopted by the
+C2C-CC (Car-to-Car Communication Consortium) [36].
+TABLE 1. Mapping of CBR values to states and T off for T on < 0.5 ms [30].
+2) ADAPTIVE APPROACH
+The Adaptive approach uses a linear control process for ﬂow
+control. The process is designed so that each vehicle adapts
+its packet transmission rate in order for the channel load
+to converge to a target value CBRtarget = 68%. To this
+aim, every 200 ms each vehicle adapts the parameter δ that
+represents the maximum fraction of time that a vehicle is
+allowed to transmit. The parameter δ is updated based on
+the difference between the current CBR sensed and the target
+CBR using the following equation:
+δ=(1−α)·δ+δoffset (1)
+where
+δoffset=β·
+(
+CBRtarget− CBR
+)
+(2)
+and
+G−
+max≤δoffset≤ G+
+max (3)
+The values of the parameters are deﬁned in [30] asα= 0.016,
+β= 0.0012, G−
+max=−0.00025 and G+
+max= 0.0005.
+The protocol computes then the time between packet trans-
+missions (Toff ) after every transmission. To this aim, it takes
+into account the duration of the current packet (T on) and the
+fact that 0.025s≤ Toff≤ 1s:
+Toff= Ton
+δ (4)
+It is also recommended to update Toff whenδ is updated. Dif-
+ferent studies have demonstrated that the Adaptive approach
+is able to converge to a stable solution in steady state [37].
+D. DCC FACILITIES
+DCC Access controls the total amount of messages that a
+vehicle can transmit per second. DCC at the Facilities layer
+(DCC_FAC) controls the number of messages that each appli-
+cation/service can generate [32] to satisfy the DCC Access
+limit imposed to each vehicle. To this aim, the DCC_FAC
+makes use of the DCC Access limit, the message size and the
+message interval from each application/service. The current
+ETSI draft that deﬁnes the DCC_FAC component calculates
+the minimum interval Toff min ij for each application/service
+with index j and trafﬁc class with index i. Based on this
+minimum interval, each vehicle proportionally distributes
+the channel resources to each application/service and traf-
+ﬁc class. Distributing the channel resources with ITS-G5 is
+equivalent to distributing the channel access time. To perform
+this distribution, each vehicle estimates for each applica-
+tion/service j and trafﬁc class i, the average message duration
+Ton ij and the average message interval Toff ij from the latest
+messages. The average message duration can be simply cal-
+culated as the ratio between the average message size of each
+application/service j and trafﬁc class i and the data rate (by
+default, the data rate is set to 6 Mbps [35]). Then, the average
+channel resources consumed by each application/service can
+be estimated as:
+CRE ij= Ton ij
+Ton ij+ Toff ij
+(5)
+Using equation (5), the total channel resources CRi from
+all applications/services of trafﬁc class i can be calculated as:
+CRi=
+∑
+j
+CRE ij (6)
+The channel resources CBRa that the vehicle can use
+depends on the current channel load and the speciﬁc DCC
+Access algorithm. For the Adaptive approach, CBRa = δ,
+i.e. the maximum fraction of time that a vehicle is allowed
+to transmit. However, for the Reactive approach, CBRa =
+1/Toff , i.e. the maximum number of messages that the vehicle
+can transmit per second. CBRa is used by DCC Facilities as
+an input to distribute the available channel resources among
+the different trafﬁc classes. The trafﬁc class with the highest
+priority is TC0, so the available channel resources for this
+trafﬁc class ACR0 is set equal to CBRa. If trafﬁc class TC0
+VOLUME 8, 2020 197671
+G. Thandavarayan et al.: Cooperative Perception for CAVs: Evaluation and Impact of Congestion Control
+does not consume all the available channel resources for the
+vehicle, the remaining resources are assigned to the next
+trafﬁc class. As a result, ACRi for trafﬁc class i is calculated
+as:
+ACRi= max(0, ACRi−1− CRi−1) (7)
+Equation (7) can be applied to both Reactive and Adaptive
+approaches at the DCC Access, butACRi represents a fraction
+of time for Adaptive and a message rate for Reactive since
+they use a different CBRa.
+DCC Facilities then identiﬁes the channel resources ACRij
+that each application/service j belonging to the same trafﬁc
+class i can use. To this aim, it takes into account the average
+channel resources consumed by each application/service cal-
+culated with equation (5):
+ACRij=
+CRE ij
+CRi
+× ACRi (8)
+For the Adaptive approach, the minimum interval Toff min ij
+for each application/service with index j and trafﬁc class with
+index i can be then calculated as follows:
+Toff min ij= Ton ij× 1− ACRij
+ACRij
+(9)
+For the Reactive approach, ACRij is a message rate and the
+minimum interval Toff min ij can be directly computed as 4:
+Toff min ij= 1
+ACRij
+(10)
+Toff min ij is then used to adapt the minimum time interval
+between message generations of each application/service.
+To this aim, the time interval used to check the message
+generation rules of each application/service (e.g. T_GenCpm
+for CPMs or T_GenCam for CAMs) is set equal to its cor-
+responding Toff min ij . As a result, the time interval between
+consecutive messages of each application/service is dynam-
+ically adapted to satisfy the DCC Access limits imposed to
+each vehicle.
+We now illustrate the operation of DCC Facilities with an
+example in a scenario where vehicles transmit CAMs and
+CPMs with the same DCC proﬁle. The average message size
+at the facilities layer is 200 Bytes for CAMs and 300 Bytes
+for CPMs, including the ITS PDU header and the payload
+at the Facilities layer. Additionally, 80 Bytes of headers are
+added by the corresponding protocols: 4 Bytes are added by
+the Basic Transport Protocol (BTP) [38], 40 Bytes by the
+GeoNetworking protocol [31], [39], 30 Bytes by the Medium
+Access Control (MAC) and 6 Bytes by the PHY layer of
+IEEE 802.11p [29]. The average message interval is 0.2 s for
+CAMs and 0.1 s for CPMs. Let’s assume that DCC Facilities
+is combined with the Adaptive approach at DCC Access
+and that the total available channel resources per vehicle is
+CBRa=δ= 0.005. In this case, each vehicle can use 0.5%
+4 This is currently not speciﬁed in the current draft of ETSI TS 103 141 but
+it is a change needed to combine the DCC Facilities algorithm with the
+Reactive approach at DCC Access.
+of the channel access time when using IEEE 802.11p or ITS-
+G5. We consider that vehicles transmit at a data rate of 6
+Mbps. The average channel resources consumed by CAM
+and CPM messages can be estimated using equation (5) and
+are equal to CRECAM = 0.0019 and CRECPM = 0.05
+respectively. We can then compute the total consumption of
+channel resources CR using equation (6): CR= 0.0069. Using
+equation (8), we can estimate the available channel resources
+for CAM (ACR CAM = 0.0013) and CPM (ACR CPM =
+0.0037) messages. Finally, the minimum interval can be com-
+puted for CAMs as Toff min CAM = 0.2763s and for CPMs
+as Toff min CPM = 0.1383s following equation (9). We then
+adapt the generation rate of CPMs and CAMs at the Facilities
+layer so that T_GenCpm= Toff min CPM and T_GenCam=
+Toff min CAM . A different solution would be obtained in this
+example if DCC Facilities was combined with the Reactive
+approach at DCC Access. The feedback provided by the
+Reactive approach is the maximum number of messages that
+the vehicle can transmit per second. Let’s assume in this
+example that CBRa= 10Hz. If we follow the same procedure
+to compute the minimum interval for CAMs and CPMs using
+equation (10) instead of (9), we obtainToff min CAM= 0.3706s
+and Toff min CPM= 0.137s.
+V. SCENARIO AND PARAMETERS
+This study uses the network simulator ns-3 and the road
+mobility simulator SUMO. The ns-3 simulator imple-
+ments the ITS-G5 V2X standard based on IEEE 802.11p.
+We extended ns-3 with a DCC Access module, a DCC
+Facilities module, a CPS component and different on-board
+sensors. The DCC Access module used in this study is
+described in [40] and publicly available. The CPS component
+implements the ETSI CPM generation rules deﬁned in [4]
+and described in Section III. By default, all vehicles in the
+scenario are equipped with an ITS-G5 transceiver except
+when we analyze the impact of the Market Penetration Rate
+(MPR) on the effectiveness of cooperative perception. V ehi-
+cles transmit CAMs and CPMs. The CAM size is set equal
+to 350 bytes [41] and CAMs are generated following [8].
+By default, the T_GenCpm parameter has been set to 0.1 s so
+the maximum CPM rate is 10 Hz. The CPM size is dynam-
+ically computed by the transmitting vehicle based on the
+number of containers in each CPM, the size of the containers
+reported in Table 2 and the number of objects included in a
+CPM.5 V ehicles transmit messages using the 6 Mbps data rate
+(i.e. QPSK modulation with 1/2 code rate) and always use the
+same channel. The transmission power is set to 23 dBm and
+the packet sensing threshold to−85 dBm. Radio propagation
+is modeled using the Winner+ B1 propagation model follow-
+ing the 3GPP V2X guidelines [42]. This model was used for
+the simulation studies conducted during the V2X standard-
+ization process of the 3GPP . Other propagation models could
+have been used (e.g. [43]) but similar conclusions would
+5The Free Space Addendum Container is optional and has not been
+considered in this study.
+197672 VOLUME 8, 2020
+G. Thandavarayan et al.: Cooperative Perception for CAVs: Evaluation and Impact of Congestion Control
+TABLE 2. CPM containers.
+TABLE 3. Communication parameters.
+be obtained since our study is comparative in nature and
+a different model would affect similarly all conﬁgurations
+being tested.
+Table 3 summarizes the main communication parameters.
+Unless speciﬁed, DCC is not enabled by default. When
+enabled, DCC Reactive and Adaptive are analyzed at the
+Access layer. We consider a queue length of 2 following [44]
+and different DCC proﬁles for the CPM since the standards
+have not speciﬁed them yet. The DCC proﬁle for CPMs is
+set to DP2 or DP3 and the DCC proﬁle of the CAM is set
+to DP2 following [45]. The DCC proﬁle has an impact on
+the priority of the packets at the access layer. We have also
+implemented the current DCC Facilities deﬁned by ETSI 6
+and described in Section IV .
+We implement three different sensor conﬁgurations shown
+in Table 4. In the forward sensors conﬁguration, vehicles
+are equipped with two forward facing sensors following [4].
+The 360◦ sensor conﬁguration considers a single circular
+shape sensor with 360◦ ﬁeld of view following [4]. The Tesla
+sensors conﬁguration follows [46] and equips vehicles with
+seven sensors. In all sensor conﬁgurations, we assume that
+the sensors can detect only the vehicles that are in their line-
+of-sight. To this aim, we implemented in ns-3 a 2D sensor
+shadowing effect in the XY -plane that considers the occlusion
+caused by nearby vehicles. By default, this study assumes that
+the information about objects detected by multiple sensors is
+fused.
+We consider a highway scenario with 5 km length and
+two driving directions. We simulated three trafﬁc densities:
+low, medium and high as presented in Table 5. The low and
+medium trafﬁc densities follow the 3GPP guidelines for V2X
+simulations [42] considering 6 lanes (3 in each direction) and
+a different speed per lane following statistics of a typical
+6 This implementation could be subject to modiﬁcation since the standard
+has not been ﬁnalized yet.
+TABLE 4. Sensor configurations.
+TABLE 5. Traffic scenarios.
+3-lane US highway [47]. The high trafﬁc density considers
+8 lanes (4 in each direction) and a maximum speed of 50 km/h
+[47]. To avoid boundary effects, statistics are only taken from
+the vehicles located in the 2 km around the center of the
+simulation scenario.
+VI. EVALUATION OF COOPERATIVE PERCEPTION
+We ﬁrst evaluate the perception capabilities of different
+sensor conﬁgurations without using cooperative perception.
+In this case, perception is limited by occluding objects.
+Figure 3 compares the object perception ratio experienced
+with the three sensor conﬁgurations under low and high
+trafﬁc densities. The object perception ratio is deﬁned as
+the probability of successfully detecting an object at a given
+distance. Sensors do not correctly detect a vehicle if their line-
+of-sight is occluded by other vehicles. Figure 3 shows that
+occluding vehicles can signiﬁcantly degrade the perception
+FIGURE 3. Object perception ratio achieved with different sensor
+configurations under low and high traffic densities.
+VOLUME 8, 2020 197673
+G. Thandavarayan et al.: Cooperative Perception for CAVs: Evaluation and Impact of Congestion Control
+capabilities, and the degradation increases with the distance
+and the trafﬁc density. This is the case because both factors
+augment the probability that a vehicle blocks the sensors’
+line of sight. Figure 3 shows that the perception capabilities
+augment with the sensors’ FoV and range. In this case, using
+forward sensors alone reduces the object perception ratio
+since these sensors cannot detect vehicles in all directions.
+Cooperative perception can mitigate the occlusion prob-
+lems illustrated in Figure 3 and increase the perception
+capabilities of connected automated vehicles. This is shown
+in Figure 4 that compares the average object perception ratio
+with and without using cooperative perception for the three
+different sensor conﬁgurations. When using cooperative per-
+ception, the metric is deﬁned as the probability to success-
+fully detect a vehicle within a time window thanks to the
+exchange of CPMs. We consider that a vehicle successfully
+detects an object if it receives at least one CPM with infor-
+mation about that object during the time window. The time
+window was set to 200 ms for the low trafﬁc density scenario
+and to 300 ms for the rest of the scenarios. These values
+were chosen since they correspond to the time required by the
+CPM generation rules for a vehicle to send an update about a
+detected object considering the speed of the vehicles in each
+scenario. The metric is represented in Figure 4 as a function
+of the distance between the detected object and the vehicle
+receiving the CPM. Results in Figure 4 were obtained assum-
+ing 100% penetration rate of cooperative perception and that
+DCC is disabled. This is done so that Figure 4 focuses on
+the effect of the sensor conﬁguration on the effectiveness of
+cooperative perception. We also assume that the vehicles fuse
+the information received from their multiple sensors. In this
+case, if multiple sensors detect the same object, the vehicle
+will only transmit once the information about the detected
+object.
+Figure 4 clearly shows that cooperative perception signiﬁ-
+cantly increases the perception capabilities of CA Vs. In par-
+ticular, it increases the distance at which objects can be
+detected compared to when only using the on-board sensors.
+Figure 4 shows that in these scenarios the sensor conﬁgura-
+tion does not signiﬁcantly affect the object perception ratio
+when utilizing cooperative perception compared to when not
+utilizing it (Figure 3). In fact, the Tesla and 360 ◦ sensor
+conﬁgurations achieve similar perception rates, and the per-
+ception with the forward sensor conﬁguration only slightly
+degrades at medium to large distances for low trafﬁc densities
+(Figure 4a). This is the case because cooperative percep-
+tion compensates the perception limitations of sensors. For
+example, a vehicle that uses only forward sensors can detect
+objects behind when using cooperative perception thanks
+to the CPMs received from other vehicles that detect these
+objects. We should note that the slight perception degradation
+observed in Figure 4 with the forward sensor conﬁguration is
+reduced for higher trafﬁc densities. This is the case because at
+higher densities more vehicles detect each object and cooper-
+ative perception can better compensate the limitations of the
+forward sensors.
+FIGURE 4. Object perception ratio under different traffic densities. When
+using cooperative perception, the x-axis represents the distance between
+the detected object and the vehicle receiving the CPM. When cooperative
+perception is not used, the x-axis represents the distance between the
+detected object and the vehicle detecting it with its sensors.
+Figure 4 also reveals that the object perception ratio sig-
+niﬁcantly decreases when the trafﬁc density increases. This
+degradation is due to the increase in channel load and inter-
+ferences at higher trafﬁc densities. The interferences augment
+the packets losses due to packet collisions and degrade the
+PDR (Packet Delivery Ratio) as it can be observed in Figure 5.
+This ﬁgure also shows that the highest PDR under the highest
+trafﬁc density is achieved with the forward sensor conﬁgu-
+ration. This is the case because each vehicle detects a lower
+number of vehicles than with the 360◦ or Tesla conﬁgurations
+and thus transmits less information. In fact, the sensor con-
+ﬁguration can have an important impact on the channel load.
+Table 6 shows that the 360◦ and Tesla sensor conﬁgurations
+can increase the CBR by around 40% compared with the
+forward sensor conﬁguration. Thanks to the lower channel
+load generated, the forward sensor conﬁguration is able to
+provide higher cooperative perception ratios than the 360 ◦
+197674 VOLUME 8, 2020
+G. Thandavarayan et al.: Cooperative Perception for CAVs: Evaluation and Impact of Congestion Control
+FIGURE 5. PDR (Packet Delivery Ratio) under different traffic densities
+(low, medium and high) and sensor configurations.
+TABLE 6. Average CBR (Channel Busy Ratio).
+and Tesla sensor conﬁgurations for the high trafﬁc density
+scenario (Figure 4c).
+Figure 4 has been obtained considering 100% penetration
+rate of cooperative perception, i.e. all vehicles in the scenario
+are CA Vs and transmit CPMs. The effectiveness of coop-
+erative perception depends on the number of vehicles that
+detect objects and share their information. Figure 6 shows the
+impact of the MPR (Market Penetration Rate) of cooperative
+perception. The ﬁgure shows that the object perception ratio
+increases with the MPR for low and medium trafﬁc densities.
+However, when the trafﬁc density is high, the perception ratio
+decreases for MPRs above 40% (Figure 6c). This degradation
+is again due to the signiﬁcant increase of channel load at
+high trafﬁc densities and the consequent increase in packet
+loses due to collisions. Figure 6 also shows that the sensor
+conﬁguration does have an important effect on the perception
+when the MPR is low. In particular, the 360◦ and Tesla sensor
+conﬁgurations achieve signiﬁcantly higher perception ratios
+than the forward sensor conﬁguration, especially for low
+MPR. This is the case because cooperative perception cannot
+compensate well the perception limitations of the forward
+sensor conﬁguration when there are few vehicles and not all
+vehicles can detect objects and share their information. How-
+ever, all the sensor conﬁgurations provide similar perception
+ratios for MPR above 80%.
+Figure 6 has shown that the sensors conﬁguration has a
+strong impact on the perception that can be achieved with
+cooperative perception when the market penetration is low.
+The sensor conﬁguration also has a high impact on the chan-
+nel load generated. In fact, the sensor conﬁguration has a
+strong impact on the amount of information shared with coop-
+erative perception. This is the case because the sensor conﬁg-
+uration affects the number of objects detected by each vehicle.
+FIGURE 6. Object perception ratio under different traffic densities for
+different market penetration rates and for distances up to 350m.
+As a consequence, the sensor conﬁguration inﬂuences the
+amount of information transmitted by each vehicle. This
+changes the number of updates about the same object received
+by a vehicle under the observation time window. This number
+is referred to as detected object redundancy, and is depicted
+in Figure 7 as a function of the distance between the object
+and the vehicle receiving the CPM. Figure 7 corresponds to
+a 100% MPR. 7 The ﬁgure shows that the 360 ◦ and Tesla
+sensor conﬁgurations generate a signiﬁcantly higher amount
+of redundancy compared to the forward sensor conﬁguration.
+Despite the trends observed in Figure 7, all sensor conﬁgu-
+rations provide a similar object perception ratio up to around
+300m for low and medium densities and up to around 200m
+for the high density (see Figure 4). This means that the higher
+redundancy and number of objects detected by the 360 ◦ and
+Tesla sensor conﬁgurations do not improve the perception
+7Different redundancy values are observed with lower MPRs. However,
+the trend is maintained, i.e. sensors with wider FoV and larger ranges are
+characterized by higher redundancy levels.
+VOLUME 8, 2020 197675
+G. Thandavarayan et al.: Cooperative Perception for CAVs: Evaluation and Impact of Congestion Control
+FIGURE 7. Detected object redundancy as a function of the distance
+between the detected object and the vehicle receiving the CPM under
+different traffic densities.
+achieved with cooperative perception. Instead, they signiﬁ-
+cantly increase the channel load as shown in Table 6.
+Figure 7 also shows an interesting effect produced by
+the increase of the trafﬁc density. When the trafﬁc density
+increases, more vehicles transmit information about the same
+detected object and thus higher redundancy levels would be
+expected. However, such increase of the object redundancy
+is only produced at short distances. At medium and long
+distances, the degradation of the PDR (Figure 5) due to packet
+collisions reduces the detected object redundancy for medium
+and high trafﬁc densities.
+The previous results have been obtained considering that
+vehicles implement sensor fusion. In this case, if several
+sensors detect the same object, their information is fused and
+the object is reported only once in each CPM. If sensor fusion
+is not used, an object detected by multiple sensors is reported
+FIGURE 8. CPM size for medium traffic density and the forward and Tesla
+sensor configurations. Similar trends have been observed with low and
+high traffic densities for both sensor configurations.
+multiple times in each CPM. This increases the message size
+as shown in Figure 8. This ﬁgure compares the CPM size
+with and without sensor fusion for the low trafﬁc density
+scenario and the forward and Tesla sensor conﬁgurations. The
+results are presented as a box plot with the bottom and top
+edges indicating the 25 th and 75 th percentiles and the mark
+in the middle representing the median. V ertical lines show
+the most extreme data points that are not considered outliers.
+The results obtained show that the CPM size signiﬁcantly
+increases when sensor fusion is not used, especially for the
+Tesla sensor conﬁguration since it has more on-board sensors.
+In fact, the generated payload sizes of the Tesla non-fusion
+conﬁguration exceed the maximum payload size [39]. In this
+case, the CPMs would have to be segmented and this could
+increase the risk of delaying the reception of the information
+about certain detected objects. Another main concern related
+with the increasing message size is that it signiﬁcantly aug-
+ments the channel load and the interference, and degrades
+the PDR (Figure 9) without providing additional relevant
+information to the receiving vehicles. Reducing the PDR
+degrades the effectiveness of cooperative perception since it
+reduces the probability to correctly receive CPM messages.
+This is actually visible in Figure 10 that depicts the object
+perception ratio when using sensor fusion and when not using
+FIGURE 9. PDR (Packet Delivery Ratio) for medium traffic density and the
+forward and Tesla sensor configurations. Similar trends have been
+observed with low and high traffic densities for both sensor
+configurations.
+197676 VOLUME 8, 2020
+G. Thandavarayan et al.: Cooperative Perception for CAVs: Evaluation and Impact of Congestion Control
+FIGURE 10. Object perception ratio as a function of the distance between
+the detected object and the vehicle receiving the CPM under different
+traffic densities (low, medium and high). These results correspond to the
+Tesla sensor configuration.
+it. The ﬁgure clearly shows how the object perception ratio
+degrades when sensor fusion is not applied. The degradation
+is particularly relevant when the trafﬁc density increases. The
+perception degradation observed in Figure 10 when not using
+sensor fusion is exclusively due to the degradation of the
+PDR (i.e. the V2X communication performance) since each
+vehicle can detect exactly the same number of objects when
+implementing sensor fusion and when not implementing it.
+VII. IMPACT OF CONGESTION CONTROL ON
+COOPERATIVE PERCEPTION
+The previous results have been obtained disabling the DCC
+mechanisms for congestion control. This was done to focus
+ﬁrst on the impact of the sensors and market penetration rate
+on the perception and effectiveness of cooperative perception.
+The previous analysis has shown that cooperative perception
+can increase the channel load quite signiﬁcantly under certain
+scenarios and conﬁgurations. Increasing the channel load can
+degrade the PDR, and ultimately the performance of V2X
+communications and the network scalability. To prevent this,
+an increase of the channel load above certain threshold acti-
+vates the DCC mechanisms for congestion control. DCC can
+alter the performance and operation of collective perception.
+This can occur for example if the DCC queues CPM mes-
+sages. Queuing would increase the information age and alter
+the regular reception of object updates. The DCC could also
+drop CPMs when the CPM generation rate is higher than the
+maximum transmission rate allowed by DCC Access. This
+could also signiﬁcantly impact the effectiveness of cooper-
+ative perception. It is also important highlighting that CPM
+messages might have to coexist with other messages in the
+same channel. This increases the risk that DCC is activated
+and impacts the operation and effectiveness of cooperative
+perception. In this context, this section analyses the impact of
+DCC on cooperative perception. We focus ﬁrst on the impact
+of DCC at the Access layer and then DCC at the Facilities
+layer. These are the two DCC components that mostly affect
+the transmission of CPM messages.
+The scenario considered in this section is the high trafﬁc
+density scenario described in section V , with 240 veh/km,
+a 100% MPR of cooperative perception and the 360 ◦ sensor
+conﬁguration. We also assume that all vehicles transmit
+CAMs and CPMs in the same channel. This scenario is
+chosen to make sure DCC is activated and we can then study
+its impact on cooperative perception.
+A. DCC ACCESS
+In the considered scenario, the CBR experienced is equal
+to 75% when DCC Access is not applied. The use of DCC
+Access can signiﬁcantly reduce the CBR as shown in Table 7.
+These results show that the Reactive approach reduces more
+aggressively the channel load and maintains the CBR around
+37%. The Adaptive approach is designed to converge to the
+target CBR of 68% and this results in higher CBR levels.
+Table 7 also shows that nearly the same CBR is achieved
+independently of the DCC proﬁles of the messages.
+TABLE 7. Average CBR (Channel Busy Ratio) with DCC Access for the high
+traffic density scenario.
+One interesting effect that cannot be observed in Table 7 is
+the message transmission rate that DCC Access tolerates.
+When DCC is not applied, the average rates at which CAMs
+and CPMs are generated and transmitted are 3.3 Hz and
+9.6 Hz, respectively. When DCC Access is enabled, the mes-
+sage transmission rates are reduced due to message dropping
+as shown in Table 8. Table 8 shows that the transmission
+rates of CAMs and CPMs are lower than the generation
+rates when both messages have the same DCC proﬁle. When
+they have different DCC proﬁles, only CPMs are dropped
+because CAMs have higher priority. 8 Table 8 also shows
+that the Reactive and Adaptive approaches present nearly the
+same message transmission rate despite experiencing a very
+different CBR as shown in Table 7. This is the case because
+with the Reactive approach vehicles tend to synchronize
+with each other. This synchronization results in that vehicles
+change their state (and thus their Toff ) nearly at the same time.
+8This is the case because CAMs are prioritized since they are the basic
+awareness messages for active trafﬁc safety applications.
+TABLE 8. Average CAM and CPM transmission rates with DCC Access.
+VOLUME 8, 2020 197677
+G. Thandavarayan et al.: Cooperative Perception for CAVs: Evaluation and Impact of Congestion Control
+A change to a more relaxed state, immediately allows the
+transmission of messages that were waiting in their queues.
+As a result, vehicles transmit nearly at the same time [48],
+which provokes that the Reactive approach generates a signif-
+icant amount of packet collisions. Packet collisions reduce the
+channel load (and CBR) because when packets collide they
+overlap in time.
+DCC Access can reduce the CBR and improve the PDR
+at the radio level, i.e. the ratio between the received and
+transmitted packets. This is particularly the case with the
+Adaptive approach as shown in Figure 11. This ﬁgure rep-
+resents the PDR at the radio level when CAMs and CPMs are
+conﬁgured with the same DCC proﬁle. The ﬁgure also shows
+that the Reactive approach actually degrades the PDR at the
+radio level despite reducing the CBR. This is due to the high
+probability of packet collisions for the Reactive approach due
+to the synchronization problem previously explained. Similar
+results are obtained when analyzing the PDR at the radio level
+when CAMs and CPMs have different DCC proﬁles.
+FIGURE 11. PDR (Packet Delivery Ratio) at the radio level as a function of
+the distance between transmitter and receiver without and with DCC
+Access when CAMs and CPMs have the same DCC profile.
+To better understand the effect of DCC Access on the
+performance of collective perception, Figure 12 plots the
+PDR for CPMs at the radio and application levels for Reactive
+and Adaptive approaches. At the application level, the PDR
+is deﬁned as the ratio between the received and generated
+CPMs. Thus, a CPM generated at the Facilities layer but
+dropped by DCC Access is considered as a packet lost when
+computing the PDR at the application level.9 Figure 12 shows
+that DCC Access degrades the performance at the application
+level due to packet dropping. This degradation is observed for
+both Reactive and Adaptive approaches. However, the Reac-
+tive approach shows a signiﬁcantly lower PDR at the appli-
+cation level than the Adaptive one due to its lower PDR at
+the radio level. The ﬁgure also shows that this degradation
+produced at the application level due to packet dropping is
+particularly relevant when CAMs and CPMs have different
+DCC proﬁles. In this case, CPMs are the only messages
+dropped by DCC since they have lower priority than CAMs.
+9This packet loss would not be counted in the PDR at the radio level since
+the packet was never transmitted.
+FIGURE 12. PDR (Packet Delivery Ratio) for CPMs at the radio and
+application levels as a function of the distance between transmitter and
+receiver without DCC and with DCC Access when CAMs and CPMs have
+the same or different DCC profile.
+The PDR at the radio and application levels affect the
+object perception ratio. However, the differences observed in
+the PDR of Figure 12 are not directly transferred to Figure 13.
+Figure 13 depicts the object perception ratio as a function
+of the distance between the object and the vehicle receiving
+the CPM. Figure 13a shows that the object perception ratio
+signiﬁcantly degrades with the Reactive approach following
+the trend observed in Figure 12a where Reactive signiﬁ-
+cantly degrades the PDR at the application level. This once
+again clearly proves that the Reactive approach degrades the
+performance of cooperative perception despite reducing the
+channel load. Figure 13b shows the perception achieved with
+the Adaptive approach. For distances below 200m, the higher
+PDR achieved at the application level without DCC does
+not result in a signiﬁcant improvement of the object per-
+ception ratio. This is the case because the object perception
+ratio is already close to 1 at distances below 200m when
+DCC is applied. Therefore, without DCC the perception ratio
+cannot be signiﬁcantly improved despite its higher PDR at
+distances below 200m. However, DCC Adaptive improves
+the object perception ratio for distances beyond 200m when
+CAMs and CPMs have the same DCC proﬁle. A higher
+perception is achieved despite having nearly the same PDR
+at the application level than when DCC is not used. This
+effect is produced due to the different nature of packet errors
+with and without DCC. When DCC is not applied, more
+packet collisions are produced due to the higher channel
+load. When two (or more) packets collide, more than one
+packet can be lost due to such collision. Therefore, when
+197678 VOLUME 8, 2020
+G. Thandavarayan et al.: Cooperative Perception for CAVs: Evaluation and Impact of Congestion Control
+FIGURE 13. Object perception ratio as a function of the distance between
+the detected object and the vehicle receiving the CPM without DCC and
+with DCC Access.
+DCC is not applied, consecutive packet loses are produced
+with higher probability. This effect is not produced with the
+packets dropped by DCC, since one packet drop does not
+affect the reception of other packets. Consequently, packet
+collisions can increase the time between consecutive object
+updates. This effect can be observed in Figure 14 that plots
+the time between object updates as a function of the distance
+between the detected object and the vehicle receiving the
+CPM in bins of 50 m. The time between updates shown
+in Figure 14 corresponds to that measured with the Adaptive
+approach.10 Results are presented using box plots with the
+bottom and top of each box representing the 25th and 75th
+percentiles. The median is represented inside each box with
+the black horizontal line. The vertical lines plotted above
+and below each box represent the 5th and 95th percentiles.
+Results in Figure 14 reveal that there is higher variability
+in the time between consecutive updates when DCC is not
+applied due to the higher probability of consecutive packet
+loses due to collisions. For example, the 95th percentile of
+the time between updates is around 0.9 s at 300 m without
+DCC, and around 0.6 s with DCC when CAM and CPM
+have the same proﬁle. However, the variability also increases
+with DCC when CAM and CPM have different proﬁles for
+distances higher than 200 m since CPMs have lower priority
+than CAMs.
+The previous results show that DCC Access has an impact
+on the probability of receiving information about an object
+10Similar trends are obtained with the Reactive approach, but with higher
+times between updates (approximately 2x increase).
+FIGURE 14. Time between object updates as a function of the distance
+between the detected object and the vehicle receiving the CPM.
+FIGURE 15. Average information age for CPMs received with and without
+DCC Access. The bars represent the average values and the vertical lines
+represent the 5 th and 95 th percentiles.
+through CPMs and therefore on the object perception ratio.
+However, they do not quantify if the information received
+is outdated. This is important because connected automated
+driving requires updated data and low transmission latencies.
+However, queuing at DCC Access can signiﬁcantly delay the
+transmission of messages. To analyze the impact of DCC
+Access on the freshness of the received information, we mea-
+sure the information age that is deﬁned as the difference
+between the time the CPM is generated and the time the
+CPM has been received. Figure 15 represents the informa-
+tion age obtained without DCC and with DCC (Reactive
+and Adaptive) when CAMs and CPMs are conﬁgured with
+the same and different DCC proﬁles. The bars represent
+the mean values and the vertical lines correspond to the 5 th
+and 95 th percentiles. The distance between the transmitter
+and receiver does not have a signiﬁcant impact because the
+propagation delay is negligible. The results obtained show
+that DCC signiﬁcantly increases the information age when
+compared with the scenario without DCC. When DCC is not
+used, all the generated CPMs are immediately transmitted.
+However, with DCC, the generated CPMs must often wait in
+the queue before transmission. This waiting time causes the
+received information to be outdated by up to 0.4s (Adaptive)
+or 0.5s (Reactive) when CAM and CPM have different DCC
+proﬁles. This provokes a tracking error of up to around 5 m
+when CAM and CPM have different DCC proﬁles. This
+VOLUME 8, 2020 197679
+G. Thandavarayan et al.: Cooperative Perception for CAVs: Evaluation and Impact of Congestion Control
+is a non-negligible error that can degrade the effectiveness
+of cooperative perception when implementing DCC. This is
+despite the possibility to achieve a higher object perception
+ratio (Figure 13) since detecting more objects is not useful if
+the information about the detected objects is outdated or not
+sufﬁciently fresh.
+B. DCC FACILITIES
+DCC Facilities is optional as deﬁned in the current Tech-
+nical Speciﬁcation draft. However, it can help mitigate the
+increase of the information age caused by DCC Access and
+improve the perception capabilities as we demonstrate in this
+section. DCC Facilities is being designed so that messages
+are generated at the Facilities layer at the maximum rate
+tolerated by DCC Access. This is done to reduce the queuing
+time at the Access layer and limit packet drops. To this aim,
+DCC Facilities distributes the resources among the different
+services that generate messages with the same DCC proﬁle.
+We have therefore considered in this section that both CAMs
+and CPMs have the same DCC proﬁle, DP2.
+FIGURE 16. Average information age for CPMs received when CAMs and
+CPMs have the same DCC profile. The bars represent the average values
+and the vertical lines represent the 5 th and 95 th percentiles.
+Figure 16 compares the information age obtained without
+DCC, with DCC Access only and with the combination of
+DCC Access and DCC Facilities. The bars represent the mean
+value and the vertical lines show the 5 th and 95th percentiles.
+As it can be observed, DCC Access signiﬁcantly increases the
+information age as we previously showed. However, the com-
+bination of DCC Access and DCC Facilities signiﬁcantly
+reduces the information age, especially when considering the
+Adaptive approach. This improvement is achieved because
+DCC Facilities controls the generation following the limits
+provided by DCC Access so that messages are not generated
+if they are going to be queued. The reduction of the informa-
+tion age when DCC Access and DCC Facilities are combined
+decreases the tracking error below 1.5 m with the Adaptive
+approach. This error was under 2.3 m with DCC Access
+(Adaptive) when CAM and CPM have the same proﬁle and
+below 0.17 m when DCC is not used. The information age
+is not improved when the Reactive approach is used. This
+is the case because the channel load variations do not allow
+DCC Facilities to accurately track the packet transmission
+rate allowed by the Reactive approach (Table 1) and hence
+to reduce the queuing time.
+DCC Facilities controls the generation of CPMs based on
+the possibility to transmit them at the DCC Access. This
+signiﬁcantly reduces the percentage of CPMs dropped. The
+percentage of CPMs dropped with DCC Access only is 41.6%
+for Reactive and 37.5% for Adaptive. The combination of
+DCC Access and DCC Facilities reduces the CPMs dropped
+to 12.8% for Reactive and 8.7% for Adaptive. This effect is
+produced because DCC Facilities reduces the packet genera-
+tion rate at the Facilities layer following the limits provided
+by DCC Access. This reduction is shown in Figure 17 that
+shows the PDF of the number of CPMs generated at the
+Facilities layer per second per vehicle. The ﬁgure also shows
+that DCC Access generates the same number of CPMs than
+the scenario without DCC (irrespective of whether using the
+Reactive or Adaptive approach). This is the case because
+DCC Access controls messages at the access layer and does
+not modify the way CPMs are generated at the Facilities
+layer. When DCC Access is combined with DCC Facilities,
+the number of CPMs generated per second is reduced. As a
+consequence, each CPM includes information about a larger
+number of detected objects. This is the case because the time
+interval between CPM generations is longer, and thus more
+objects satisfy the conditions to be included in a CPM since
+the last time a CPM was generated. This increase of the
+number of objects in each CPM with DCC Facilities can be
+observed in Figure 18. Despite the variation observed in the
+number of CPMs generated per second and the number of
+objects contained in each CPM, DCC Facilities is designed
+to generate the load admitted by DCC Access, but not more.
+The obtained results demonstrate that this goal is achieved
+with the Adaptive approach. This is the case because the
+combination of DCC Access and DCC Facilities is able to
+maintain the CBR around 61.9% when the Adaptive approach
+is considered. It is the same CBR than the one achieved in
+the scenario where only DCC Access is used (Table 7). How-
+ever, the percentage of packet drops is signiﬁcantly lower
+when DCC Facilities is used (7.5%) than when it is not used
+(37.2%).
+FIGURE 17. PDF of the number of CPMs generated at the Facilities layer
+per second per vehicle when CAMs and CPMs have the same DCC profile.
+When DCC Access is used alone, the same results are obtained for
+Reactive and Adaptive approaches since DCC Access does not modify the
+generation of CPMs.
+197680 VOLUME 8, 2020
+G. Thandavarayan et al.: Cooperative Perception for CAVs: Evaluation and Impact of Congestion Control
+FIGURE 18. PDF of the number of objects included in each CPM when
+CAMs and CPMs have the same DCC profile. When DCC Access is used
+alone, the same results are obtained for Reactive and Adaptive
+approaches.
+The use of DCC Facilities with the Reactive approach
+has a different effect on the CBR. It increases the CBR to
+46.7% compared to the scenario when only DCC Access
+is used (37.8%). This increase is produced because DCC
+Facilities mitigates the synchronization problem that charac-
+terizes the Reactive approach and that has been previously
+explained. DCC Facilities mitigates the synchronization
+problem because it allows each vehicle to generate (and
+transmit) messages with different time intervals based on
+their past generated messages. Mitigating the synchronization
+problem increases the CBR because there are less packet col-
+lisions and thus packets do not overlap in time. Consequently,
+the implementation of DCC Facilities signiﬁcantly increases
+the PDR. This can be observed in Figure 19a for Reactive
+and in Figure 19b for Adaptive. The PDR at the radio level
+is especially improved with the Reactive approach due to
+FIGURE 19. PDR (Packet Delivery Ratio) for CPMs at the radio and
+application levels as a function of the distance between transmitter and
+receiver when CAMs and CPMs have the same DCC profile.
+FIGURE 20. Object perception ratio as a function of the distance between
+the detected object and the vehicle receiving the CPMs when CAMs and
+CPMs have the same DCC profile.
+the mitigation of the synchronization problem. It is nearly
+maintained for Adaptive since the same CBR is achieved. The
+PDR at the application level is signiﬁcantly improved for both
+Reactive and Adaptive. This is due to the low number of pack-
+ets dropped by DCC when DCC Access and DCC Facilities
+are combined. Thanks to the improvement of the PDR, the
+combination of DCC Access and DCC Facilities improves the
+object perception ratio. This is visible in Figure 20 that com-
+pares the object perception ratio when not using DCC, when
+using DCC Access only and when combining DCC Access
+and DCC Facilities. Figure 20 reports the object perception
+ratio for the Reactive and Adaptive approaches. The improve-
+ment produced by DCC Facilities is particularly relevant for
+the Reactive approach given the high PDR increase. In fact,
+the Reactive approach slightly outperforms the Adaptive one
+for distances beyond 300m. This improvement is produced
+due to the higher PDR at the application level of the Reactive
+approach at such distances (Figure 19) due to its lower CBR
+and thus lower packet collisions. All these results clearly
+show that the combination of congestion control functions
+at the Access and Facilities layers can signiﬁcantly improve
+cooperative perception. This is the case because it augments
+the object perception ratio, reduces the information age, and
+improves the PDR compared with the scenario with DCC
+Access only.
+VIII. CONCLUSION
+This paper analyzes in detail the effectiveness and operation
+of cooperative perception in connected automated driving.
+The study shows that cooperative perception signiﬁcantly
+VOLUME 8, 2020 197681
+G. Thandavarayan et al.: Cooperative Perception for CAVs: Evaluation and Impact of Congestion Control
+improves the perception compared to scenarios in which
+vehicles exclusively rely on their on-board sensors. The effec-
+tiveness of cooperative perception is analyzed for different
+sensor conﬁgurations and market penetration rates. The study
+shows that very high perception levels can be achieved with
+penetration rates of only 40%. The perception achieved with
+cooperative perception strongly depends on the sensors’ ﬁeld
+of view and range when the market penetration rate is low.
+However, the impact of the sensors’ characteristics on the
+performance of cooperative perception decreases with the
+market penetration rate.
+Cooperative perception can increase the channel load
+in the network, which has the risk to reduce the V2X
+communication performance and degrade the network’s scal-
+ability. V2X networks control the channel load using con-
+gestion control protocols. This study has then also analyzed
+the impact of congestion control on cooperative perception.
+To this aim, the study has focused on the DCC algorithm and
+has evaluated the impact of congestion control functions at
+the access and facilities layers. At the access level, the study
+compares for the ﬁrst time the performance achieved with the
+Reactive and Adaptive solutions for cooperative perception.
+The study demonstrates that the Adaptive approach signiﬁ-
+cantly improves the perception achieved but can increase the
+information age (or freshness) of the exchanged messages
+compared to scenarios where DCC is not used. This reduces
+the value of cooperative perception since latency is critical in
+connected automated driving. This study demonstrates then
+for the ﬁrst time that this challenge can be partially addressed
+through the combination of DCC Access and DCC Facili-
+ties. We demonstrate that the combination of DCC Access
+and DCC Facilities increases the perception and reduces the
+information age when compared with the DCC Access con-
+ﬁguration. This is achieved by dynamically adapting the rate
+at which messages are generated. This reduces the probability
+to drop cooperative perception messages (and hence informa-
+tion about the detected objects) and the channel load, which
+ultimately beneﬁts the V2X network and the effectiveness
+of cooperative perception. This study therefore demonstrates
+how critical is the conﬁguration of DCC Access and the
+importance of DCC Facilities for the development of CA Vs.
+This is particularly relevant for DCC Facilities since it is
+still a draft that is considered optional and that has not yet
+been adopted by industry organizations like the C2C-CC. The
+outcome of this study can provide them valuable knowledge
+towards an efﬁcient and effective V2X conﬁguration and
+deployment.
+REFERENCES
+[1] K. Jo, J. Kim, D. Kim, C. Jang, and M. Sunwoo, ‘‘Development of
+autonomous Car—Part I: Distributed system architecture and development
+process,’’ IEEE Trans. Ind. Electron., vol. 61, no. 12, pp. 7131–7140,
+Dec. 2014.
+[2] F. Rosique, P . J. Navarro, C. Fernández, and A. Padilla, ‘‘A
+systematic review of perception system and simulators for
+autonomous vehicles research,’’ Sensors, vol. 19, no. 3, p. 648,
+Feb. 2019.
+[3] J. V an Brummelen, M. O’Brien, D. Gruyer, and H. Najjaran, ‘‘Autonomous
+vehicle perception: The technology of today and tomorrow,’’ Transp. Res.
+C, Emerg. Technol., vol. 89, pp. 384–406, Apr. 2018.
+[4] Intelligent Transport System (ITS); V ehicular Communications; Basic Set
+of Applications; Analysis of the Collective Perception Service (CPS), Stan-
+dard ETSI TR. 103 562 V2.1.1, ETSI ITS, Dec. 2019.
+[5] Cooperative Perception System, document SAE, J2945/8, Nov. 2018.
+[6] System Architecture for Real World V ehicles and Roadside, Deliverable
+D7.1, TransAID, Ahmedabad, India, Jun. 2018.
+[7] C-ITS Platform. (Jan. 2016). Final Report. Accessed: May 2020. [Online].
+Available: https://ec.europa.eu/transport/themes/its/c-its_en
+[8] Intelligent Transport Systems; V ehicular Communications; Basic Set of
+Applications; Part 2: Speciﬁcation of Cooperative Awareness Basic Ser-
+vice, Standard ETSI ITS, EN 302 637-2 V1.4.1, Jan. 2019.
+[9] Dedicated Short Range Communications (DSRC) Message Set Dictionary,
+Standard SAE Std. J2735, SAE DSRC Committee, Nov. 2009.
+[10] A. Takacs, I. Rudas, D. Bosl, and T. Haidegger, ‘‘Highly automated vehi-
+cles and self-driving cars [Industry Tutorial],’’ IEEE Robot. Autom. Mag.,
+vol. 25, no. 4, pp. 106–112, Dec. 2018.
+[11] H. Zhu, K.-V . Y uen, L. Mihaylova, and H. Leung, ‘‘Overview of environ-
+ment perception for intelligent vehicles,’’IEEE Trans. Intell. Transp. Syst.,
+vol. 18, no. 10, pp. 2584–2601, Oct. 2017.
+[12] J. Steinbaeck, C. Steger, G. Holweg, and N. Druml, ‘‘Next generation
+radar sensors in automotive sensor fusion systems,’’ in Proc. Sensor Data
+Fusion, Trends, Solutions, Appl. (SDF), Oct. 2017, pp. 1–6.
+[13] H.-J. Gunther, B. Mennenga, O. Trauer, R. Riebl, and L. Wolf, ‘‘Realizing
+collective perception in a vehicle,’’ in Proc. IEEE V eh. Netw. Conf. (VNC),
+Dec. 2016, pp. 1–8.
+[14] H.-J. Gunther, R. Riebl, L. Wolf, and C. Facchi, ‘‘Collective perception and
+decentralized congestion control in vehicular ad-hoc networks,’’ in Proc.
+IEEE V eh. Netw. Conf. (VNC), Dec. 2016, pp. 1–8.
+[15] C. Allig and G. Wanielik, ‘‘Dynamic dissemination method for collective
+perception,’’ in Proc. IEEE Intell. Transp. Syst. Conf. (ITSC), Oct. 2019,
+pp. 3756–3762.
+[16] S. M. O. Gani, Y . P . Fallah, G. Bansal, and T. Shimizu, ‘‘A study of the
+effectiveness of message content, length, and rate control for improving
+map accuracy in automated driving systems,’’ IEEE Trans. Intell. Transp.
+Syst., vol. 20, no. 2, pp. 405–420, Feb. 2019.
+[17] T. Higuchi, M. Giordani, A. Zanella, M. Zorzi, and O. Altintas, ‘‘V alue-
+anticipating V2 V communications for cooperative perception,’’ in Proc.
+IEEE Intell. V ehicles Symp. (IV), Jun. 2019, pp. 9–12.
+[18] S. Aoki, T. Higuchi, and O. Altintas, ‘‘Cooperative perception with deep
+reinforcement learning for connected vehicles,’’ in Proc. IEEE Intell.
+V ehicles Symp. (IV), Oct. 2020, pp. 20–23.
+[19] K. Furukawa, M. Takai, and S. Ishihara, ‘‘Controlling sensor data dis-
+semination method for collective perception in V ANET,’’ in Proc. IEEE
+Int. Conf. Pervasive Comput. Commun. Workshops (PerCom Workshops),
+Mar. 2019, pp. 753–758.
+[20] H.-J. Günther, R. Riebl, L. Wolf, and C. Facchi, ‘‘The effect of decentral-
+ized congestion control on collective perception in dense trafﬁc scenarios,’’
+Comput. Commun., vol. 122, pp. 76–83, Jun. 2018.
+[21] K. Garlichs, H.-J. Gunther, and L. C. Wolf, ‘‘Generation rules for the
+collective perception service,’’ in Proc. IEEE V eh. Netw. Conf. (VNC),
+Dec. 2019, pp. 1–8.
+[22] G. Thandavarayan, M. Sepulcre, and J. Gozalvez, ‘‘Analysis of message
+generation rules for collective perception in connected and automated
+driving,’’ inProc. IEEE Intell. V ehicles Symp. (IV), Jun. 2019, pp. 134–139.
+[23] H. Huang, W. Fang, and H. Li, ‘‘Performance modelling of V2 V based
+collective perceptions in connected and autonomous vehicles,’’ in Proc.
+IEEE 44th Conf. Local Comput. Netw. (LCN), Oct. 2019, pp. 356–363.
+[24] H. Huang, H. Li, C. Shao, T. Sun, W. Fang, and S. Dang, ‘‘Data redundancy
+mitigation in V2X based collective perceptions,’’ IEEE Access, vol. 8,
+pp. 13405–13418, 2020.
+[25] Q. Delooz and A. Festag, ‘‘Network load adaptation for collective per-
+ception in V2X communications,’’ in Proc. IEEE Int. Conf. Connected
+V ehicles Expo (ICCVE), Nov. 2019, pp. 1–6.
+[26] Intelligent Transport Systems (ITS); Users and Applications Requirements;
+Part 2: Applications and Facilities Layer Common Data Dictionary, Stan-
+dard ETSI ITS, TS 102 894-2 V1.2.1, 2014.
+[27] M. Sepulcre and J. Gozalvez, ‘‘Coordination of congestion and awareness
+control in vehicular networks,’’ Electronics, vol. 7, no. 11, 335, pp. 1–21,
+Nov. 2018.
+[28] Intelligent Transport Systems (ITS); Communications Architecture , Stan-
+dard ETSI ITS, ETSI EN 302 665 V1.1.1, Sep. 2010.
+197682 VOLUME 8, 2020
+G. Thandavarayan et al.: Cooperative Perception for CAVs: Evaluation and Impact of Congestion Control
+[29] Intelligent Transport Systems (ITS); ITS-G5 Access Layer Speciﬁcation for
+Intelligent Transport Systems Operating in the 5 GHz Frequency Band,
+Standard ETSI ITS, ETSI EN 302 663 V1.3.1, Jan. 2020.
+[30] Intelligent Transport Systems (ITS); Decentralized Congestion Control
+Mechanisms for Intelligent Transport Systems Operating in the 5 GHz
+Range; Access Layer Part, Standard ETSI ITS, ETSI TS 102 687 V1.2.1,
+Apr. 2018.
+[31] Intelligent Transport Systems (ITS); V ehicular Communications; GeoNet-
+working; Part 4: Geographical Addressing and F orwarding for Point-
+to-Point and Point-to-Multipoint Communications; Sub—Part 2: Media-
+Dependent Functionalities for ITS-G5, Standard ETSI TS 102 636-4-2
+V1.1.1 Oct. 2013.
+[32] Intelligent Transport Systems (ITS); Facilities Layer; Communication
+Congestion Control, Standard ETSI TS 103 141 V0.1.1, May 2020.
+[33] Intelligent Transport Systems (ITS); Cross Layer DCC Management Entity
+for Operation in the ITS G5A and ITS G5B Medium, Standard ETSI TS 103
+175 V1.1.1, Jun. 2015.
+[34] Intelligent Transport Systems (ITS); Radiocommunications Equipment
+Operating in the 5 855 MHz to 5 925 MHz Frequency Band; Harmonised
+Standard Covering the Essential Requirements of Article 3.2 of Directive
+2014/53/EU, Standard ETSI EN 302 571, V2.1.1, Feb. 2017.
+[35] Intelligent Transport Systems (ITS); Access Layer Speciﬁcation for ITS in
+the 5 GHz Frequency Band, Standard ETSI EN 302 663, 2013.
+[36] Basic System Proﬁle CAR 2 CAR Communication Consortium,
+C2CCC_RS_2037_Proﬁle, CAR 2 CAR Communication Consortium
+(C2C-CC), Brunswick, Germany, Mar. 2020.
+[37] G. Bansal, J. B. Kenney, and C. E. Rohrs, ‘‘LIMERIC: A linear adaptive
+message rate algorithm for DSRC congestion control,’’ IEEE Trans. V eh.
+Technol., vol. 62, no. 9, pp. 4182–4197, Nov. 2013.
+[38] Intelligent Transport Systems (ITS); V ehicular Communications;
+GeoNetworking;—Part 5: Transport Protocols; Sub—Part 1: Basic
+Transport Protocol, Standard ETSI TS 102 636-5-1 V1.1.1, 2011.
+[39] Intelligent Transport Systems (ITS); V ehicular Communications;
+GeoNetworking;—Part 4: Geographical Addressing and F orwarding
+for Point-to-Point and Point-to-Multipoint Communications; Sub—Part
+1: Media-Independent Functionality, Standard ETSI EN 302 636-4-1
+V1.2.1, 2014.
+[40] M. Sepulcre, J. Mira, G. Thandavarayan, and J. Gozalvez, ‘‘Is packet drop-
+ping a suitable congestion control mechanism for vehicular networks?’’ in
+Proc. IEEE 91st V eh. Technol. Conf. (VTC-Spring), May 2020, pp. 1–5.
+[41] Survey on ITS-G5 CAM Statistics, document TR2052, V1.0.1, CAR 2 CAR
+Communication Consortium, Dec. 2018.
+[42] Technical Speciﬁcation Group Radio Access Network, Study on LTE-based
+V2X Services, Standard TR 36.885 V14.0.0, 3rd Generation Partnership
+Project (3GPP), 2016.
+[43] Intelligent Transport Systems (ITS); Access Layer; Part 1: Channel Models
+for the 5,9 GHz Frequency Band, Standard ETSI TR 103 257-1, V1.1.1,
+2019.
+[44] Intelligent Transport Systems (ITS); Decentralized Congestion Control
+Mechanisms for Intelligent Transport Systems Operating in the 5 GHz
+Range; Access Layer Part, Standard ETSI TR 103 257-1, V1.1.1, 2011.
+[45] Intelligent Transport Systems (ITS); Harmonized Channel Speciﬁcations
+for Intelligent Transport Systems Operating in the 5 GHz Frequency Band,
+Standard ETSI TS 102 724 V1.1.1, Oct. 2012.
+[46] Tesla, Autopilot and Self-driving Cars, Advanced Sensor Coverage.
+Accessed: Apr. 2020. [Online]. Available: https://www.tesla.com/autopilot
+[47] Caltrans Performance Measurement System (PeMS), California Depart-
+ment of Transportation data-set, U.S.State. Accessed: Jan. 2020. [Online].
+Available: http://pems.dot.ca.gov/
+[48] A. Rostami, B. Cheng, G. Bansal, K. Sjoberg, M. Gruteser, and
+J. B. Kenney, ‘‘Stability challenges and enhancements for vehicular chan-
+nel congestion control approaches,’’ IEEE Trans. Intell. Transp. Syst.,
+vol. 17, no. 10, pp. 2935–2948, Oct. 2016.
+GOKULNATH THANDAVARAYAN (Graduate
+Student Member, IEEE) received the master’s
+degree in computer science engineering from
+Anna University, India, in 2012. He is currently
+pursuing the Ph.D. degree with the Universidad
+Miguel Hernández de Elche (UMH). In 2015,
+he joined United Arab Emirates University (UAE),
+as a Researcher, and worked in different projects
+related to vehicular networks. In 2018, he joined
+the UWICORE Laboratory, UMH, Spain, to work
+in the European project (TransAID). His current work focuses on the design
+and evaluation of V2X protocols for reliable and efﬁcient V2X communi-
+cations for cooperative perception/sensing (collective perception) to support
+connected and automated vehicles (CA Vs).
+MIGUEL SEPULCRE (Senior Member, IEEE)
+received the Telecommunications Engineering
+degree and the Ph.D. degree in communica-
+tions technologies from the Universidad Miguel
+Hernández de Elche (UMH), Spain, in 2004 and
+2010, respectively. He is currently an Asso-
+ciate Professor with UMH, and a member of
+the UWICORE Laboratory, working in wireless
+vehicular networks and industrial wireless net-
+works. He has been a Visiting Researcher at ESA,
+The Netherlands, at the Karlsruhe Institute of Technology, Germany, and
+at Toyota InfoTechnology Center, Japan. He received the prize for the Best
+Ph.D. thesis by the COIT (Spanish Association of Telecommunication Engi-
+neers). He was the TPC Co-Chair of the IEEE VTC2018-Fall, IEEE/IFIP
+WONS 2018, and IEEE VNC 2016. He serves as an Associate Editor for
+IEEE V ehicular Technology Magazineand IEEE COMMUNICA TIONS LETTERS.
+JAVIER GOZAL VEZ (Senior Member, IEEE)
+received the Electronics Engineering degree from
+the Engineering School-ENSEIRB, Bordeaux,
+France, and the Ph.D. degree in mobile com-
+munications from the University of Strathclyde,
+Glasgow, U.K. Since October 2002, he has been
+with the Universidad Miguel Hernández de Elche
+(UMH), Spain, where he is currently a Full Profes-
+sor and the Director of the UWICORE Laboratory.
+He is the Editor-in-Chief of the IEEE V ehicular
+Technology Magazine, and an Elected Member of the Board of Governors of
+the IEEE V ehicular Technology Society (IEEE VTS). He was the President
+of the IEEE VTS, from 2016 to 2017. He was an IEEE Distinguished Speaker
+and IEEE Distinguished Lecturer of the IEEE VTS.
+VOLUME 8, 2020 197683

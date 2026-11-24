@@ -1,0 +1,4 @@
+[0/2] Re-checking globbed directories...
+ninja: no work to do.
+Finished executing the following commands:
+/Users/dips/Library/CloudStorage/OneDrive-LordBuddhaEducationFoundation/Working Paper/cpstudy/.venv/bin/cmake --build /Users/dips/.cache/cpstudy-toolchains/ns-3.46.1/cmake-cache -j 4 --target scratch_cp-radio-pilot

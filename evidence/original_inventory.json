@@ -1,0 +1,62 @@
+[
+  {
+    "path": "Autonomous Vehicles, Immersive Realities and Intelligent IoT/AI-Driven Multi-Vehicle Sensor Fusion for Cooperative Perception in Dynamic Environments.pdf",
+    "bytes": 1482813,
+    "sha256": "3d976e94e180e5a2d054b0aba57b8ac492d06dcab0269363e432cdd9079824f4",
+    "reuse_decision": "Archive only; rebuild submission materials"
+  },
+  {
+    "path": "Autonomous Vehicles, Immersive Realities and Intelligent IoT/Chat1.docx",
+    "bytes": 164988,
+    "sha256": "ff70d408f0594cc12c517bc2df52ef6d19af971a3d1e0be98490b4e76a8ceeb3",
+    "reuse_decision": "Archive only; rebuild submission materials"
+  },
+  {
+    "path": "Autonomous Vehicles, Immersive Realities and Intelligent IoT/Cover Letter.docx",
+    "bytes": 17154,
+    "sha256": "67d70f54525f34f05df77e5c4ff759f35f9f26e16163aab87e7f8ba02522dfeb",
+    "reuse_decision": "Archive only; rebuild submission materials"
+  },
+  {
+    "path": "Autonomous Vehicles, Immersive Realities and Intelligent IoT/MDPI Template.docx",
+    "bytes": 81457,
+    "sha256": "5e082d72f4b0c1e7620dc9acd374ff70e5cd9e46a49ede8d10b8e92d92c0bcb3",
+    "reuse_decision": "Retain as formatting reference only after journal selection"
+  },
+  {
+    "path": "Autonomous Vehicles, Immersive Realities and Intelligent IoT/Paper Sturcture.docx",
+    "bytes": 20215,
+    "sha256": "9a22afb7c81101b76b390ff5bbf7cb8600bf9a6437f93e7322cad8212d4b981e",
+    "reuse_decision": "Archive only; rebuild submission materials"
+  },
+  {
+    "path": "Autonomous Vehicles, Immersive Realities and Intelligent IoT/Reference Order.xlsx",
+    "bytes": 15588,
+    "sha256": "62102a2eeead6261536d3fb0b0ddf1d5c264ccf2c9118efca03e3876c461d3a9",
+    "reuse_decision": "Audit mappings; replace with verified bibliography"
+  },
+  {
+    "path": "Autonomous Vehicles, Immersive Realities and Intelligent IoT/V1 Working Paper.docx",
+    "bytes": 96160,
+    "sha256": "fd5b370f8fef9fc76b0bdb4fb3cc99dc5b698348c5b69057be736c6a561520a7",
+    "reuse_decision": "Archive only; rebuild submission materials"
+  },
+  {
+    "path": "Autonomous Vehicles, Immersive Realities and Intelligent IoT/V2 Working Paper.docx",
+    "bytes": 6566253,
+    "sha256": "afcdf065d5f7bc3e207c9d9983969000e8e8e65f4a322d0abc8567740cc871f5",
+    "reuse_decision": "Archive only; rebuild submission materials"
+  },
+  {
+    "path": "Autonomous Vehicles, Immersive Realities and Intelligent IoT/V3 Working Paper.docx",
+    "bytes": 4926562,
+    "sha256": "4349121ae97f94d4a4a974b8fbe00add78a202e640d0279b7a812ce67804af9b",
+    "reuse_decision": "Extract verified definitions and background only; replace model/results/claims"
+  },
+  {
+    "path": "Autonomous Vehicles, Immersive Realities and Intelligent IoT/call for paper.docx",
+    "bytes": 64735,
+    "sha256": "84c5628f81ae1c6299b11db59b29c55378781cac98cccae6b67b77ba55185e3d",
+    "reuse_decision": "Archive only; rebuild submission materials"
+  }
+]

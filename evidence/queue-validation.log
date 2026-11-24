@@ -1,0 +1,6 @@
+{
+  "purpose": "Synthetic implementation check with Poisson arrivals; no physical validation",
+  "worst_relative_error": 0.01535472494436432,
+  "all_within_10_percent": true,
+  "historical_baseline_example_s": 0.010637426900584794
+}

@@ -1,0 +1,389 @@
+{
+  "shared_exogenous_demand": true,
+  "runs": [
+    {
+      "scenario": "intersection",
+      "policy": "fixed",
+      "manifest": "results/raw/closed-loop-checks3/intersection/fixed/99ab8edce921-seed23/manifest.json",
+      "audit": {
+        "audit": "passed",
+        "message_receiver_pairs": 2111,
+        "evaluated_opportunity_receiver_pairs": 1809,
+        "terminal_counts": {
+          "success": 1798,
+          "radio_not_received": 11
+        },
+        "network_check": {
+          "control_decisions_checked": 624,
+          "feedback_visibility": "verified causal replay"
+        }
+      },
+      "summary": {
+        "backend": "ns-3.46.1 closed-loop 802.11p PHY/AdhocWifiMac with synthetic mobility",
+        "seed": 23,
+        "opportunity_receiver_pairs": 1809,
+        "generated_receiver_pairs": 1809,
+        "terminal_counts": {
+          "success": 1798,
+          "radio_not_received": 11
+        },
+        "opportunity_success_rate": 0.9939192924267551,
+        "generated_success_rate": 0.9939192924267551,
+        "mean_success_latency_ms": 18.839895738598443,
+        "fresh_opportunity_pairs": 1798,
+        "opportunity_freshness_rate": 0.9939192924267551,
+        "excluded_opportunities": 96,
+        "applicability": "Source-update timeliness; no CPM conformance, perception accuracy, or calibrated road safety claim",
+        "feedback_datagrams_sent": 0,
+        "feedback_receptions": 0,
+        "feedback_verifications": 0,
+        "feedback_used_after_verification": true
+      }
+    },
+    {
+      "scenario": "intersection",
+      "policy": "radio",
+      "manifest": "results/raw/closed-loop-checks3/intersection/radio/0eeb516d8730-seed23/manifest.json",
+      "audit": {
+        "audit": "passed",
+        "message_receiver_pairs": 2111,
+        "evaluated_opportunity_receiver_pairs": 1809,
+        "terminal_counts": {
+          "success": 1798,
+          "radio_not_received": 11
+        },
+        "network_check": {
+          "control_decisions_checked": 624,
+          "feedback_visibility": "verified causal replay"
+        }
+      },
+      "summary": {
+        "backend": "ns-3.46.1 closed-loop 802.11p PHY/AdhocWifiMac with synthetic mobility",
+        "seed": 23,
+        "opportunity_receiver_pairs": 1809,
+        "generated_receiver_pairs": 1809,
+        "terminal_counts": {
+          "success": 1798,
+          "radio_not_received": 11
+        },
+        "opportunity_success_rate": 0.9939192924267551,
+        "generated_success_rate": 0.9939192924267551,
+        "mean_success_latency_ms": 18.839895738598443,
+        "fresh_opportunity_pairs": 1798,
+        "opportunity_freshness_rate": 0.9939192924267551,
+        "excluded_opportunities": 96,
+        "applicability": "Source-update timeliness; no CPM conformance, perception accuracy, or calibrated road safety claim",
+        "feedback_datagrams_sent": 0,
+        "feedback_receptions": 0,
+        "feedback_verifications": 0,
+        "feedback_used_after_verification": true
+      }
+    },
+    {
+      "scenario": "intersection",
+      "policy": "receiver",
+      "manifest": "results/raw/closed-loop-checks3/intersection/receiver/f3e39ad8b5c2-seed23/manifest.json",
+      "audit": {
+        "audit": "passed",
+        "message_receiver_pairs": 2111,
+        "evaluated_opportunity_receiver_pairs": 1809,
+        "terminal_counts": {
+          "success": 1798,
+          "radio_not_received": 11
+        },
+        "network_check": {
+          "control_decisions_checked": 624,
+          "feedback_visibility": "verified causal replay"
+        }
+      },
+      "summary": {
+        "backend": "ns-3.46.1 closed-loop 802.11p PHY/AdhocWifiMac with synthetic mobility",
+        "seed": 23,
+        "opportunity_receiver_pairs": 1809,
+        "generated_receiver_pairs": 1809,
+        "terminal_counts": {
+          "success": 1798,
+          "radio_not_received": 11
+        },
+        "opportunity_success_rate": 0.9939192924267551,
+        "generated_success_rate": 0.9939192924267551,
+        "mean_success_latency_ms": 19.093965671301444,
+        "fresh_opportunity_pairs": 1798,
+        "opportunity_freshness_rate": 0.9939192924267551,
+        "excluded_opportunities": 96,
+        "applicability": "Source-update timeliness; no CPM conformance, perception accuracy, or calibrated road safety claim",
+        "feedback_datagrams_sent": 128,
+        "feedback_receptions": 783,
+        "feedback_verifications": 783,
+        "feedback_used_after_verification": true
+      }
+    },
+    {
+      "scenario": "intersection",
+      "policy": "joint",
+      "manifest": "results/raw/closed-loop-checks3/intersection/joint/5bbaaf46f198-seed23/manifest.json",
+      "audit": {
+        "audit": "passed",
+        "message_receiver_pairs": 2111,
+        "evaluated_opportunity_receiver_pairs": 1809,
+        "terminal_counts": {
+          "success": 1798,
+          "radio_not_received": 11
+        },
+        "network_check": {
+          "control_decisions_checked": 624,
+          "feedback_visibility": "verified causal replay"
+        }
+      },
+      "summary": {
+        "backend": "ns-3.46.1 closed-loop 802.11p PHY/AdhocWifiMac with synthetic mobility",
+        "seed": 23,
+        "opportunity_receiver_pairs": 1809,
+        "generated_receiver_pairs": 1809,
+        "terminal_counts": {
+          "success": 1798,
+          "radio_not_received": 11
+        },
+        "opportunity_success_rate": 0.9939192924267551,
+        "generated_success_rate": 0.9939192924267551,
+        "mean_success_latency_ms": 19.093965671301444,
+        "fresh_opportunity_pairs": 1798,
+        "opportunity_freshness_rate": 0.9939192924267551,
+        "excluded_opportunities": 96,
+        "applicability": "Source-update timeliness; no CPM conformance, perception accuracy, or calibrated road safety claim",
+        "feedback_datagrams_sent": 128,
+        "feedback_receptions": 783,
+        "feedback_verifications": 783,
+        "feedback_used_after_verification": true
+      }
+    },
+    {
+      "scenario": "intersection",
+      "policy": "dcc",
+      "manifest": "results/raw/closed-loop-checks3/intersection/dcc/7a7358e26b45-seed23/manifest.json",
+      "audit": {
+        "audit": "passed",
+        "message_receiver_pairs": 857,
+        "evaluated_opportunity_receiver_pairs": 1809,
+        "terminal_counts": {
+          "suppressed": 1044,
+          "success": 760,
+          "radio_not_received": 5
+        },
+        "network_check": {
+          "control_decisions_checked": 624,
+          "feedback_visibility": "verified causal replay"
+        }
+      },
+      "summary": {
+        "backend": "ns-3.46.1 closed-loop 802.11p PHY/AdhocWifiMac with synthetic mobility",
+        "seed": 23,
+        "opportunity_receiver_pairs": 1809,
+        "generated_receiver_pairs": 765,
+        "terminal_counts": {
+          "suppressed": 1044,
+          "success": 760,
+          "radio_not_received": 5
+        },
+        "opportunity_success_rate": 0.4201216141514649,
+        "generated_success_rate": 0.9934640522875817,
+        "mean_success_latency_ms": 18.828455705263156,
+        "fresh_opportunity_pairs": 760,
+        "opportunity_freshness_rate": 0.4201216141514649,
+        "excluded_opportunities": 96,
+        "applicability": "Source-update timeliness; no CPM conformance, perception accuracy, or calibrated road safety claim",
+        "feedback_datagrams_sent": 0,
+        "feedback_receptions": 0,
+        "feedback_verifications": 0,
+        "feedback_used_after_verification": true
+      }
+    },
+    {
+      "scenario": "highway",
+      "policy": "fixed",
+      "manifest": "results/raw/closed-loop-checks3/highway/fixed/f260d7d18351-seed23/manifest.json",
+      "audit": {
+        "audit": "passed",
+        "message_receiver_pairs": 972,
+        "evaluated_opportunity_receiver_pairs": 836,
+        "terminal_counts": {
+          "success": 836
+        },
+        "network_check": {
+          "control_decisions_checked": 624,
+          "feedback_visibility": "verified causal replay"
+        }
+      },
+      "summary": {
+        "backend": "ns-3.46.1 closed-loop 802.11p PHY/AdhocWifiMac with synthetic mobility",
+        "seed": 23,
+        "opportunity_receiver_pairs": 836,
+        "generated_receiver_pairs": 836,
+        "terminal_counts": {
+          "success": 836
+        },
+        "opportunity_success_rate": 1.0,
+        "generated_success_rate": 1.0,
+        "mean_success_latency_ms": 18.21477369138756,
+        "fresh_opportunity_pairs": 836,
+        "opportunity_freshness_rate": 1.0,
+        "excluded_opportunities": 96,
+        "applicability": "Source-update timeliness; no CPM conformance, perception accuracy, or calibrated road safety claim",
+        "feedback_datagrams_sent": 0,
+        "feedback_receptions": 0,
+        "feedback_verifications": 0,
+        "feedback_used_after_verification": true
+      }
+    },
+    {
+      "scenario": "highway",
+      "policy": "radio",
+      "manifest": "results/raw/closed-loop-checks3/highway/radio/7bdb5628498a-seed23/manifest.json",
+      "audit": {
+        "audit": "passed",
+        "message_receiver_pairs": 972,
+        "evaluated_opportunity_receiver_pairs": 836,
+        "terminal_counts": {
+          "success": 836
+        },
+        "network_check": {
+          "control_decisions_checked": 624,
+          "feedback_visibility": "verified causal replay"
+        }
+      },
+      "summary": {
+        "backend": "ns-3.46.1 closed-loop 802.11p PHY/AdhocWifiMac with synthetic mobility",
+        "seed": 23,
+        "opportunity_receiver_pairs": 836,
+        "generated_receiver_pairs": 836,
+        "terminal_counts": {
+          "success": 836
+        },
+        "opportunity_success_rate": 1.0,
+        "generated_success_rate": 1.0,
+        "mean_success_latency_ms": 18.21477369138756,
+        "fresh_opportunity_pairs": 836,
+        "opportunity_freshness_rate": 1.0,
+        "excluded_opportunities": 96,
+        "applicability": "Source-update timeliness; no CPM conformance, perception accuracy, or calibrated road safety claim",
+        "feedback_datagrams_sent": 0,
+        "feedback_receptions": 0,
+        "feedback_verifications": 0,
+        "feedback_used_after_verification": true
+      }
+    },
+    {
+      "scenario": "highway",
+      "policy": "receiver",
+      "manifest": "results/raw/closed-loop-checks3/highway/receiver/794ad59295ae-seed23/manifest.json",
+      "audit": {
+        "audit": "passed",
+        "message_receiver_pairs": 972,
+        "evaluated_opportunity_receiver_pairs": 836,
+        "terminal_counts": {
+          "success": 836
+        },
+        "network_check": {
+          "control_decisions_checked": 624,
+          "feedback_visibility": "verified causal replay"
+        }
+      },
+      "summary": {
+        "backend": "ns-3.46.1 closed-loop 802.11p PHY/AdhocWifiMac with synthetic mobility",
+        "seed": 23,
+        "opportunity_receiver_pairs": 836,
+        "generated_receiver_pairs": 836,
+        "terminal_counts": {
+          "success": 836
+        },
+        "opportunity_success_rate": 1.0,
+        "generated_success_rate": 1.0,
+        "mean_success_latency_ms": 18.23347225598086,
+        "fresh_opportunity_pairs": 836,
+        "opportunity_freshness_rate": 1.0,
+        "excluded_opportunities": 96,
+        "applicability": "Source-update timeliness; no CPM conformance, perception accuracy, or calibrated road safety claim",
+        "feedback_datagrams_sent": 128,
+        "feedback_receptions": 485,
+        "feedback_verifications": 485,
+        "feedback_used_after_verification": true
+      }
+    },
+    {
+      "scenario": "highway",
+      "policy": "joint",
+      "manifest": "results/raw/closed-loop-checks3/highway/joint/601baa9d9408-seed23/manifest.json",
+      "audit": {
+        "audit": "passed",
+        "message_receiver_pairs": 972,
+        "evaluated_opportunity_receiver_pairs": 836,
+        "terminal_counts": {
+          "success": 836
+        },
+        "network_check": {
+          "control_decisions_checked": 624,
+          "feedback_visibility": "verified causal replay"
+        }
+      },
+      "summary": {
+        "backend": "ns-3.46.1 closed-loop 802.11p PHY/AdhocWifiMac with synthetic mobility",
+        "seed": 23,
+        "opportunity_receiver_pairs": 836,
+        "generated_receiver_pairs": 836,
+        "terminal_counts": {
+          "success": 836
+        },
+        "opportunity_success_rate": 1.0,
+        "generated_success_rate": 1.0,
+        "mean_success_latency_ms": 18.23347225598086,
+        "fresh_opportunity_pairs": 836,
+        "opportunity_freshness_rate": 1.0,
+        "excluded_opportunities": 96,
+        "applicability": "Source-update timeliness; no CPM conformance, perception accuracy, or calibrated road safety claim",
+        "feedback_datagrams_sent": 128,
+        "feedback_receptions": 485,
+        "feedback_verifications": 485,
+        "feedback_used_after_verification": true
+      }
+    },
+    {
+      "scenario": "highway",
+      "policy": "dcc",
+      "manifest": "results/raw/closed-loop-checks3/highway/dcc/c6cd979e5662-seed23/manifest.json",
+      "audit": {
+        "audit": "passed",
+        "message_receiver_pairs": 392,
+        "evaluated_opportunity_receiver_pairs": 836,
+        "terminal_counts": {
+          "suppressed": 488,
+          "success": 348
+        },
+        "network_check": {
+          "control_decisions_checked": 624,
+          "feedback_visibility": "verified causal replay"
+        }
+      },
+      "summary": {
+        "backend": "ns-3.46.1 closed-loop 802.11p PHY/AdhocWifiMac with synthetic mobility",
+        "seed": 23,
+        "opportunity_receiver_pairs": 836,
+        "generated_receiver_pairs": 348,
+        "terminal_counts": {
+          "suppressed": 488,
+          "success": 348
+        },
+        "opportunity_success_rate": 0.41626794258373206,
+        "generated_success_rate": 1.0,
+        "mean_success_latency_ms": 18.216492583333334,
+        "fresh_opportunity_pairs": 348,
+        "opportunity_freshness_rate": 0.41626794258373206,
+        "excluded_opportunities": 96,
+        "applicability": "Source-update timeliness; no CPM conformance, perception accuracy, or calibrated road safety claim",
+        "feedback_datagrams_sent": 0,
+        "feedback_receptions": 0,
+        "feedback_verifications": 0,
+        "feedback_used_after_verification": true
+      }
+    }
+  ]
+}

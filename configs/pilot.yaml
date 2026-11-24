@@ -1,0 +1,12 @@
+schema_version: 1
+scenario: intersection
+sources: 10
+duration_s: 10.0
+warmup_s: 2.0
+opportunity_hz: 10.0
+max_rate_hz: 10.0
+min_rate_hz: 1.0
+deadline_ms: 100.0
+policy: fixed
+radio: ideal
+output: results/raw/pilot

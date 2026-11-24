@@ -1,0 +1,9 @@
+duration_s: 2.0
+max_rate_hz: 10.0
+opportunity_hz: 10.0
+output: results/raw/reproduction1/repeat-b
+policy: fixed
+radio: ns3
+scenario: static-pilot
+sources: 2
+warmup_s: 0.2

@@ -1,0 +1,10 @@
+duration_s: 3.0
+max_rate_hz: 10.0
+opportunity_hz: 10.0
+output: results/raw/reproduction1/receiver-overload
+policy: fixed
+radio: ns3
+scenario: static-pilot
+sources: 10
+verify_ms: 30.0
+warmup_s: 0.5

@@ -1,0 +1,22 @@
+{
+  "backend": "ns-3.46.1 closed-loop 802.11p PHY/AdhocWifiMac with synthetic mobility",
+  "seed": 19,
+  "opportunity_receiver_pairs": 18913,
+  "generated_receiver_pairs": 2791,
+  "terminal_counts": {
+    "success": 2562,
+    "radio_not_received": 229,
+    "suppressed": 16122
+  },
+  "opportunity_success_rate": 0.13546238037328823,
+  "generated_success_rate": 0.917950555356503,
+  "mean_success_latency_ms": 31.18643404722873,
+  "fresh_opportunity_pairs": 2562,
+  "opportunity_freshness_rate": 0.13546238037328823,
+  "excluded_opportunities": 528,
+  "applicability": "Source-update timeliness; no CPM conformance, perception accuracy, or calibrated road safety claim",
+  "feedback_datagrams_sent": 1200,
+  "feedback_receptions": 22361,
+  "feedback_verifications": 22361,
+  "feedback_used_after_verification": true
+}

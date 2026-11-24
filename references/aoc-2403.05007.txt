@@ -1,0 +1,2646 @@
+arXiv:2403.05007v8  [eess.SY]  21 Jun 2025
+1
+Age of Computing: A Metric of Computation Freshness in
+Communication and Computation Cooperative Networks
+Xingran Chen, Member, IEEE, Yi Zhuang, and Kun Yang, Fellow, IEEE
+Abstract—In communication and computation cooperative
+networks (3CNs), timely computation is crucial but not always
+guaranteed. There is a strong demand for a computational
+task to be completed within a given deadline. The time taken
+involves processing time, transmission time, and the impact of
+the deadline. However, a measure of such timeliness in 3CNs
+is lacking. To address this gap, we propose the novel concept
+of Age of Computing (AoC) to quantify computation freshness
+in 3CNs. Built on task timestamps, AoC serves as a practical
+metric for dynamic and complex real-world 3CNs. We evaluate
+AoC under two types of deadlines: (i) soft deadline, tasks can
+be fed back to the source if delayed beyond the deadline,
+but with additional latency; (ii) hard deadline, tasks delayed
+beyond the deadline are discarded. We investigate AoC in two
+distinct networks. In point-to-point, time-continuous networks,
+tasks are processed sequentially using a first-come, first-served
+discipline. We derive a general expression for the time-average
+AoC under both deadlines. Utilizing this expression, we obtain
+a closed-form solution for M/M/1-M/M/1 systems under soft
+deadlines and propose an accurate approximation for hard
+deadlines. These results are further extended to G/G/1-G/G/1
+systems. Additionally, we introduce the concept of computation
+throughput, derive its general expression and an approximation,
+and explore the trade-off between freshness and throughput. In
+the multi-source, time-discrete networks, tasks are scheduled for
+offloading to a computational node. For this scenario, we develop
+AoC-based Max-Weight policies for real-time scheduling under
+both deadlines, leveraging a Lyapunov function to minimize its
+drift.
+Index Terms — Age of computing, computation fresh-
+ness, communication and computing cooperative networks,
+time-average AoC, Max-Weight Policy.
+I. I NTRODUCTION
+In the 6G era, emerging applications such as the Internet
+of Things (IoT), smart cities, and cyber-physical systems
+have significant demands for communication and computation
+cooperative networks (3CNs), which provide faster data pro-
+cessing, efficient resource utilization, and enhanced security
+This work was accepted for publication in the IEEE Transactions on Mobile
+Computing in June 2025.
+This work was supported by Young Scientists Fund of the National
+Natural Science Foundation of China (Grant No. 62401111), Natural Science
+Foundation of China (Grant No. 62132004), the Jiangsu Major Project on
+Basic Researches (Grant No. BK20243059), and Gusu Innovation Project
+for Talented People (Grant No. ZXL2024360). (Corresponding Author: Kun
+Yang)
+Xingran Chen and Yi Zhuang are with School of Information and
+Communication Engineering, University of Electronic Science and Tech-
+nology of China, Chengdu, 611731, China (E-mail: xingranc@ieee.org,
+yizhuang265@163.com).
+Kun Yang is with the State Key Laboratory of Novel Software Technol-
+ogy, Nanjing University, Nanjing, 210008, China, and School of Intelligent
+Software and Engineering, Nanjing University (Suzhou Campus), Suzhou,
+215163, China, and School of Information and Communication Engineering,
+University of Electronic Science and Technology of China, Chengdu, China
+(E-mail: kunyang@nju.edu.cn).
+[1]. 3CNs originated from mobile edge computing (MEC)
+technology, which aims to complete computation-intensive
+and latency-critical tasks, with the paradigm deploying dis-
+tributedly tons of billions of edge devices at the network
+edges [2]. Besides MEC, 3CNs include fog computing and
+computing power networks. Fog computing can be regarded
+as a generalization of MEC, where the definition of edge
+devices is broader than that in MEC [3]. Computing power
+networks refer to a broader concept of distributed computing
+networks, including edge, fog, and cloud computing [4]. In all
+3CNs, there is no established metric for capturing the freshness
+of computation. Recently, a notable metric called the Age of
+Information (AoI) has been proposed to describe information
+freshness in communication networks [5]. The AoI metric
+has broad applications in various communication and control
+contexts, including random access protocols [6], multiaccess
+protocols [7], remote estimation [8], wireless-powered relay-
+aided communication networks [9], and network coding [10],
+[11].
+However, applying AoI in 3CNs is inappropriate because
+it only addresses communication latency and does not ac-
+count for computation latency. In this paper, we propose a
+novel metric called the Age of Computing (AoC) to capture
+computation freshness in 3CNs. A primary requirement in
+3CNs is that computational tasks are processed as promptly as
+possible and within a maximum acceptable deadline. The core
+idea of AoC is to combine communication delay, computation
+delay, and the impact of the maximum acceptable deadline.
+Communication and computation delays are caused by the
+transmission and processing of computational tasks, while
+the impact of the maximum acceptable deadline accounts
+for additional delays when task delays exceed the users’
+acceptable threshold.
+A. Related Work
+All related papers can be divided into two broad cate-
+gories. The first category investigates information freshness
+in edge and fog computing networks. The second category
+focuses on freshness-oriented metrics.
+1) Information Freshness in Edge/Fog Computing Net-
+works: In edge and fog computing networks, tasks or mes-
+sages typically go through two phases: the transmission phase
+and the processing phase. The basic mathematical model for
+these networks is established as two-hop networks and tandem
+queues.
+The first study to focus on AoI for edge computing ap-
+plications is [12], which primarily calculated the average AoI.
+As an early work, [13] established an analytical framework for
+2
+the peak age of information (PAoI), modeling the computing
+and transmission process as a tandem queue. The authors
+derived closed-form expressions and proposed a derivative-
+free algorithm to minimize the maximum PAoI in networks
+with multiple sensors and a single destination. Subsequently,
+[14] modeled the communication and computation delays
+as a generic tandem of two first-come, first-serve (FCFS)
+queues, and analytically derived closed-form expressions for
+PAoI in M/M/1-M/D/1 and M/M/1-M/M/1 tandems. More
+recently, [15] analyzed the average AoI for a tandem of
+FCFS M/M/1-M/M/1 queues with non-preemptive, memo-
+ryless servers. Their study considered both single-capacity
+and infinite-capacity queue settings, and utilized stochastic
+hybrid system techniques to obtain the results. Additionally,
+the authors in [16] extended the concept of tandems of M/M/1
+queues, examining the AoI in Jackson Networks with finite
+buffer sizes. They provided a closed-form expression for an
+upper bound on the average AoI, also utilizing stochastic hy-
+brid systems in their analysis. Building on [14]–[16], [17] went
+further by considering both average and peak AoI in general
+tandems with packet management. The packet management
+included two forms: no data buffer, and a one-unit data buffer
+with last-come first-serve discipline. This work illustrated
+how computation and transmission times could be traded off
+to optimize AoI, revealing a tradeoff between average AoI
+and average peak AoI. Expanding on [17], [18] explored
+the information freshness of Gauss-Markov processes, defined
+as the process-related timeliness of information. The authors
+derived closed-form expressions for information timeliness
+at both the edge and fog tiers. These analytical formulas
+explicitly characterize the dependency among task generation,
+transmission, and execution, serving as objective functions
+for system optimization. Reference [19] investigated a remote
+status updating system where the transmission process is
+modeled as a multi-stream M/G/1/1 non-preemptive system.
+The study derived closed-form expressions for the average AoI
+of each stream in a heterogeneous case, where the service time
+distributions differ across streams. In [20], a multi-user MEC
+network where a base station (BS) transmits packets to user
+equipment was investigated. The study derived the average
+AoI for two computing schemes—local computing and edge
+computing—under a first-come, first-serve discipline.
+There are other relevant works such as [21]–[26]. Refer-
+ence [21] investigated information freshness in MEC networks
+from a multi-access perspective, where multiple devices use
+NOMA to offload their computational tasks to an access
+point integrated with an MEC server. Leveraging tools from
+queuing theory, the authors proposed an iterative algorithm
+to obtain the closed-form solution for AoI. The authors in
+[22] investigated the age minimization problem in a two-hop
+relay system, subject to a constraint on the average number
+of forwarding operations at the relay. They proposed a low-
+complexity double threshold relaying policy and derived ap-
+proximate closed-form expressions for the average AoI at the
+destination and the average number of forwarding operations
+at the relay. In [23], a F-RAN with multiple senders, multiple
+relay nodes, and multiple receivers was considered. The au-
+thors analyzed the AoI performances and proposed optimal
+oblivious and non-oblivious policies to minimize the time-
+average AoI. [24] and [25] explored AoI performances in MEC
+networks using different mathematical tools. [24] considered
+MEC-enabled IoT networks with multiple source-destination
+pairs and heterogeneous edge servers. Using game-theoretical
+analysis, they proposed an age-optimal computation-intensive
+update scheduling strategy based on Nash equilibrium. Re-
+inforcement learning is also a powerful tool in this context.
+[25] proposed a computation offloading method based on a
+directed acyclic graph task model, which models task depen-
+dencies. The algorithm combined the advantages of deep Q-
+network, double deep Q-network, and dueling deep Q-network
+algorithms to optimize AoI. Parallel queues were explored
+in [26], where the average age and PAoI in a dual-queue
+status update system, monitoring a common stochastic process
+through two independent channels, were analyzed. Closed-
+form expressions were derived using the graphic method and
+state flow graph analysis.
+2) Freshness-oriented Metrics: The AoI metric, intro-
+duced in [5], measures the freshness of information at the
+receiver side. AoI depends on both the frequency of packet
+transmissions and the delay experienced by packets in the
+communication networks [6]. When the communication rate
+is low, the receiver’s AoI increases, indicating stale informa-
+tion due to infrequent packet transmissions. However, even
+with frequent transmissions, if the system design imposes
+significant delays, the receiver’s information will still be stale.
+Following the introduction of AoI, several related metrics
+were proposed to capture network freshness from different
+perspectives. Peak AoI, introduced in [7], represents the worst-
+case AoI. It is defined as the maximum time elapsed since
+the preceding piece of information was generated, offering a
+simpler and more mathematically tractable formulation.
+Nearly simultaneously, the age of synchronization (AoS)
+[27] and the effective age [28] were proposed. AoS, as a com-
+plementary metric to AoI, drops to zero when the transmitter
+has no packets to send and grows linearly with time until a
+new packet is generated [27]. The effective age metrics in [28]
+include sampling age, tracking the age of samples relative to
+ideal sampling times, and cumulative marginal error, tracking
+the total error from the reception of the latest sample to the
+current time.
+Later, the age of incorrect information (AoII) [29] and
+the urgency of information (UoI) [30] were introduced. AoII
+addresses the shortcomings of both AoI and conventional
+error penalty functions by extending the concept of fresh
+updates to “informative” updates—those that bring new and
+correct information to the monitor side [29]. UoI, a context-
+based metric, evaluates the timeliness of status updates by
+incorporating time-varying context information and dynamic
+status evolution [30], which enables analysis of context-based
+adaptive status update schemes and more effective remote
+monitoring and control.
+Despite the variety of freshness-oriented metrics pro-
+posed, none are applicable for capturing computation freshness
+in 3CNs. None of these metrics simultaneously address the
+impact of both communication and computation delays, as well
+as the maximum acceptable deadline. Motivated by the need
+3
+for a metric capturing freshness in 3CNs, we propose the AoC
+metric in this paper.
+B. Contributions
+This paper introduces the Age of Computing (AoC), a
+novel metric designed to capture computation freshness in
+3CNs (see Definition 3). The AoC concept is built on tasks’
+arrival and completion timestamps, which makes it applicable
+to dynamic and complex real-world 3CNs. The AoC is defined
+under two types of deadlines: (i) soft deadline, i.e., if the task’s
+delay exceeds the deadline, the outcome is still usable but
+incurs additional latency; (ii) hard deadline, i.e., if the task’s
+delay exceeds the deadline, the outcome is discarded, and the
+task is considered invalid.
+We then theoretically analyze the time-average AoC
+under both types of deadlines in a linear topology comprising
+a source, a transmitter, a receiver, and a computational node.
+Tasks arrive at the source at a constant rate and immediately
+enter a communication queue at the transmitter. After being
+transmitted/offloaded to the receiver, tasks are forwarded to
+the computational node for processing in a computation queue.
+The queuing discipline considered is first-come, first-served.
+Under the soft deadline, we first derive a general expres-
+sion for the average AoC (see Theorem 1). We then study a
+fundamental scenario where the task arrival process follows a
+Poisson distribution, and the transmission and computation de-
+lays adhere to exponential distributions—forming an M/M/1-
+M/M/1 system. In this case, we derive a closed-form expres-
+sion for the average AoC (see Theorem 2). Subsequently,
+we extend our analysis to a more general scenario where
+the task arrival process follows a general distribution, and
+the transmission and computation delays also follow general
+distributions—resulting in a G/G/1-G/G/1 system. For this
+case, we derive the expression for the average AoC as well
+(see Theorem 3).
+Under the hard deadline, we first derive a general expres-
+sion for the average AoC (see Theorem 4). This expression
+involves intricate correlations, making it highly challenging
+to obtain a closed-form solution, even for an M/M/1-M/M/1
+system. To address this, we provide an approximation of
+the average AoC and demonstrate its accuracy when the
+communication and computation rates are significantly larger
+than the task generation rate (see Theorem 5). We also define
+computation throughput as the number of tasks successfully
+fed back to the source per time slot (see Definition 4). A
+general expression for computation throughput is derived (see
+Lemma 1), along with an approximation (see Proposition 1).
+Furthermore, we explore the trade-off between computation
+freshness and computation throughput (see Lemma 2). In
+the end, we extend the accurate approximations for both the
+average AoC and computation throughput to more generalized
+scenario involving G/G/1-G/G/1 systems (see Theorem 6 and
+Proposition 2).
+Finally, we apply the AoC concept to develop opti-
+mal real-time scheduling strategies focused on enhancing
+computation freshness in multi-source networks. Recognizing
+the importance of recent computational tasks, we adopt a
+preemptive scheduling rule. For real-time scenarios, we pro-
+pose AoC-based Max-Weight policies for both deadlines (see
+Algorithms 1 and 2). By constructing a Lyapunov function 
+see (28)
+
+and its drift
+ 
+see (29)
+
+, we show that these
+policies minimize the Lyapunov drift in each time slot (see
+Propositions 3 and 4).
+The remaining parts of this paper are organized as fol-
+lows. Section II proposes and discusses the novel concept
+AoC. Section III and Section IV derive theoretical results
+for the AoC under the soft and hard deadlines, respectively.
+Section V proposes real-time AoC-based scheduling algo-
+rithms for multi-source networks. We numerically verify our
+theoretical results in Section VI and conclude this work in
+Section VII.
+II. A GE OF COMPUTING
+In this section, we introduce the mathematical formula-
+tion of the novel concept, Age of Computing (AoC), which
+quantifies the freshness of computation within 3CNs. Consider
+a line topology comprising a source, a transmitter, a receiver,
+and a computational node (sink), as depicted in Fig. 1. In
+this topology, both the transmitter and the computational
+node are equipped with queuing capabilities. The process
+begins with the source generating or offloading computational
+tasks, which are first placed into a communication queue at
+the transmitter, awaiting transmission. Once transmitted, the
+tasks are received by the receiver, and then forwarded to
+the computational node. At the computational node, the tasks
+enter a computation queue, where they await processing before
+eventually departing from the system.
+Fig. 1: A line topology consisting of a source, a transmitter,
+a receiver, and a computational node (sink).
+A. Definition
+In the network, the queuing discipline follows afirst-come
+first-serve approach. For any task k, let τk denote the arrival
+time at the source, τ ′′
+k the time when the computation starts at
+the computational node, and τ ′
+k the time when the computation
+completes. The delay of task k is then defined as τ ′
+k − τk. A
+task k is considered valid if its outcome can be fed back to
+the source 1; otherwise, it is deemed invalid.
+Definition 1. (informative, processing, and latest tasks). The
+index of the informative task during [0, t], denoted by N(t),
+is given by
+N(t) = max{k|τ ′
+k ≤ t, and task k is valid}. (1)
+1The feedback is an acknowledgment message with a small bit size,
+commonly used in communication systems to confirm the successful receipt
+of data.
+4
+The index of the processing task during [0, t], denoted by P (t),
+is given by
+P (t) = max{k|τ ′′
+k ≤ t}. (2)
+The index of the latest task during [0, t], denoted by G(t), is
+given by
+G(t) = max{k|τ ′
+k ≤ t}. (3)
+Based on Definition 1, an informative task is a valid
+task that brings the latest information. The processing is the
+current task being processed, and the latest refers to the last
+completed task. The informative task and the latest task are
+not necessarily the same, i.e., G(t) ≥ N(t). They coincide 
+G(t) = N(t)
+
+only when the latest task is also informative.
+At any time t, if the computational node is idle (no task is
+being processed), then the processing task is exactly the latest
+one, i.e, P (t) = G(t). If the computational node is occupied (a
+task is being processed), then P (t) = G(t) + 1. In summary,
+we have P (t) ≥ G(t) ≥ N(t). A graphical illustration of
+Definition 1 is shown in Fig. 2, which depicts the system
+state at time t. In this example, task k + 2 arrives at the
+computational node at time t, while tasks k and k + 1 have
+already departed from the computational node. Among them,
+task k is valid, whereas task k + 1 is invalid. According to
+Definition 1, this yields P (t) = k + 2, G(t) = k + 1, and
+N(t) = k, satisfying the condition P (t) ≥ G(t) ≥ N(t).
+Fig. 2: A graphical illustration for Definition 1: At time t, task
+k+2 arrives at the computational node, while tasks k and k+1
+already departed from the computational node. Among them,
+task k (green) is valid, whereas task k + 1 (gray) is invalid.
+Definition 2. A maximum acceptable deadline w > 0 can be
+categorized into two types:
+• Soft deadline: A task is considered valid if its delay τ ′
+k −
+τk > w.
+• Hard deadline: A task is considered invalid if its delay
+τ ′
+k − τk > w.
+We define the number of tasks within [0, t] whose delays
+exceed the threshold w as:
+A(t) = card
+
+1 ≤ k ≤ G(t) : τ ′
+k − τk > w
+	
+. (4)
+In (4), card(·) denotes the cardinality. This quantity can be
+efficiently tracked by the computational node using mecha-
+nisms such as a local counter or a task log. The computation
+freshness at the computational node is formally defined as
+follows.
+Definition 3. (AoC). Under the soft deadline, the age of
+computing (AoC) is defined as the random process
+csoft(t) =t − τN(t)
++1{P(t)>G(t)} · A(t)
+G(t) · (t − τP(t) − w)+. (5)
+Under the hard deadline, the AoC is defined as the random
+process
+chard(t) = t − τN(t). (6)
+The key distinction in Definition 3 lies in how computa-
+tion freshness is assessed under hard and soft deadlines:
+• Under the hard deadline, computation freshness in (6) is
+determined solely by the informative tasks, as tasks with
+delays exceeding the threshold w are deemed invalid.
+• Under the soft deadline, computation freshness in (5)
+accounts for both the informative tasks (i.e, t − τN(t))
+and an additional latency incurred if the task being
+processed experiences a significant instantaneous delay 
+i.e, 1{P(t)>G(t)}
+A(t)
+G(t)(t − τP(t) − w)+
+. In particular, the
+additional latency includes 3 components:
+– The indicator function 1{P(t)>G(t)} denotes whether
+a task is being processed at the computational node.
+– The ratio A(t)
+G(t) represents the frequency of task delays
+exceeding the deadline up to time t, effectively quan-
+tifying the level/frequency of conflict with respect to
+the deadline (up to time t).
+– The term (t − τP(t) − w)+ quantifies the amount by
+which the delay of the task currently being processed
+exceeds the threshold.
+– This additional latency, calculated by the computa-
+tional node, vanishes as soon as the current task is
+completed.
+The concept of information freshness, known as AoI
+[5], reflects the cumulative delay over a given time period.
+Building on this foundation, AoC extends the notion to com-
+putational tasks, representing the cumulative delay associated
+with their processing. AoC provides a more comprehensive
+understanding of the timeliness of computations in a system.
+While related, AoC and AoI are fundamentally distinct in
+their definitions and physical interpretations: AoC evaluates
+the freshness of the informative task (may includ an additional
+latency incurred by the task being processed), whereas AoI
+focuses on the freshness of the latest task.
+Since the AoC cx(t) with x ∈ { soft, hard} captures
+the computation freshness at time t, we often consider the
+time-average AoC over a period to measure the computation
+freshness of a network. As T → ∞ , we define the average
+AoC of a network as
+Θx ≜ lim
+T →∞
+1
+T
+Z T
+0
+cx(t)dt, x ∈ {soft, hard}. (7)
+Finally, we summarize the important notations and their
+descriptions in the paper in Table I.
+5
+k the index of computational tasks
+w the threshold
+τk the arrival time of task k at the source
+τ ′′
+k the time when the computation starts
+τ ′
+k the time when the computation completes
+N(t) the index of the informative task during [0, t]
+P (t) the index of the processing task during [0, t]
+G(t) the index of the latest task during [0, t]
+A(t) the number of tasks with delays > w during [0, t]
+csoft(t) the AoC under the soft deadline in time t
+chard(t) the AoC under the hard deadline in time t
+Θsoft the time-average AoC under the soft deadline
+Θhard the time-average AoC under the hard deadline
+µt the communication rate
+µc the computation rate
+Xk+1 the inter-arrival time between task k and task k + 1
+Tk the delay of task k
+M the number of invalid tasks between two valid tasks
+Sk,t the transmission delay of task k
+Sk,c the computation delay of task k
+ˆϵ(t) A(t)/G(t)
+ϵw Pr(Tk > w)
+TABLE I: Summary of Important Notations
+B. Insights and Applications
+From (4), (5) and (6), we observe that the only notation
+used is the timestamp, specifically the arrival timestamp τk
+and the departure timestamp τ ′
+k. To establish this concept, we
+intentionally avoid incorporating physical parameters such as
+bandwidth, GPU cycles, or caching. Instead, we focus solely
+on the use of timestamps. The reason for this choice is that the
+timestamp is the most fundamental and universally applicable
+metric that can be recorded by the sink (i.e., computational
+nodes) in realistic 3CNs.
+Fig. 3: A graphical illustration that conveys the intuition
+underlying Definition 3.
+Let mk denote the timestamp when task k reaches the
+receiver (see Fig. 3). The difference mk − τk represents the
+system time incurred during communication for task k, which
+is determined by the communication capability. This delay
+can be influenced by various network characteristics, such
+as bandwidth, information size, signal-to-noise ratio, channel
+capacity, network load, transmission protocols, and more. On
+the other hand, the difference τ ′
+k − mk represents the system
+time incurred during computation for task k, which depends on
+the computation capability. This delay is influenced by factors
+such as GPU cycles, task complexity, node load, memory
+size, access speed, I/O scheduling, and more. Finally, the total
+delay of task k, given by τ ′
+k − τk, consists of the system
+times incurred during both communication and computation
+phases. As such, it is influenced by both the communication
+and computation capabilities. The AoC concept effectively
+captures the impact of both these factors on task performance.
+The AoC concept is also applicable in dynamic and com-
+plex environments, such as mobile computing. In such settings,
+the communication network may experience interruptions or
+temporary failures due to factors like signal loss, interference,
+or mobility-related issues (e.g., moving out of network cover-
+age). Tasks may experience temporary delays in a queue due
+to these disruptions. Nevertheless, the AoC concept remains
+applicable. To calculate the AoC, we only need the timestamps
+of tasks (i.e., (τk, τ ′
+k)). As long as timestamps can be recorded,
+the AoC can be calculated, regardless of disruptions.
+III. A OC A NALYSIS UNDER THE SOFT DEADLINE
+In this section, we first provide graphical insights into
+the curve of the AoC (see Fig. 4). Next, we derive a general
+expression for the time-average AoC, presented in Theorem 1
+(Section III-A). Following this, we analyze the expression in
+a fundamental case: the M/M/1 - M/M/1 tandem system, as
+detailed in Theorem 2 (Section III-B). Finally, we extend the
+average AoC expression to more general cases, specifically
+G/G/1 - G/G/1 tandem systems, as discussed in Theorem 3
+(Section III-C).
+A. General Expression for Θsoft
+For analytical tractability, we consider a simplified model:
+(i) A task is represented by (L, w, B), where L denotes the
+task’s input data size, w represents the maximum acceptable
+deadline, and B indicates the computation workload [1]. (ii)
+The network is characterized by (R, F), where R is the data
+rate of the communication channel at the transmitter, and F is
+the CPU cycle frequency at the computational node. (iii) The
+expected transmission delay of a task is L/R, and the expected
+computation delay is B/F . (iv) Both delays each follow their
+respective distributions. We define µt = R/L and µc = F/B
+as the communication rate and computation rate, respectively.
+Let h(t) = t − τN(t) and ˆϵ(t) = A(t)
+G(t). From [5], the
+AoI concept shares the same formula as h(t). Using the AoI
+curve as a benchmark, the AoC curve is depicted in Fig. 4.
+In Fig. 4 (a), the delay of task k exceeds the threshold ( Tk >
+w), but any waiting time before task k is processed does not
+surpass the threshold. When the (instantaneous) delay of a task
+is less than the deadline w, the AoC curve coincides with the
+AoI curve. However, when the (instantaneous) delay of a task
+exceeds the deadline w, the portion of the delay exceeding the
+deadline increases at a rate 1 + ˆϵ(t). In Fig. 4 (b), both the
+delay of task k and the waiting time before task k is processed
+(τ ′
+k−1 −τk > w) exceed the threshold. When the processing of
+task k begins, an additional latency is introduced. As a result,
+at time τ ′
+k−1, there is an upward jump (additional latency)
+of
+ 
+1 + ˆϵ(t)
+
+(τ ′
+k−1 − τk − w). Subsequently, the AoC curve
+increases at a rate 1 + ˆϵ(t).
+To uncover theoretical insights into the average AoC,
+we investigate it within queue-theoretic systems. We assume
+6
+(a) The waiting time for task k in the computation queue does not
+exceed w.
+(b) The waiting time for task k in the computation queue exceeds w.
+Fig. 4: The curve AoC under the soft deadline
+a stationary queuing discipline with a first-come, first-serve
+approach. On the source side, computational tasks arrive
+according to a stationary stochastic process characterized
+by a constant average rate. The inter-arrival time between
+consecutive tasks is denoted by Xk+1 = τk+1 − τk. Upon
+arrival, each task experiences a transmission delay, denoted
+by Sk,t, at the transmitter, which follows a distribution with a
+constant expectation. Similarly, the computation delay denoted
+by Sk,c, at the computational node also follows a distribution
+with a constant expectation. Let the delay of task k be denoted
+by Tk. In queuing systems, this delay is referred to as the
+system time, and we use these terms interchangeably. Under
+the stationary queuing discipline, {Xk}k, {Sk,t}k, {Sk,c}k,
+and {Tk}k are i.i.d, respectively.
+Theorem 1. The average AoC can be calculated as
+Θsoft = E[XkTk] + 1
+2 E[X2
+k]
+E[Xk]
++ ϵw · E
+ 
+(Tk − w)+2
+− E
+ 
+(Tk − Sk,c − w)+2
+2E[Xk] , (8)
+where ϵw = Pr(Tk > w).
+Proof. The proof is given in Appendix A.
+B. Average AoC in M/M/1-M/M/1 Systems
+In this section, we let the inter-arrival time Xk follows
+an exponential distribution with parameter λ, meaning that
+computational tasks arrive at the source according to a Poisson
+process characterized by an average rate ofλ. Let Sk,t and Sk,c
+have exponential distributions with parameters µt (= R/L)
+and µc (= F/X ), respectively. In other words, the network
+forms an M/M/1-M/M/1 tandem.
+Theorem 2. Let ρt = λ/µt and ρc = λ/µc. Denote
+δt = 1 − ρt, δ c = 1 − ρc, ζ t = e−µtδtw, ζ c = e−µcδcw.
+The closed form expression for Θsoft is given by: if µt ̸= µc,
+then
+Θsoft = 1
+λ + 1
+µt
++ 1
+µc
++ ρ2
+t
+µtδt
++ ρ2
+c
+µcδc
++ ρtρc
+µt + µc − λ
++λ µc(δcµtδt)2
+(µc − µt)2
+  ζt
+µtδt
+− ζc
+µcδc
+  ζt
+µ2
+t δ2
+t
+− ζc
+µ2cδ2c
+
+; (9)
+if µt = µc, then
+Θsoft = 1
+λ + 2
+µt
++ 2ρ2
+t
+µtδt
++ ρ2
+t
+µt + µtδt
++λζ2
+t (1 + µtδtw)( 2
+µ2
+t δt
++ w
+µt
+). (10)
+Proof. The proof is given in Appendix B.
+C. Extension: Average AoC in G/G/1-G/G/1 Systems
+In this section, we let the inter-arrival time Xk follows
+a general distribution with E[Xk] = 1 /λ, meaning that
+computational tasks arrive at the source according to a general
+stochastic process characterized by an average rate of λ. Let
+Sk,t and Sk,c have general distributions with E[Sk,t] = 1/µt
+and E[Sk,c] = 1/µc, respectively. In other words, the network
+forms a G/G/1-G/G/1 tandem.
+To obtain the average AoC, it is necessary to know
+the stochastic information about the inter-arrival interval, the
+service delay at the transmission and computation nodes,
+and the system time of a task in both the transmission and
+computation queues. Let the system time of a task in the
+transmission and computation queues be denoted as Uk,t and
+Uk,c, respectively.
+Note that sequences {Xk}k, {Sk,t}k, {Sk,c}k, {Uk,t}k,
+and {Uk,c}k are i.i.d with respect to k, respectively. The
+correpsonding density functions are denoted by fX, fSt, fSc,
+fUt, and fUc, respectively. The joint density function of Uk,t
+and Uk,c is denoted as fUt,Uc. The following assumptions are
+then required.
+Assumption 1. The density functions fX, fSt, fSc, and fUt,Uc
+are known.
+Based on Assumption 1, the following steps can be taken:
+• By integrating fUt,Uc, we can obtain the marginal density
+functions fUt and fUc.
+7
+• Since Sk,t (respectively, Sk,c) is independent of Uk,t −
+Sk,t (respectively, Uk,c − Sk,c), and the marginal density
+functions fUt and fUc are available, we can derive the
+density functions of the waiting times in both queues,
+namely fUt−St and fUc−Sc, through inverse convolution.
+• Given that fUt−St, fUc−Sc, and fUt,Uc are known, we
+can again apply inverse convolution to derive the joint
+density functions fUt,Uc−Sc and fUc,Ut−St.
+Theorem 3. When Assumption 1 is satisfied, let µt and µc be
+in Theorem 2. The closed form expression for Θsoft is given
+by:
+Θsoft = 1
+µt
++ 1
+µc
++ λ
+ R ∞
+0 x2fX(x)dx
+2 + g1 + g2
+
++λ
+R ∞
+w η1(τ)dτ
+2
+Z ∞
+w
+(τ − w)2(η1(τ) − η2(τ))dτ
+
+,
+(11)
+where η1(τ) =
+R τ
+0 fUt,Uc(u, τ − u)du, η2(τ) =R τ
+0 fUt,Uc−Sc(u, τ − u)du,
+g1 =
+Z ∞
+0
+x
+Z ∞
+x
+(τ − x)fUt(τ)dτ fX(x)dx,
+g2 =
+Z ∞
+0
+x
+Z ∞
+0
+τ
+Z ∞
+0
+(ξ(x) · fSt(y) + fSt(y) ⊛ fUt(x − y)
+
+· fUc(τ + y)dydτ fX(x)dx,
+and ξ(x) =
+R ∞
+x fUt(u)du.
+Proof. The proof is given in Appendix C.
+Remark 1. Let Xk, Sk,t, and Sk,c be exponentially distributed
+with parameters λ, µt, and µc, respectively. The expression in
+(11) reduces to that in (9) and (10).
+Remark 2. Assumption 1 provides the minimum sufficient
+conditions for the closed form of the average AoC. However,
+it does not guarantee the convergence of Θsoft, which heavily
+depends on the distributions of Xk, Sk,t, Sk,c, Uk,t, and Uk,c.
+IV. A OC UNDER THE HARD DEADLINE
+In this section, we first provide graphical insights into
+the curve of the AoC (see Fig. 5). Next, we derive a general
+expression for the time-average AoC, presented in Theorem 4
+(Section IV-A). Following this, we accurately approximate the
+expression in a fundamental case: the M/M/1-M/M/1 system,
+as detailed in Theorem 5 (Section IV-B). In addition, we define
+computation throughput (see Definition 4 in Section IV-C)
+and derive its expression (see Lemma 1 in Section IV-C).
+Subsequently, we investigate the trade-off between computa-
+tion freshness and computation throughput (see Lemma 2 in
+Section IV-C). Finally, we generalize the accurate approxima-
+tions for both the average AoC and computation throughput to
+broader cases, specifically G/G/1-G/G/1 systems, as presented
+in Theorem 6 and Proposition 2 (Section IV-D).
+A. General Expression for Θhard
+From (6) in Definition 3, under the hard deadline, chard(t)
+is solely determined by informative tasks. When w = 0 , all
+tasks are considered invalid, leading to chard(t) = t, which
+increases linearly with time t. Conversely, when w = ∞, there
+is no deadline, and all tasks are considered valid. In this case,
+G(t) = N(t) for all t, so chard(t) = t − τG(t), which is only
+affected by the latest task.
+Fig. 5: The curve of AoC under the hard deadline.
+The AoC curve is depicted in Fig. 5, with the curve of
+AoI (see [5]) as a benchmark. In this figure, task k −1 is valid,
+so both AoI and AoC decreases at time τ ′
+k−1. Suppose that
+after task k − 1, the next valid task has the index k − 1 + M.
+Here, M is a random variable with the distribution
+Pr{M = n}
+= Pr{Tk > w, · · · , Tk−1+n−1 > w, T k−1+n ≤ w}. (12)
+In (12), M ≥ 1. Since the network is stationary, the random
+variable M associated with every valid task has the identical
+distribution as in (12). The AoC does not decrease at times
+τ ′
+k, τ ′
+k+1, · · ·, τ ′
+k−1+M −1, and decreases at time τ ′
+k−1+M . In
+the interval [τ ′
+k−1, τ ′
+k−1+M), the AoC increases linearly with
+time t.
+Theorem 4. The average AoC can be calculated as
+Θhard =
+E[TM ·PM
+j=1 Xj] + 1
+2 E[
+ PM
+j=1 Xj
+2
+]
+E[PM
+j=1 Xj]
+. (13)
+Proof. The proof is given in Appendix D.
+Although the general expression for the average AoC
+is given by (13), a further exploration on this expression is
+challenging due to a couple of correlations involved. These
+correlations are detailed as follows.
+(i) Correlation between delays: In the queuing system, if the
+delay of task k, Tk, increases, the waiting time for task
+k+1 also increases, leading to a larger delay for taskk+1,
+Tk+1. Hence, the sequence {Tk}k consists of identically
+distributed but positively correlated delays.
+(ii) Correlation between delays and M
+ 
+defined in (12)
+
+:
+According to (12), M is the first index n such that
+8
+Tn ≤ w while all previous Tk > w. A higher value of Tk
+suggests a higher likelihood of subsequent Tj values (for
+j > k ) also being high, thus making M larger because it
+takes longer for a Tk to be less than or equal to w. This
+indicates that Tk are M are positively correlated.
+(iii) Correlation between the inter-arrival times Xk and delays
+Tk: If Xk is larger, meaning that the inter-arrival time
+between task k − 1 and task k is longer, then Tk is likely
+smaller because the waiting time for task k is reduced.
+Therefore, Tk and Xk are negatively correlated.
+(iv) Correlation between the inter-arrival times Xk and M:
+Since Xk are Tk are negatively correlated, and Tk and
+M are positively correlated, Xk and M are negatively
+correlated.
+B. Average AoC in M/M/1-M/M/1 Systems
+Due to all these correlations, it is extremely challenging to
+derive the closed-form expression for Θhard in (13). However,
+we can approximate it accurately under specific conditions.
+Theorem 5. When µt ≫ λ and µc ≫ λ, the average AoC
+defined in (13) can be accurately approximated by ˆΘhard,
+ˆΘhard = E[TM] + E[X2
+1]
+2E[X1] +
+  E[M2]
+2E[M] − 1
+2
+
+E[X1]. (14)
+Let ρt, ρc, δt, δc, ζt, and ζc be given in Theorem 2, if µt ̸= µc,
+ˆΘhard =
+1−ζt(1+µtδtw)
+µ2
+t δ2
+t
+− 1−ζc(1+µcδcw)
+µ2cδ2c
+(1 − ζt)/µtδt − (1 − ζc)/µcδc
++ µc − µt
+λ
+ 
+µcδc(1 − ζt) − µtδt(1 − ζc)
+; (15)
+if µt = µc,
+ˆΘhard =
+2
+µtδt
+− ( 2
+µtδt
++ 2w + µtδtw2)ζt
+1 − ζt(1 + µtδtw)
++ 1
+λ
+ 
+1 − ζt(1 + µtδtw)
+ . (16)
+Proof. The proof is given in Appendix E.
+Remark 3. (Lower Bound) ˆΘhard in (14) captures an extreme
+case where the positive correlations among {Tk}k are re-
+moved. Therefore, ˆΘhard in (14) serves as a lower bound for
+Θhard. This lower bound is approximately tight when µt ≫ λ
+and µc ≫ λ.
+By exchanging µt and µc in (15) and (16), we observe
+that Θsoft remains unchanged. This indicates that Θsoft is
+symmetric with respect to (µt, µc). From a mathematical
+standpoint, this symmetry implies that both communication
+latency and computation latency equally affect Θsoft. There-
+fore, in practical terms, to improve the computation freshness
+Θsoft, one can reduce either the communication latency or the
+computation latency, as both have the same impact on the
+overall freshness.
+C. Computation Throughput
+Under the hard deadline, the frequency of informative
+tasks is influenced by two facts: the arrival rate λ and the
+deadline w. We define the frequency of informative tasks
+as computation throughput. Formally, we have the following
+definition.
+Definition 4. (Computation Throughput) Let K(t) denote the
+number of informative tasks within the interval [0, t]. The
+computation throughput is then defined as
+Ξ = lim
+t→∞
+K(t)
+t . (17)
+Lemma 1. The computation throughput is given by,
+Ξ = 1
+E[PM
+k=1 Xk]
+. (18)
+Proof. The proof is given in Appendix F.
+In (18), the arrival rate λ is reflected in Xk, while
+the deadline w is captured by M. It is worth noting that
+Definition 4 can apply to the case with a soft deadline.
+Under the soft deadline, all tasks are valid, so (17) implies
+that Ξ = lim t→∞
+K(t)
+t = lim t→∞
+G(t)
+t = λ, which is a
+trivial case. Therefore, we did not investigate the computation
+throughput concept in Section III.
+Proposition 1. When µt ≫ λ and µc ≫ λ, the computation
+throughput defined in (18) can be accurately approximated by
+ˆΞ,
+ˆΞ = 1
+E[M]E[X1] . (19)
+Let ρt, ρc, δt, δc, ζt, and ζc be given in Theorem 2, if µt ̸= µc,
+ˆΞ = λ · µcδc(1 − ζt) − µtδt(1 − ζc)
+µc − µt
+, (20)
+if µt = µc,
+ˆΞ =λ(1 − (1 + µtδtw)ζt). (21)
+Proof. The proof is given in Appendix G.
+Remark 4. (Upper Bound) According to (12), a higher value
+of Tk suggests a higher likelihood of subsequent Tj values (for
+j > k ) also being high, thus making M larger. However, ˆΞ
+in (19) captures an extreme case where positive correlations
+among {Tk}k are removed, resulting in a smaller expectation
+for M. Consequently, ˆΞ in (19) serves an upper bound for
+ˆΞ. Additionally, this upper bound is approximately tight when
+µt ≫ λ and µc ≫ λ.
+A Pareto-optimal point represents a state of resources
+allocation where improving one objective necessitates com-
+promising the other. A pair ( ˆΘ∗, ˆΞ∗) is defined as a Pareto-
+optimal point if, for any ( ˆΘ, ˆΞ), both conditions (i) ˆΘ < ˆΘ∗
+(or ˆΘ ≤ ˆΘ∗) and (ii) ˆΞ ≥ ˆΞ∗ (or ˆΞ > ˆΞ∗) cannot hold
+simulatenously [31]. This indicates that reducing computa-
+tion freshness is impossible without degrading computation
+throughput, and increasing computation throughput cannot
+occur without compromising computation freshness.
+9
+While closed-form expressions for computation freshness 
+see (13)
+
+and computation throughput
+ 
+see (18)
+
+are unavail-
+able, their relationship can be approximated using (14) and
+(19), the analysis focuses on weakly Pareto-optimal points
+rather than strict Pareto-optimal points [32]. Consider the
+following optimization problem:
+min
+λ: ˆΞ>u
+ˆΘ. (22)
+Let the corresponding ˆΘ and ˆΞ as ˆΘ(u) and ˆΞ(u), respec-
+tively. The tradeoff between computation freshness and the
+computation throughput is explored in the following lemma.
+Lemma 2. The objective pair
+  ˆΘ(u), ˆΞ(u)
+
+is a weakly
+Pareto-optimal point.
+Proof. The proof is given in Appendix H.
+D. Extension: Average AoC in G/G/1-G/G/1 Systems
+In this section, we extend the average AoC in M/M/1-
+M/M/1 tandems (see Section IV-B) to general case, i.e., G/G/1
+- G/G/1 tandems: Computational tasks arrive at the source via
+a random process characterized by an average rate of λ. Upon
+arrival, the transmission delay of each task follows a general
+distribution with an average rate of µt, and the computation
+delay at the computational node follows a general distribution
+with an average rate of µc.
+Theorem 6. When Assumption 1 is satisfied, let µt and µc
+be in Theorem 2. When µt ≫ λ and µc ≫ λ, the average
+AoC defined in (13) can be accurately approximated by (14).
+In particular,
+ˆΘhard =
+R w
+0 τ η1(τ)dτ
+FT (w) +
+R ∞
+0 x2fX(x)dx
+2
+R ∞
+0 xfX(x)dx
++1 − FT (w)
+FT (w) ·
+Z ∞
+0
+xfX(x)dx. (23)
+where FT (w) =
+R w
+0 η1(τ)dτ and η1(τ) is defined in Theo-
+rem 3.
+Proof. The proof is given in Appendix I.
+Proposition 2. When Assuption 1 is satisfied, let µt and µc
+be in Theorem 2. When µt ≫ λ and µc ≫ λ, the computation
+throughput defined in (18) can be accurately approximated by
+(19). In particular,
+ˆΞ = FT (w)R ∞
+0 xfX(x)dx , (24)
+where FT (w) is given in Theorem 3.
+Proof. The proof is given in Appendix J.
+V. A OC- BASED SCHEDULING FOR MULTI-SOURCE
+NETWORKS
+The AoC concept is not only utilized in continuous-
+time settings, but also suitable for discrete-time setting. In
+this section, we explore the application of the AoC concept
+to resource optimization and real-time scheduling in multi-
+source networks, providing an analysis of the resulting optimal
+scheduling policies.
+A. System Model in Multi-Source Networks
+Consider a network with a computational node processing
+tasks from N sources, as illustrated in Fig. 6. Time is slotted,
+indexed by k ∈ { 1, 2, · · · , T }, where T is the time-horizon
+of this discrete-time system. In every time slot, computational
+tasks arrive source i with rate λi. Upon arrival, tasks are im-
+mediately available at the corresponding transmitter i, where
+they enter a communication queue awaiting transmission.
+Transmitter i transmits tasks at a rate µt,i: if a task is under
+transmission during a slot, the transmission completes with
+probability µt,i by the end of the slot. Once transmitted, the
+tasks are received by the receiver, where they await processing.
+The computational node processes tasks at a rate µc. Without
+loss of generality, we assume µc = 1 , the framework can
+be straightforwardly extended to cases where µc < 1. After
+processing, tasks depart from the system. In most realistic
+scenarios, recent computational tasks hold greater importance
+than earlier ones, as they often contain fresher and more
+relevant information. To address this, we adopt a preemptive
+rule [6], [8]: newly arrived tasks can replace previously queued
+tasks already present in the transmitter.
+Fig. 6: A 3CN with multi sources/transmitters, a receiver, and
+a computational node.
+At each slot, the computational node either idles or selects
+a transmitter to transmits its task. Let ai(k) ∈ { 0, 1} be
+an indicator function where ai(k) = 1 if transmitter i is
+selected for transmission in time k, and ai(k) = 0 otherwise.
+Similarly, let di(k) = 1 indicate that a task from transmitter i
+successfully leaves the computational node at slot k. Due to
+limited communication resources, at most one task can be
+transmitted across all transmitters in a given slot. Therefore,
+the following constraints hold:
+NX
+i=1
+ai(k) ≤ 1,
+NX
+i=1
+di(k) ≤ 1, ∀k. (25)
+Additionally, if a task successfully leaves the computational
+node,
+ PN
+i=1 di(k) = 1
+
+, indicating that the last scheduling
+decision has been responded to, the computational node will
+schedule a transmitter in the next time slot
+ PN
+i=1 ai(k+1) =
+1
+
+. Here, since µc = 1,PN
+i=1 di(k) = 1 further implies that
+the current task reaches the receiver at the beginning of time
+slot k. Conversely, if the last scheduling decision has not been
+responded to in the current slot,
+ 
+i.e., PN
+i=1 di(k) = 0
+
+, the
+10
+computational node will not schedule a transmitter in the next
+slot
+ PN
+i=1 ai(k + 1) = 0
+
+. This relationship is formalized as:PN
+i=1 ai(k + 1) =PN
+i=1 di(k).
+Let c(i)
+x (k) with x ∈ {soft, hard} be the AoC associated
+with source i at the end of slot k. The time-average AoC
+associated with source i is given by E[PT
+k=1 c(i)
+x (k)]/T .
+For capturing the freshness of computation of this network
+employing scheduling policy π ∈ Π, we define the average
+sum AoC in the limit as the time-horizon grows to infinity as
+Θx = lim
+T →∞
+1
+T N
+TX
+k=1
+NX
+i=1
+E[c(i)
+x (k)], x ∈ {soft, hard}. (26)
+The AoC-optimal the scheduling policy π∗ ∈ Π is the one that
+minimizes the average sum AoC:
+Θ∗
+x = min
+π∈Π
+Θx. (27)
+At the end of this subsection, we introduce the concept
+of instantaneous delay for transmitter i at the end of time
+slot k, denoted by zi(k). If a task is in transmitter i at time
+slot k, zi(k) is defined as the delay experienced by that task
+up to time k. If transmitter i is idle at time slot k, we define
+zi(k) = c(i)
+x (k). Since the computational node is the decision-
+making component of the centralized network, it is reasonable
+to assume that it has access to the information from each
+transmitter in every time slot, i.e., zi(k).
+B. AoC-based Max-Weight Policies
+Finding the global optimal policy for the optimization
+problem (27) is challenging due to the real-time nature of
+scheduling decisions. Drawing inspiration from [33], we em-
+ploy Lyapunov Optimization to develop AoC-based Max-
+Weight policy. This policy have been shown to be near-optimal
+[33], [34]. The Max-Weight policy is designed to minimize
+the expected drift of the Lyapunov function in each time slot,
+thereby striving to reduce the AoC across the network.
+We use the following linear Lyapunov Function:
+L(k) ≜ 1
+N
+NX
+i=1
+βic(i)
+x (t), x ∈ {soft, hard}. (28)
+where βi is a positive hyperparameter that allows the Max-
+Weight policy to be tuned for different network configurations
+and queuing disciplines. The Lyapunov Drift is defined as
+∆
+ 
+S(k)
+
+:= E[L(k + 1) − L(k)|S(k)], (29)
+where S(k) represents the network state at the beginning
+of time slots k and k − 12, which is defined by: for x ∈
+{soft, hard},
+S(k) =
+n
+c(i)
+x (τ), zi(τ), {di(τ)}
+	k
+τ=k−1
+oN
+i=1
+.
+The Lyapunov Function L(k) increases with the AoC of
+the network, while the Lyapunov Drift ∆
+ 
+S(k)
+
+represents the
+2Here, we define S(k) to represent the network state over both the
+beginning of time slots k and k − 1, rather than only at beginning of time
+slot k as in [33]. This adjustment is made because when a transmitter is
+scheduled, the corresponding task requires at least 2 time slots to complete
+the computation.
+expected change in L(k) over two time slots. By minimizing
+the drift (29) in each time slot, the Max-Weight policy aims
+to maintain both L(k) and the network’s AoC at low levels.
+1) Under the Soft Deadline: To simplify (28), we derive
+the AoC in time slot k+1 under the soft deadline assumption.
+Recall that µc = 1, meaning computational tasks are processed
+immediately upon arrival at the computational node without
+queuing. Let ℓi
+ 
+zi(k)
+
+= Ai(k)
+Gi(k)(zi(k)+1 −w)+, where Gi(k)
+is defined in (3) and Ai(k) is defined in (4). We can derive
+the expression for c(i)
+soft(k + 1) as follows (the proof is given
+by Appendix K):
+c(i)
+soft(k + 1) = 1{PN
+i=1 di(k−1)=0}
+ 
+c(i)
+soft(k) + 1
+
++ 1{PN
+i=1 di(k−1)=1,ai(k)=0}
+ 
+c(i)
+soft(k) + 1
+
++ 1{PN
+i=1 di(k−1)=1,ai(k)=1,di(k+1)=0}
+ 
+c(i)
+soft(k) + 1
+
++ 1{PN
+i=1 di(k−1)=1,ai(k)=1,di(k+1)=1}
+·
+
+zi(k) + 1 +ℓi
+ 
+zi(k)
+
+(30)
+From (28), (29), and (30), we propose the Max-Weight al-
+gorithm, i.e., Algorithm 1, and prove that it minimizes the
+Lyapunov Drift in Proposition 3.
+Algorithm 1 Max-Weight Policy for Soft Deadline
+Require: T , {βi}N
+i=1, {µt,i}N
+i=1, {c(i)
+soft(0)}N
+i=1,
+1: for 1 ≤ k ≤ T do
+2: ifPN
+i=1 di(k − 1) = 0 then
+3: ai(k) = 0 for i ∈ {1, 2, · · · , N}.
+4: else if PN
+i=1 di(k − 1) = 1 then
+5: Calculate wi(k) ≜ c(i)
+soft(k) − zi(k) − ℓi
+ 
+zi(k)
+
+.
+6: Set ai∗(k) = 1 if i∗ = arg maxi
+ 
+βiµt,iwi(k)
+
+.
+7: If multiple i∗ exist, select one randomly.
+8: end if
+9: end for
+10: Output Θsoft.
+Proposition 3. Algorithm 1 minimizes the Lyapunov Drift in
+every time slot.
+Proof. The proof is given in Appendix L.
+2) Under the Hard Deadline: To obtain the Max-Weight
+policies, we utilize the recursion of c(i)
+hard(k) to minimize the
+Lyapunov Drift defined in (29).
+By similar process in Appendix K, we can derive recur-
+sion for c(i)
+hard(k + 1) is given as follows:
+c(i)
+hard(k + 1) = 1{PN
+i=1 di(k−1)=0}
+ 
+c(i)
+hard(k) + 1
+
++ 1{PN
+i=1 di(k−1)=1,ai(k)=0}
+ 
+c(i)
+hard(k) + 1
+
++ 1{PN
+i=1 di(k−1)=1,ai(k)=1,di(k+1)=0}
+ 
+c(i)
+hard(k) + 1
+
++ 1{PN
+i=1 di(k−1)=1,ai(k)=1,di(k+1)=1}
+·
+
+1{zi(k)+1>w}
+ 
+c(i)
+hard(k) + 1
+
++ 1{zi(k)+1≤w}
+ 
+zi(k) + 1
+
+.
+(31)
+11
+Algorithm 2 Max-Weight Policy for Hard Deadline
+Require: T , {βi}N
+i=1, {µt,i}N
+i=1, {chard
+i (0)}N
+i=1,
+1: for 1 ≤ k ≤ T do
+2: ifPN
+i=1 di(k − 1) = 0 then
+3: ai(k) = 0 for i ∈ {1, 2, · · · , N}.
+4: else if PN
+i=1 di(k − 1) = 1 then
+5: Calculate wi(k) ≜ 1{zi(k)+1≤w}·
+ 
+c(i)
+hard(k)−zi(k)
+
+.
+6: Set ai∗(k) = 1 if i∗ = arg maxi
+ 
+βiµt,iwi(k)
+
+.
+7: If multiple i∗ exist, select one randomly.
+8: end if
+9: end for
+10: Output Θhard.
+From (28), (29), and (31), we propose the Max-Weight al-
+gorithm, i.e., Algorithm 2, and prove that it minimizes the
+Lyapunov Drift in Proposition 4.
+Proposition 4. Algorithm 2 minimizes the Lyapunov Drift in
+every time slot.
+Proof. The proof is similar to Appendix L.
+VI. N UMERICAL RESULTS
+In this section, we verify our findings in Section III,
+Section IV, and Section V through simulations.
+A. Simulations for AoC under the Soft Deadline
+In Fig. 7, we compare theoretical and simulated average
+AoC under the soft deadline. The parameters are set as
+w = 0.5, µc = 3, µt ∈ { 2, 3}, and λ ∈ (0, 1.8]. The results
+show that the theoretical average AoC values derived in (9) and
+(10) closely match the simulation outcomes. This alignment
+implies that the theoretical expressions in Theorem 2 are
+accurate for both cases where µt ̸= µc and µt = µc.
+Additionally, in both scenarios, the average AoC initially
+decreases and then increases. When µt = 2 < 3 = µc, the
+computation capability exceeds the communication capability.
+If λ → 0, the communication queue is almost empty, meaning
+that the communication resources (and thus the computation
+resources) are underutilized, resulting in a high average AoC.
+Conversely, if λ → µt, the communication queue is busy,
+meaning that the communication capability is utilized almost
+to its total capacity, resulting in many tasks waiting in the
+communication queue to be transmitted, which also leads to a
+high average AoC. Since µt and µc are symmetric in (9) and
+(10), this conclusion is valid for the case when µt ≥ µc. Using
+numerical methods (e.g., gradient methods in as described in
+[35]), we can find the optimal λ in (9) and (10).
+B. Simulations for AoC under the Hard Deadline
+In Fig. 8, we investigate the average AoC under the hard
+deadline scenario. The comparisons between the approximated
+and simulated average AoC are presented in Fig. 8(a). We
+observe that when µt ≫ λ and µc ≫ λ, the approximations of
+the average AoC in (15) and (16) closely match the simulation
+results. This agreement verifies the theoretical expressions
+Fig. 7: Average AoC v.s. λ under the soft deadline
+(a) Approximated and simulated AoC under different cases.
+(b) Approximated and simulated computation throughput when
+µt = 2, µc = 3.
+Fig. 8: Numerical results for the average AoC under the hard
+deadline
+12
+in Theorem 5. Furthermore, the curves of the approximated
+average AoC are below those of the simulated average AoC,
+implying that the approximations in (15) and (16) serve as
+lower bounds for the average AoC, confirming the validity
+of Remark 3. Additionally, in both scenarios, the average
+AoC initially decreases and then increases, similar to the
+trend observed under the soft deadline. This suggests that
+the computation freshness exhibits a convex relationship with
+respect to λ, indicating the existence of an optimal λ that
+minimizes the average AoC.
+We analyze the computation throughput as defined in
+(18) in Fig. 8(b). The approximated computation throughput in
+(19) closely matches the simulated results, indicating the accu-
+racy of the approximation. Although the positive correlations
+among {Tk}k are removed in (19), making it a lower bound,
+the reduction in the expectation of M is small. Consequently,
+the reduction in E[PM
+j=1 Xj] is negligible. Therefore, (19)
+serves as a tight lower bound for the computation throughput,
+not only when µt ≫ λ and µc ≫ λ, but also across the entire
+range of λ.
+(a) Relationship between the average AoC and computation
+throughput.
+(b) Relationship between the optimal average AoC and compu-
+tation throughput.
+Fig. 9: Relationships between computation freshness and com-
+putation throughput under the hard deadline.
+The relationship between the computation freshness and
+the computation throughput is examined in Fig. 9. In Fig. 9(a),
+we plot ˆΘ from (14) versus ˆΞ from (19) when λ ∈ (0, 1.8)
+and (µt, µc) = (2, 3), (3, 2), (2, 5). These curves are observed
+to be decreasing, indicating that both ˆΘ and ˆΞ achieve
+their optimal values simultaneously. Fig. 9(a) shows that the
+approximated AoC decreases with the approximated compu-
+tation throughput consistently. This suggests that computation
+throughput serves as a reliable proxy for the average AoC.
+Practically, we can minimize the average AoC by maximizing
+the computation throughput.
+Additionally, the comparison of ˆΘ versus ˆΞ for (µt, µc) =
+(2, 3) (green solid line) aligns with that for (µt, µc) = (3, 2)
+(blue scatter line). This demonstrates that interchanging the
+communication and computation rates does not alter the rela-
+tionship, highlighting the symmetry with respect to (µt, µc)
+as discussed below Theorem 5. Comparing ˆΘ v.s ˆΞ when
+(µt, µc) = (2 , 3) (the green solid line) with ˆΘ v.s ˆΞ when
+(µt, µc) = (2 , 5) (the red dashed line), we observe that, for
+any fixed λ, the approximated computation throughput under
+(µt, µc) = (2 , 5) is larger than that under (µt, µc) = (2 , 3).
+Similarly, the approximated average AoC under (µt, µc) =
+(2, 5) is smaller than that under (µt, µc) = (2 , 3). This is
+as expected because larger communication or computation
+capabilities lead to better computation freshness and higher
+throughput. Both the optimal approximated average AoC and
+approximated computation throughput for (µt, µc) = (2 , 5)
+outperform those for (µt, µc) = (2, 3) due to the consistency
+between AoC and computation throughput.
+Finally, we solve the optimization (22) when u = 0 ,
+and plot the optimal ˆΘ v.s the corresponding ˆΞ in Fig. 9(b).
+We set µt = 2 , λ ∈ (0, 2), allowing µc to vary from 3 to
+6. As expected, as the computation rate µc (representing the
+computation power of the network) increases, the optimal (ap-
+proximated) average AoC decreases while the corresponding
+(approximated) computation throughput increases.
+C. AoC-based Scheduling in Multi-Source Networks
+In this subsection, we numerically validate the time-
+discrete and real-time Max-Weight scheduling policies pro-
+posed in Section V. To provide performance benchmarks, we
+consider two alternative policies: the Maximum Age First
+(MAF) policy [33] and the stationary randomized policy [36].
+Under the MAF policy, the receiver schedules the transmitter
+with the maximum age whenever a transmission opportunity
+arises. In contrast, under the stationary randomized policy,
+transmitter i is selected with a fixed probability qi, and the
+receiver remains idle with probability q0. We consider a
+symmetric network where λi = λ for all i. The simulation
+parameters are set as follows: number of sources N = 5 ,
+computation service rate µc = 1 , transmission service rate
+µt,i = 0.5 with i ∈ {1, 2, · · · , N}, deadline w ∈ {4, 10}, and
+arrival rate λ ∈ [0.1, 0.9]. Given the symmetry, we set qi = 1
+N
+and βi = 1 for all i.
+As shown in Fig. 10, the average AoC decreases con-
+sistently as λ increases. This behavior contrasts with that
+observed in Fig. 7 and Fig. 8(a), where the average AoC
+initially decreases and then increases with increasing λ. This
+contrasting behavior stems from the difference in queuing
+disciplines: while Fig. 7 and Fig. 8(a) adopt a first-come,
+13
+(a) w = 4.
+(b) w = 10.
+Fig. 10: Max-Weight policies and stationary randomized poli-
+cies in multi-source networks.
+first-served (FCFS) rule, Fig. 10 incorporates a preemptive
+queuing rule. Under the preemptive rule, newly arrived tasks
+can replace previously queued tasks at the transmitter, thereby
+enhancing the freshness and reducing the AoC.
+From Fig. 10(a) and Fig. 10(b), we observe that the
+Max-Weight policy consistently outperforms both benchmark
+policies. Under the soft deadline setting, the performance gap
+between the Max-Weight and the MAF policies narrows as w
+becomes larger, i.e., the difference between the dashed yellow
+and dashed blue curves in Fig. 10(a) is larger than that in
+Fig. 10(b). This trend can be explained as follows: When
+w is large, the extended deadline allows more tasks to be
+considered valid even if they incur moderate delays. Then, the
+additional latency 1{P(t)>G(t)}· A(t)
+G(t) ·(t−τP(t)−w)+ 
+see (5)
+
+tends to become small. Consequently, the maximum weight in
+each time slot (as defined by the Max-Weight policy) is close
+to the maximum age used in the MAF policy. This alignment
+leads to similar scheduling decisions, thereby reducing the
+performance difference between the two policies.
+Finally, comparing Fig. 10(a) and Fig. 10(b), we find
+that when w is small (e.g., w = 4), the average AoC under
+the hard deadline is significantly higher than under the soft
+deadline. This is due to the stricter validity criteria of the hard
+deadline, which results in fewer tasks being considered valid,
+thus increasing the AoC a lot. However, when w is large, most
+tasks meet the deadline requirement regardless of whether the
+hard or soft criterion is used, reducing the performance gap.
+As a result, the average AoC under hard and soft deadlines
+become increasingly similar as w grows.
+VII. C ONCLUSION AND FUTURE DIRECTIONS
+In this paper, we introduce a novel metric AoC to quan-
+tify computation freshness in 3CNs. The AoC metric relies
+solely on tasks’ arrival and completion timestamps, ensuring
+its applicability to dynamic and complex real-world 3CNs.
+We investigate AoC in two distinct setting. In point-to-point
+networks: tasks are processed sequentially with a first-come,
+first-served discipline. We derive closed-form expressions for
+the time-average AoC under both a simplified case involving
+M/M/1-M/M/1 systems and a general case with G/G/1-G/G/1
+systems. Additionally, we define the concept of computation
+throughput and derive its corresponding expressions. We fur-
+ther apply the AoC metric to resource optimization and real-
+time scheduling in time-discrete multi-source networks. In the
+multi-source networks: we propose AoC-based Max-Weight
+policies, leveraging a Lyapunov function to minimize its drift.
+Simulation results are provided to compare the proposed
+policies against benchmark approaches, demonstrating their
+effectiveness.
+There are two primary future research directions: (1)
+Deriving and analyzing time-average AoC in practical sce-
+narios involving complex graph structures, such as sequential
+dependency graphs, parallel dependency graphs, and general
+dependency graphs [1]. (2) Exploring optimal AoC-based
+resource management policies in dynamic and complex 3CNs,
+such as task offloading in mobile edge networks.
+REFERENCES
+[1] Y . Mao, C. You, J. Zhang, and et. al, “A Survey on Mobile Edge
+Computing: The Communication Perspective,” IEEE Communications
+Surveys and Tutorials, vol. 19, no. 4, pp. 2322–2358, 2017.
+[2] W. Shi, J. Cao, Q. Zhang, and et. al, “Edge Computing: Vision and
+Challenges,” IEEE Internet of Things Journal , vol. 3, no. 5, pp. 637–
+646, 2016.
+[3] Fog computing and its role in the internet of things . New York, NY ,
+USA: Association for Computing Machinery, 2012.
+[4] X. Tang, C. Cao, and Y . Wang, “Computing power network: The
+architecture of convergence of computing and networking towards 6G
+requirement,” China Communications, vol. 18, no. 2, pp. 175–185, 2021.
+[5] A. Kosta, N. Pappas and V . Angelakis, “Age of Information: A New
+Concept, Metric, and Tool,” Foundations and Trends in Networking ,
+vol. 12, no. 3, pp. 162 – 259, 2017.
+[6] X. Chen, K. Gatsis, H. Hassani and S. Saeedi-Bidokhti, “Age of Infor-
+mation in Random Access Channels,”IEEE Transactions on Information
+Theory, vol. 68, no. 10, pp. 6548 – 6568, 2022.
+[7] L. Huang and E. Modiano, “Optimizing age-of-information in a multi-
+class queueing system,” in IEEE International Symposium on Informa-
+tion Theory, 2015.
+[8] X. Chen, X. Liao, and S. Saeedi-Bidokhti, “Real-time Sampling and Es-
+timation on Random Access Channels: Age of Information and Beyond,”
+in IEEE International Conference on Computer Communications , 2021.
+[9] Y . Zheng, J. Hu, and K. Yang, “Average Age of Information in Wireless
+Powered Relay Aided Communication Network,” IEEE Internet of
+Things Journal, vol. 9, no. 13, pp. 11 311 – 11 323, 2022.
+[10] X. Chen, R. Liu, S. Wang, and S. Saeedi-Bidokhti, “Timely Broadcast-
+ing in Erasure Networks: Age-Rate Tradeoffs,” in IEEE International
+Symposium on Information Theory , 2021.
+14
+[11] X. Chen and S. Saeedi Bidokhti, “Benefits of Coding on Age of Infor-
+mation in Broadcast Networks,” in IEEE Information Theory Workshop,
+2019.
+[12] Q. Kuang, J. Gong, X. Chen, et. al, “Age-of-information for
+computation-intensive messages in mobile edge computing,” in The
+11th International Conference on Wireless Communications and Signal
+Processing, 2019.
+[13] C. Xu, H. H. Yang, X. Wang, et. al, “Optimizing information freshness
+in computing-enabled IoT networks,” IEEE Internet of Things Journal ,
+vol. 2, no. 971 - 985, 2020.
+[14] F. Chiariotti, O. Vikhrova, B. Soret, et. al, “Peak age of information
+distribution for edge computing with wireless links,” IEEE Transactions
+on Communications, vol. 69, no. 5, pp. 3176 – 3191, 2021.
+[15] C. Kam and S. Kompella, “On the age of information for non-preemptive
+queues in tandem,” Frontiers in Communications and Networks , vol. 3,
+no. 932111, pp. 1 – 14, 2022.
+[16] J. Doncel and M. Assaad, “Age of Information of Jackson Networks
+With Finite Buffer Size,” IEEE Wireless Communications Letters ,
+vol. 10, no. 4, pp. 902 – 906, 2021.
+[17] P. Zou, O. Ozel, and S. Subramaniam, “Optimizing information fresh-
+ness through computation–transmission tradeoff and queue management
+in edge computing,” IEEE/ACM Transactions on Networking , vol. 29,
+no. 2, pp. 949 – 963, 2021.
+[18] X. Qin, Y . Li, X. Song, et. al, “Timeliness of information for
+computation-intensive status updates in task-oriented communications,”
+IEEE Journal on Selected Areas in Communications , vol. 41, no. 3, pp.
+623 – 638, 2023.
+[19] Z. Chen, D. Deng, C. She, and et. al, “Age of Information: The
+Multi-Stream M/G/1/1 Non-Preemptive System,” IEEE Transactions on
+Communications, vol. 70, no. 4, pp. 2328 – 2340, 2022.
+[20] Z. Tang, Z. Sun, N. Yang, et. al, “Age of information analysis of multi-
+user mobile edge computing systems,” in IEEE Global Communications
+Conference, 2021.
+[21] L. Liu, J. Qiang, Y . Wang, et. al, “Age of information analysis of
+NOMA-MEC offloading with dynamic task arrivals,” in IEEE the
+14th International Conference on Wireless Communications and Signal
+Processing, 2022.
+[22] Y . Gu, Q. Wang, H. Chen, and et. al, “Optimizing Information Freshness
+in Two-Hop Status Update Systems Under a Resource Constraint,” IEEE
+Journal on Selected Areas in Communications , vol. 39, no. 5, pp. 1380
+– 1392, 2021.
+[23] X. Chen, K. Li, and K. Yang, “Timely Requesting for Time-Critical
+Content Users in Decentralized F-RANs,” arXiv: 2407.02930, Jul 2024.
+[24] J. He, D. Zhang, S. Liu, et. al, “Decentralized updates scheduling for data
+freshness in mobile edge computing,” in IEEE International Symposium
+on Information Theory , 2022.
+[25] K. Peng, P. Xiao, S. Wang, et. al, “AoI-aware partial computation
+offloading in IIoT with edge computing: a deep reinforcement learning
+based approach,”IEEE Transactions on Cloud Computing, vol. 11, no. 4,
+pp. 3766 – 3777, 2023.
+[26] Z. Chen , D. Deng , H. H. Yang , and et. al, “Analysis of Age of
+Information in Dual Updating Systems,” IEEE Transactions on Wireless
+Communications, vol. 22, no. 11, pp. 8003 – 8018, 2023.
+[27] J. Zhong, R. D. Yates, and E. Soljanin, “Two freshness metrics for local
+cache refresh,” inIEEE International Symposium on Information Theory,
+2018.
+[28] C. Kam, S. Kompella, G. D. Nguyen, et. al, “Towards an effective
+age of information: Remote estimation of a Markov source,” in IEEE
+Conference on Computer Communications Workshops , 2018.
+[29] A. Maatouk, S. Kriouile, M. Assaad, et. al, “The Age of Incorrect In-
+formation: A New Performance Metric for Status Updates,” IEEE/ACM
+Transactions on Networking , vol. 28, no. 5, pp. 2215 – 2228, 2020.
+[30] X. Zheng S. Zhou, and Z. Niu, “Beyond Age: Urgency of Information
+for Timeliness Guarantee in Status Update Systems,” in 2020 2nd 6G
+Wireless Summit, 2020.
+[31] J. Lou, X. Yuan, S. Kompella, et.al, “AoI and throughput tradeoffs in
+routing-aware multi-hop wireless networks,” in IEEE Conference on
+Computer Communications, 2020.
+[32] M. T. M. Emmerich and A. H. Deutz, “A tutorial on multiobjective opti-
+mization: fundamentals and evolutionary methods,” Natural Computing,
+vol. 17, pp. 585 – 609, 2018.
+[33] I. Kadota and E. Modiano, “Minimizing the Age of Information in
+Wireless Networks with Stochastic Arrivals,” IEEE Transactions on
+Mobile Computing, vol. 20, no. 3, pp. 1173 – 1185, 2021.
+[34] M. J. Neely, Stochastic Network Optimization with Application to Com-
+munication and Queueing Systems . Morgan and Claypool Publishers,
+2010.
+[35] S. Boyd, L. Vandenberghe, Convex Optimization. Cambridge University
+Press, 2004.
+[36] S. Kaul and R. Yates, “Status updates over unreliable multiaccess
+channel,” in IEEE International Symposium on Information Theory
+(ISIT), 2017.
+[37] R. Nelson, Probability, stochastic processes, and queueing theory: the
+mathematics of computer performance modeling . Springer-Verlag New
+York, Inc., 1995.
+Xingran Chen received the M.A. in Applied Math-
+ematics and Computational Science and the Ph.D.
+degree in Electrical and Systems Engineering from
+the University of Pennsylvania. He is currently a
+postdoctoral researcher at Rutgers University and an
+Assistant Professor (currently on leave) in the School
+of Information and Communication Engineering at
+University of Electronic Science and Technology
+of China. His research focuses on the theoretical
+foundations and collaborative learning algorithms
+for decentralized systems. He received the IEEE
+Communications Society & Information Theory Society Joint Paper Award
+in 2023. He served as a guest editor for China Communications in 2024, and
+Entropy in 2025.
+Yi Zhuang received the B.S. degree in communica-
+tion engineering from Sichuan University, Chengdu,
+China, in 2024. He is currently pursuing the M.S.
+degree in information and communication engineer-
+ing at the University of Electronic Science and
+Technology of China. His research interests include
+distributed network systems, edge and cloud com-
+puting, and reinforcement learning.
+Kun Yang received his PhD from the Department
+of Electronic & Electrical Engineering of University
+College London (UCL), UK. He is currently a Chair
+Professor of Nanjing University and also an affiliated
+professor at University of Essex and UESTC. His
+main research interests include wireless networks
+and communications, communication-computing co-
+operation, and new AI (artificial intelligence) for
+wireless. He has published 500+ papers and filed
+50 patents. He serves on the editorial boards of a
+number of IEEE journals (e.g., IEEE WCM, TVT,
+TNB). He is a Deputy Editor-in-Chief of IET Smart Cities Journal. He
+has been a Judge of GSMA GLOMO Award at World Mobile Congress –
+Barcelona since 2019. He was a Distinguished Lecturer of IEEE ComSoc
+(2020-2021), a Recipient of the 2024 IET Achievement Medals and the
+Recipient of 2024 IEEE CommSoft TC’s Technical Achievement Award. He
+is a Member of Academia Europaea (MAE), a Fellow of IEEE, a Fellow of
+IET and a Distinguished Member of ACM.
+15
+APPENDIX A
+PROOF OF THEOREM 1
+Recall that ˆϵ(t) = A(t)
+G(t) represents the frequency of task
+delays exceeding the deadline up to time t and {Tk}k is
+identical across k. The limit of ˆϵw(t) exists and is denoted
+by ϵw. We have:
+lim
+t→∞
+ˆϵw(t) = Pr(Tk > w) ≜ ϵw.
+Additionally, ˆϵw(t) remains unchanged until a new task is
+completed. Consider the k-th valid task, where the correspond-
+ing inter-arrival time is Xk and the system time is Tk. Let the
+corresponding value of ˆϵw(t) be ˆϵk. We then have:
+lim
+k→∞
+ˆϵk = lim
+t→∞
+ˆϵw(t) = ϵw.
+To derive an expression for the average AoC, we start
+with a similar graphical argument from [5]. Consider the sum
+of: (i) the area corresponding to the interval (τk−1, τk], i.e.,
+the area of trapezoid ABCD , and (ii) the area corresponding
+to the additional latency incurred by task k, i.e., the area of
+triangle DEF in Fig. 4 (a), or the area of trapezoid HGDE
+in Fig. 4 (b). Note that SHGDE = SDEF − SF GH. Denote
+the corresponding sum area as Sk, based on Fig. 4, we can
+compute
+Sk =XkTk + X2
+k
+2 + ˆϵk
+2
+ 
+(Tk − w)+2
+−ˆϵk
+2
+ 
+(Tk − Sk,c − w)+2
+≜Qk,1 + ˆϵk
+2 Qk,2. (32)
+Since {Xk}k, {Sk,c}k and {Tk}k are i.i.d, then {Qk,1}k and
+{Qk,2}k are also i.i.d, respectively.
+Let the number of valid tasks be K, and consider the
+limit as K → ∞ . Utilizing a similar graphical argument in
+Appendix A, the average AoC can be computed by
+ˆΘsoft = lim
+K→∞
+PK
+k=1
+
+Qk,1 + ˆϵk
+2 Qk,2
+
+PK
+k=1 Xk
+= lim
+K→∞
+1
+K
+PK
+k=1
+
+Qk,1 + ˆϵk
+2 Qk,2
+
+1
+K
+PK
+k=1 Xk
+.
+By the Law of Large Numbers, Θsoft reduces to
+Θsoft = E[Qk,1]
+E[Xk] + lim
+K→∞
+1
+K
+PK
+k=1
+ˆϵk
+2 Qk,2
+E[Xk] . (33)
+Now, let us focus on the term 1
+K
+PK
+k=1 Qk,2. Since
+limk→∞ ˆϵk = ϵw, for any small η > 0, there exists a large
+integer H(η) such that |ˆϵk − ϵw| ≤ η. Then:
+lim
+K→∞
+1
+K
+KX
+k=1
+ˆϵk
+2 Qk,2 = lim
+K→∞
+1
+K
+  H(η)X
+k=1
++
+KX
+k=H(η)+1
+ˆϵk
+2 Qk,2
+(a)
+= lim
+K→∞
+1
+K
+H(η)X
+k=1
+ˆϵk
+2 Qk,2.
+The equality (a) holds because
+lim
+K→∞
+1
+K
+KX
+k=H(η)+1
+ˆϵk
+2 Qk,2 = 0,
+as there are only finite number ( H(η)) terms and each term is
+a finite scalar.
+Since |ˆϵk − ϵw| ≤ η, the summation 1
+K
+PK
+k=1
+ˆϵk
+2 Qk,2 is
+bounded by
+lim
+K→∞
+ϵw − η
+2K
+KX
+k=H(η)
+Qk,2 ≤ lim
+K→∞
+1
+K
+KX
+k=H(η)
+ˆϵk
+2 Qk,2
+≤ lim
+K→∞
+ϵw + η
+2K
+KX
+k=H(η)
+Qk,2.
+By the Law of Large Numbers, we have:
+ϵw − η
+2 E[Qk,2] ≤ lim
+K→∞
+1
+K
+KX
+k=H(η)
+ˆϵk
+2 Qk,2
+≤ ϵw + η
+2 E[Qk,2]. (34)
+Substituting (32) and (34) into (33), and taking η → 0, we
+obtain (8).
+APPENDIX B
+THE PROOF OF THEOREM 2
+First of all, we denote
+Q1 = E[XkTk + X 2
+k
+2 ]
+E[Xk] , Q 2 = ϵw · q1 − q2
+2E[Xk]
+q1 = E
+ 
+(Tk − w)+2
+q2 = E
+ 
+(Tk − Sk,c − w)+2
+.
+From [18, Proposition 1], Q1 has the same formula of the
+average AoI, which has the following expression,
+Q1 = 1
+λ + 1
+µt
++ 1
+µc
++ λ2
+µ2
+t (µt − λ)
++ λ2
+µ2c(µc − λ) + λ2
+µtµc(µt + µc − λ) . (35)
+To obtain the closed expression for Θsoft in (8), it suffices to
+obtain the closed expression for Q2.
+Step 1 . We first obtain ϵw. Denote Ut and Uc are the
+system time in the transmission queue and the computation
+queue, respectively. Since the tandem is a combination of
+M/M/1 queues. Due to the memoryless property, Ut and Uc
+are independent [18], [37]. The density functions for Ut and
+Uc are given by [37]:
+fUt(x) =(µt − λ)e−(µt−λ)x (36)
+fUc(x) =(µc − λ)e−(µc−λ)x. (37)
+Due to independence, the densifty function of the total system
+time, i.e., Tk = Ut + Uc, is calculated by convolution [37]:
+fTk(x) =
+
+
+
+µtδtµcδc
+µc − µt
+(e−µtδtx − e−µcδcx), µ t ̸= µc
+µ2
+t δ2
+t xe−µtδtx, µ t = µc.
+(38)
+16
+Recall that ϵw = Pr
+ 
+Tk > w
+
+. From (38), ϵw can be
+computed as
+ϵw =
+
+
+
+µcδce−µtδtw − µtδte−µcδcw
+µc − µt
+, µ t ̸= µc
+(1 + µtδtw)e−µtδtw, µ t = µc.
+(39)
+Step 2 . We compute q1.
+For brevity, we denote
+ζt = e−µtδtw, ζ c = e−µcδcw.
+We first consider the case when µt ̸= µc, we then consider
+the case when µt = µc.
+When µt ̸= µc, according to (38), we have
+E
+ 
+(Tk − w)+2
+= µtδtµcδc
+µc − µt
+Z ∞
+w
+(x − w)2e−µtδtxdx
+−
+Z ∞
+w
+(x − w)2e−µcδcxdx
+
+.
+By some algebra,Z ∞
+w
+(x − w)2e−µtδtxdx = 2ζt
+µ3
+t δ3
+tZ ∞
+w
+(x − w)2e−µcδcxdx = 2ζc
+µ3cδ3c
+.
+Therefore, when µt ̸= µc,
+E
+ 
+(Tk − w)+2
+= µtδtµcδc
+µc − µt
+ 2ζt
+µ3
+t δ3
+t
+− 2ζc
+µ3cδ3c
+
+. (40)
+Next, when µt = µc, according to (38), we have
+E
+ 
+(Tk − w)+2
+= ζt( 6
+µ2
+t δ2
+t
++ 2w
+µtδt
+). (41)
+Step 3. We compute q2 by considering the waiting time in
+the computation queue, denoted as W . We have the following
+relation:
+Tk − Sk,c = Ut + W.
+According to [37], the waiting time in the computation queue,
+W , follows the density function:
+fW (x) = ρcµc(1 − ρc)e−µc(1−ρc)x + (1 − ρc)δ(x),
+where δ(x) is the Dirac delta function. Since Ut and Uc are
+independent, W and Ut are also independent. By convolution,
+we can derive the density function of Ut + W . When µt ̸= µc,
+we have:
+fUt+W (x) =(1 − ρc)µtδte−µtδtx
++ ρcµcδcµtδt(e−µtδtx − e−µcδcx)
+µc − µt
+,
+and
+q2 = 2ζt
+µ3
+t δ3
+t
+µcδcµtδt − δcµ2
+t δ2
+t
+µc − µt
+− 2ζc
+µ3cδ3c
+ρcµcδcµtδt
+µc − µt
+. (42)
+When µt = µc, we have:
+fUt+W (x) = µtδ2
+t e−µtδtx + ρtµ2
+t δ2
+t te−µtδtx,
+and
+q2 = 2ζt
+µ2
+t δt
++ ρtζt( 2w
+µtδt
++ 6
+µ2
+t δ2
+t
+). (43)
+From Step 1, Step 2 and Step 3, substituting (35), (39),
+(40), (41), (42), and (43) into (8), we have the desired results.
+APPENDIX C
+PROOF OF THEOREM 3
+The proof is inspired by the proof of [18, Proposition 1].
+We first divide the delay of task k into 4 components:
+Tk = Wk,t + Sk,t + Wk,c + Sk,c,
+where Wk,t = Uk,t − Sk,t and Wk,c = Uk,c − Sk,c denote the
+waiting times of task k in the transmission and computation
+queues, respectively, while Sk,t and Sk,c represent the service
+times of task k in the transmission and computation queues,
+respectively. From (8), Θsoft can be re-written as
+Θsoft = 1
+E[Xk]
+
+E[XkWk,t] + E[XkSk,t]
++E[XkWk,c] + E[XkSk,c] + 1
+2 E[X2
+k]
++Pr(Tk > w)
+2 E[
+ 
+(Tk − w)+2
+]
+−Pr(Tk > w)
+2 E[
+ 
+(Tk − Sk,c − w)+2
+]
+
+. (44)
+Note that Xk is independent of Sk,t and Sk,c, with E[Xk] = 1
+λ,
+E[Sk,t] = 1
+µt
+, and E[Sk,c] = 1
+µc
+. Therefore, to compute
+Θsoft, it suffices to determine E[XkWk,t], E[XkWk,c], and
+Pr(Tk>w)
+2 E[
+ 
+(Tk − w)+2
+]. Denote g1 = E[XkWk,t], g2 =
+E[XkWk,c], g3 = Pr(Tk>w)
+2 , g4 = E[
+ 
+(Tk − w)+2
+], and
+g5 = E[
+ 
+(Tk − Sk,c − w)+2
+].
+Step 1. To obtain g1, we proceed as follows:
+g1 = E[XkWk,t] =
+Z ∞
+0
+xE[Wk,t|Xk = x]fX(x)dx. (45)
+Since Wk,t represents the waiting time in the transmission
+queue, we have Wk,t =
+ 
+Uk−1,t − Xk
++
+. Thus,
+E[Wk,t|Xk = x] =E[
+ 
+Uk−1,t − Xk
++
+|Xk = x]
+=E[(Uk−1,t − x)+]
+=
+Z ∞
+x
+(τ − x)fUt(τ)dτ. (46)
+Substituting (46) into (45), we obtain:
+g1 =
+Z ∞
+0
+x
+Z ∞
+x
+(τ − x)fUt(τ)dτ fX(x)dx.
+Step 2. To obtain g2, we proceed as follows:
+g2 =E[XkWk,c] =
+Z ∞
+0
+xE[Wk,c|Xk = x]fX(x)dx
+=
+Z ∞
+0
+x
+Z ∞
+0
+τ fWk,c|Xk=x(τ)dτ
+
+fX(x)dx. (47)
+The rest of the step is to find fWk,c|Xk=x(τ)dτ.
+We introduce another random variable, Dk,t, which rep-
+resents the inter-departure time associated with task k in the
+transmission queue. Note that Xk − Dk,t − Wk,c forms a
+Markov chain. By the chain rule,
+Pr{Xk = x, Dk,t = y, Wk,c = a} = Pr{Xk = x}
+× Pr{Dk,t = y|Xk = x} Pr{Wk,c = a|Dk,t = y},
+17
+which implies
+Pr{Xk = x, Dk,t = y, Wk,c = a}
+Pr{Xk = x}
+= Pr{Dk,t = y|Xk = x} Pr{Wk,c = a|Dk,t = y},
+and therefore,
+Pr{Dk,t = y, Wk,c = a|Xk = x}
+= Pr{Dk,t = y|Xk = x} Pr{Wk,c = a|Dk,t = y}.
+Using the definition of density functions, we replace the proba-
+bilities with their respective density functions. Integrating with
+respect to Dk,t on both sides, we have:
+fWk,c|Xk=x(τ) =
+Z ∞
+0
+fDk,t|Xk=x(y)fWk,c|Dk,t=y(τ)dy.
+(48)
+To obtain (48), we need to obtain fDk,t|Xk=x(y) and
+fWk,c|Dk,t=y(τ).
+Recall Wk,c is the waiting time of task k in the compu-
+tation queue, we have Wk,c = (Uk−1,c − Dk,t)+. Thus,
+fWk,c|Dk,t=y(τ) = f(Uk−1,c−Dk,t)+|Dk,t=y(τ)
+= f(Uk−1,c−y)+(τ) = fUc(τ + y). (49)
+At the end of this step, we obtain fDk,t|Xk=x(y). Define
+Pbusy,k and Pidle,k as the probabilities that the transmission
+queue is busy or idle, respectively, upon the arrival of task k.
+Then:
+fDk,t|Xk=x(y) =Pbusy,k · fDk,t|Wk,t>0,Xk=x(y)
++Pidle,k · fDk,t|Wk,t=0,Xk=x(y). (50)
+When Wk,t > 0, the inter-departure time of task k and
+task k − 1 in the transmission queue equals the service time
+of task k. Thus:
+fDk,t|Wk,t>0,Xk=x(y) = fSt(y) (51)
+Pbusy,k = Pr(Wk,t > 0|Xk = x)
+= Pr(Uk−1,t > x) =
+Z ∞
+x
+fUt(τ)dτ. (52)
+When Wk,t = 0 , Dk,t consists of 2 components: the
+service time of task k, Sk,t, and the interval between the arrival
+of task k and the departure of task k − 1, denoted by Bk,t.
+Hence:
+fDk,t|Wk,t=0,Xk=x(y) = fSt(y) ∗ fBk,t|Wk,t=0,Xk=x(y),
+(53)
+where ∗ represents the convolution operation.
+It follows that
+Pidle,k = Pr(Wk,t = 0|Xk = x) = Pr(Uk−1,t < x)
+=
+Z x
+0
+fUt(τ)dτ. (54)
+From the definition of Bk,t as Bk,t = Xk − Uk−1,t, and using
+the result from [18, Appendix A], we obtain:
+fBk,t|Wk,t=0,Xk=x(y) = fBk,t|Xk=x(y)
+Pidle,k
+= fXk−Uk−1,t|Xk=x(y)
+Pidle,k
+= fUk−1,t|Xk=x(Xk − y)
+Pidle,k
+= fUk−1,t(x − y)
+Pidle,k
+(55)
+Substituting (53) and (55) into (53), we get:
+fDk,t|Wk,t=0,Xk=x(y) = fSt(y) ∗ fUk−1,t(x − y)R x
+0 fUt(τ)dτ . (56)
+Let ξ(x) =
+R ∞
+x fUt(u)du. Using (47), (48), (50), (51),
+(52), (54), and (56), we derive:
+g2 =
+Z ∞
+0
+x
+Z ∞
+0
+τ
+Z ∞
+0
+(ξ(x) · fSt(y) + fSt(y) ∗ fUt(x − y)
+
+· fUc(τ + y)dydτ fX(x)dx.
+Step 3. To obtain g3, g4, and g5. Note that Tk = Uk,t +
+Uk,c. Then:
+fTk(τ) =
+Z τ
+0
+fUt,Uc(u, τ − u)du.
+Substituting fTk(τ) into g3, g4, and g5, we have
+g3 =
+Z ∞
+w
+Z τ
+0
+fUt,Uc(u, τ − u)dudτ
+g4 =
+Z ∞
+w
+(τ − w)2 ·
+Z τ
+0
+fUt,Uc(u, τ − u)dudτ
+g5 =
+Z ∞
+w
+(τ − w)2 ·
+Z τ
+0
+fUt,Uc−Sc(u, τ − u)dudτ.
+From Steps 1 ∼ 3, we obtain the desired results.
+APPENDIX D
+PROOF OF THEOREM 4
+Utilizing a similar idea of calculating average AoI [5],
+the average AoC can be computed as the sum of area of the
+parallelogram (e.g., ABCD ) over time horizon t. The number
+of corresponding parallelograms is equal to the number of
+informative tasks. As the time horizon approaches infinity, the
+rate of informative tasks is
+lim
+t→∞
+K(t)
+t ,
+which is also the rate of parallelograms. Then, the average
+AoC is given by
+Θhard = lim
+t→∞
+K(t)
+t · E[SABCD ]. (57)
+From the distribution of M in (12), we know that a valid task
+followed by M − 1 invalid tasks, so
+lim
+t→∞
+K(t)
+t = lim
+t→∞
+1
+t/K(t) = 1
+E[PM
+j=1 Xj]
+. (58)
+18
+In addition, the area of ABCD can be calculated by
+SABCD =E
+h  MX
+j=1
+Xj + TM
+2
+/2 − T 2
+M /2
+i
+=E[TM ·
+MX
+j=1
+Xj] + 1
+2 E[
+  MX
+j=1
+Xj
+2
+. (59)
+Substituting (58) and (59) into (57), we obtain (13).
+APPENDIX E
+PROOF OF THEOREM 5
+As discussed before, there are 4 types of correlations un-
+derlying (13): (i) positive correlations among the delays {Tk}k
+over k, (ii) positive correlations between Tk (1 ≤ k ≤ M)
+and M, (iii) negative correlations between Tk and Xk, and
+(iv) negative correlations among Xk and M. The correlations
+in (ii), (iii), and (iv) are incurred by the positive correlations
+in (i). We can alleviate these correlations when the positive
+correlations in (i) are negligible.
+In a tandem of two M/M/1 queues with parameters
+(λ, µt, µc), when µt ≫ λ and µc ≫ λ, the positive corre-
+lations among {Tk}k become negligible [37]. In other words,
+Tk and Tk+1 are approximately independent over k. Conse-
+quently, due to the approximate independence among {Tk}k,
+according to (12), M approximates a geometric distribution
+with parameter 1 − ϵw, which is approximately independent
+of Tk. Additionally, when µt ≫ λ and µc ≫ λ, the
+delay Tk is dominated by the service times at the transmitter
+and the computational node. This implies that Tk and Xk
+are approximately independent. Hence, Xk and M are also
+approximately independent.
+Step 1. We prove (14). Recall that {Xk}k are i.i.d over k.
+As discussed above, when µt ≫ λ and µc ≫ λ, we have the
+following: (i) From the model assumption, {Xk}k are inde-
+pendent and identical distributions. Since M is approximately
+independent of Xk, we have:
+E[
+MX
+j=1
+Xj] ≈ E[M]E[X1], (60)
+E[(
+MX
+j=1
+Xj)2] ≈ E[M]E[X2
+1]
++ (E[M2] − E[M])E2[X1]. (61)
+(ii) Since Tk is approximately independent of Xk, we have:
+E[TM ·
+MX
+j=1
+Xj] ≈ E[TM]E[
+MX
+j=1
+Xj]. (62)
+Substituting (60), (61), and (62) into (13), we get:
+Θhard ≈E[TM] + E[X2
+1]
+2E[X1] +
+  E[M2]
+2E[M] − 1
+2
+
+E[X1],
+thereby completing the proof of (14).
+Step 2 . We prove (15). According to (12),
+E[TM] = E[T1|T1 ≤ w]. (63)
+Since the density function of Tk is given by (38), substituting
+(38) into (63), we have
+E[TM] =
+1− 1+µt δt w
+eµt δt w
+µ2
+t δ2
+t
+−
+1− 1+µc δc w
+eµc δc w
+µ2cδ2c
+1−e−µt δt w
+µtδt
+− 1−e−µc δc w
+µcδc
+. (64)
+Since X1 has an exponential distribution with parameter λ,
+we have:
+E[X2
+1]
+2E[X1] = 1
+λ . (65)
+Recall that M approximates a geometric distribution with
+parameter 1 − ϵw. Therefore,
+  E[M2]
+2E[M] − 1
+2
+
+E[X1] = 1
+λ( 1
+1 − ϵw
+− 1), (66)
+where ϵw is given by (39). Substituting (39), (64), (65), and
+(66) into (14), we obtain (15).
+Step 3. We prove (16). When µt = µc, substituting (38)
+into (63), we have
+E[TM] =
+2
+µtδt
+− ( 2
+µtδt
++ 2w + µtδtw2)e−µtδtw
+1 − e−µtδtw(1 + µtδtw) . (67)
+Substituting (39), (64), (65), (66), and (67) into (14), we obtain
+(16).
+APPENDIX F
+PROOF OF LEMMA 1
+Consider a large time horizon T , during which there
+are K(T ) informative packets. For each informative task
+j ∈ { 1, 2, · · · , K(T )}, denote the number of the associated
+bad tasks as Mj. {Mj}j is identical over j and follows the
+distribution given in (12). Since {Xk}k are i.i.d over k, the
+sequence {PMj
+k=1 Xk}j are identical over j. The remaining
+time in the interval [0, T] is T −τ ′
+K(T). Thus, the time horizon
+can be re-written as
+T =
+K(T)X
+j=1
+MjX
+k=1
+Xk+j−1 + T − τ ′
+K(T). (68)
+Substituting (68) into (17), we have
+Ξ = lim
+T →∞
+K(T )
+T
+= lim
+T →∞
+K(T )
+PK(T)
+j=1
+PMj
+k=1 Xk+j−1 + T − τ ′
+K(T)
+= lim
+T →∞
+1
+1
+K(T)
+PK(T)
+j=1
+PMj
+k=1 Xk+j−1 +
+T −τ ′
+K(T )
+K(T)
+.
+Since the sequence {PMj
+k=1 Xk}j is identical over j, by the
+central limit theory, we have
+Ξ = 1
+E[PM
+k=1 Xk] + limT →∞
+T −τ ′
+K(T )
+K(T)
+= 1
+E[PM
+k=1 Xk]
+.
+19
+APPENDIX G
+PROOF OF PROPOSITION 1
+Recall that M approximates a geometric distribution with
+parameter 1 − ϵw, and X follows an exponential distribution
+with parameter λ, then
+1
+E[M]E[X1] = λ(1 − ϵw). (69)
+Subsituting (39) into (69), we obtain (20) and (21).
+APPENDIX H
+PROOF OF LEMMA 2
+The proof is based on contradiction. Assume that the
+pair
+  ˆΘ(u), ˆΞ(u)
+
+is not a weakly Pareto-optimal point. This
+implies that there exists another solution
+  ˆΘ′(u), ˆΞ′(u)
+
+such
+that ˆΘ′(u) < ˆΘ(u) and ˆΞ′(u) > ˆΞ(u). Given that ˆΞ′(u) >
+ˆΞ(u) > u , the solution
+  ˆΘ′(u), ˆΞ(u)′
+must be a feasible
+solution to problem (22). However, since ˆΘ(u) is the minimum
+value in the problem (22), it follows that ˆΘ(u) ≤ ˆΘ′(u). This
+contradicts the assumption that ˆΘ′(u) < ˆΘ(u).
+APPENDIX I
+PROOF OF THEOREM 6
+In a tandem of two G/G/1 queues with parameters
+(λ, µt, µc), when µt ≫ λ and µc ≫ λ, the positive
+correlations among {Tk}k become negligible [37]. In other
+words, Tk and Tk+1 are approximately independent over k.
+Consequently, due to the approximate independence among
+{Tk}k, and according to (12), M approximates a geometric
+distribution with parameter 1 − ϵw, which is approximately
+independent of Tk. Additionally, when µt ≫ λ and µc ≫ λ,
+the delay Tk is dominated by the service times at the trans-
+mitter and the computational node. This implies that Tk and
+Xk are approximately independent. Hence, Xk and M are also
+approximately independent. Based on the same process in Step
+1 in Appendix E, we show that the average AoC defined in
+(13) can be accurately approximated by (14).
+Step 1. The delay of task k, Tk, is the sum of the system
+times in both transmission and computation queues, i.e., Tk =
+Uk,t +Uk,c. Based on Assumption 1, the density functions fUt
+and fUc are known. Denote the density function and CDF of
+Tk as follows,
+fTk(τ) =
+Z τ
+0
+fUt,Uc(u, τ − u)du
+FTk(x) =
+Z x
+0
+fT (τ)dτ.
+When µt ≫ λ and µc ≫ λ, the sequence {Tk}k is approxi-
+mately independent. Therefore, from (12), we have
+Pr(M = n) ≈
+ 
+Pr(Tk > w)
+n−1
+Pr(Tk ≤ w)
+=
+ 
+1 − FT (w)
+n−1
+FT (w). (70)
+Based on (70), it is straightforward to calculate,
+E[M] = 1
+FT (w) (71)
+E[M2] =2 − FT (w)
+F 2
+T (w) . (72)
+Step 2. The random variable TM is the value of Tk at the
+stopping time M, which is the first instance when TM ≤ w.
+Since {Tk}k are approximately i.i.d over k, we have
+E[TM] = E[Tk|Tk ≤ w] =
+R w
+0 τ fT (τ)dτ
+FT (w) . (73)
+Substituting (71), (72), and (73) into (14), we obtain (23).
+APPENDIX J
+PROOF OF PROPOSITION 2
+From (70) in Appendix I, M approximates a geometric
+distribution with parameter FT (w). Therefore, we have
+1
+E[M]E[X1] = FT (w)R ∞
+0 xfX(x)dx ,
+which derives the desired result.
+APPENDIX K
+PROOF OF (30)
+We first derive the recursion of c(i)
+soft(k). If a task from
+source i leaves the computational node at time k + 1, i.e.,
+di(k+1) = 1, this task must reach the receiver at the beginning
+of the current time slot due to µc = 1. The instantaneous delay
+of transmitter i at the end of time k is zi(k), then from (5),
+we have
+c(i)
+soft(k + 1) =zi(k) + 1 + Ai(k)
+Gi(k)(zi(k) + 1 − w)+,
+where Gi(k) is defined in (3) and Ai(k) is defined in (4).
+Otherwise, if no task from source i leaves the computational
+node at time k + 1, we have:
+c(i)
+soft(k + 1) = c(i)
+soft(k) + 1.
+Thus, the recursion for c(i)
+soft(k) is given by:
+c(i)
+soft(k + 1) = 1{di(k+1)=0}
+ 
+c(i)
+soft(k) + 1
+
++ 1{di(k+1)=1}
+ 
+zi(k) + 1 +ℓi
+ 
+zi(k)
+
+, (74)
+where ℓi
+ 
+zi(k)
+
+= Ai(k)
+Gi(k)(zi(k) + 1 − w)+.
+Note that a task takes at least 2 slots from starting
+transmission to leaving the computational node. Next, we in-
+corporate {ai(k)}N
+i=1 into the relationship between c(i)
+soft(k+1)
+and c(i)
+soft(k):
+• IfPN
+i=1 di(k − 1) = 0, meaning no scheduling decision
+will be made in time slot k, so no task can leave the
+computational node at time k +1. In this case, from (74),
+we have c(i)
+soft(k + 1) = c(i)
+soft(k) + 1.
+• If PN
+i=1 di(k − 1) = 1 and ai(k) = 0 , meaning a task
+from transmitter i can not leave the computational node at
+time k+1. In this case, from (74), we have c(i)
+soft(k+1) =
+c(i)
+soft(k) + 1.
+• IfPN
+i=1 di(k−1) = 1 and ai(k) = 1, meaning transmitter
+i is scheduled in time slot k, then:
+– If the transmission is completed in one time slot,
+the current task can leave the computational node at
+the end of time k + 1, i.e., di(k + 1) = 1 . In this
+20
+case, from (74), we have csoft
+i (k + 1) = zi(k) + 1 +
+ℓi (zi(k)).
+– If the transmission is not completed in one time slot,
+then from (74), we have csoft
+i (k + 1) = csoft
+i (k) + 1.
+Based on the discussion above, we can write the expres-
+sion for csoft
+i (k + 1) as follows,
+csoft
+i (k + 1) = 1{PN
+i=1 di(k−1)=0}
+ 
+csoft
+i (k) + 1
+
++ 1{PN
+i=1 di(k−1)=1,ai(k)=0}
+ 
+csoft
+i (k) + 1
+
++ 1{PN
+i=1 di(k−1)=1,ai(k)=1,di(k+1)=0}
+ 
+csoft
+i (k) + 1
+
++ 1{PN
+i=1 di(k)=1,ai(k+1)=1,di(k+1)=1}
+·
+
+zi(k) + 1 +ℓi
+ 
+zi(k)
+
+.
+APPENDIX L
+PROOF OF PROPOSITIONI 3
+Note that given ai(k) = 1, for all k, we have:
+Pr(di(k + 1) = 1|ai(k) = 1) = µt,i. (75)
+Substituting (75) into (29) and (30), we calculate the drift as
+follows:
+∆(S(k)) =E[L(k + 1) − L(k − 1)|S(k)]
+= 2
+N
+NX
+i=1
+βi − 1
+N
+NX
+i=1
+βiµt,iE[ai(k)|S(k)]wi(k),
+where wi(k) is given in Algorithm 1. To minimize the drift
+∆(S(k)), Algorithm 1 selects the transmitter with the maxi-
+mum weight wi(k).

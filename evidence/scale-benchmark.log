@@ -1,0 +1,23 @@
+{
+  "sources": 60,
+  "simulated_seconds": 12.0,
+  "wall_seconds": 43.344582375000755,
+  "output_bytes": 13141245,
+  "max_child_rss_bytes": 1297940480,
+  "memory_note": "OS child-process peak statistic; not sum of simultaneous process RSS",
+  "manifest": "results/raw/scale-benchmark1/run/231b10317274-seed31/manifest.json",
+  "audit": {
+    "audit": "passed",
+    "message_receiver_pairs": 112354,
+    "evaluated_opportunity_receiver_pairs": 95807,
+    "terminal_counts": {
+      "success": 89663,
+      "radio_not_received": 6144
+    },
+    "network_check": {
+      "control_decisions_checked": 7140,
+      "feedback_visibility": "verified causal replay"
+    }
+  },
+  "caution": "Pilot resource estimate; do not linearly extrapolate across density or overload"
+}

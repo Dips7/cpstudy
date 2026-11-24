@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "config_hash": "c6cd979e56629fe599f049b0cadfc3f748b0bbee7bd3c409c4761dd39f2f4cbe",
+  "seed": 23,
+  "wall_seconds": 0.3950014590009232,
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "source_hashes": {
+    "cpstudy/__init__.py": "97b115286896ebef45ee79c9d98a2c178d89c5e7132fb309aef3ab8e62ed0182",
+    "cpstudy/__main__.py": "6747c2715f078e2002406c0d7e70bb137a595148d3a56621b303b7d0834e94ec",
+    "cpstudy/closed_loop.py": "51b7d66aac22b39c301e176a5b80699344e25dc282d593e53a3790272e3a76da",
+    "cpstudy/config.py": "74e842edfc5d96334e14aa08ce42e834027925ec39fcb490e9c3602595324b9e",
+    "cpstudy/dcc.py": "1cd6d75bd62d48539b23f69c8cad0dcbd1cf127cfe861de3d415f9eaf3559798",
+    "cpstudy/engine.py": "ad940f24acde448d8249ee4a673a898dc070bad8feb182e871f420115db9c42e",
+    "cpstudy/metrics.py": "8b189cd75b64d6d998e1cea81cfababf3957c879567b09f32d56571cf4b30579",
+    "cpstudy/model.py": "7ba22cbf4c2c19c182725795c382c87b0706ceeadc1052ed3fd1a6c2eb0cf618",
+    "cpstudy/network_audit.py": "edc8f758ab03d7a3b1ec341de08d0679397484158d9302578b58e7585d3e2c8d",
+    "cpstudy/policy.py": "f2adfd29fd075708557a719cbedb444ab390793fc5f53eb08579d462c90455e9",
+    "cpstudy/radio.py": "b1d79a0d7bcc535e09340e73e202d5dab48853adeb35d707b0d8761b84e25a62",
+    "cpstudy/receiver.py": "a5aa6c901777358e08052c05667cc138a5df81ed83f9cdbc0ce44e7377fc4076",
+    "pyproject.toml": "6d796167b652493d6c047d931136ccf0e37b398716f02ce29f15fce4510a38e7",
+    "requirements.lock.txt": "8f1c3a39080c43954e7016b400ef6794fa6ed2718dced77e9f90cc695b98ac89",
+    "scripts/build_ns3.py": "ed09acf7a186272fe175c27693e849c11377d319cf1268f8a5597767a5ded799",
+    "scripts/closed_loop_checks.py": "159264ed9a2873d231c2f04f0050106adc3053f0c3963affa8787e4bb6fc779c",
+    "scripts/pilot_checks.py": "713a088be1baa6e5dd9f9abce0328560c0784514c9ac17d879f5221e6306ada3",
+    "scripts/queue_validation.py": "a022447ce3902a943fd6235ed16799586381cc23a567c939e6a894125badcc98",
+    "simulator/cp-closed-loop.cc": "818c2dc8a290ca7df58b0fcb2a6ed2570b429e342e15a02a1d68bbee7f50aadf",
+    "simulator/cp-radio-pilot.cc": "f72cdc01222d03063dd872e2c7806c1c08d4776743f2df35de589d6e69bf7a4d"
+  },
+  "radio_binary_sha256": "f66344a050a98cdda5a0bd663095c7cdbec4ddfcc185c2bbd85c6ab91186656a",
+  "files": {
+    "config.json": "15493e95b5abcc74411a8d23ac5b3772d7e50dc60e67f5a48f048efe628f2c18",
+    "summary.json": "8ad6c90b383861315064585e58e42b11859906ba13d9e769c9772e1046357887",
+    "events.jsonl.gz": "98dc7d15ed807383580779f953f1e8d4342767a785e84a665554417cb1b5ba49",
+    "opportunities.jsonl.gz": "1ab8944ea7a8a1a684c158759af3195d9680a69c119b236ce928715c8000209e",
+    "radio-process.log": "564873f27ed487805503f974627f6ff6083a900ac29010e200f39d6fff8fa3f5",
+    "network-controls.csv.gz": "45f65c4b06d0355a5d6227609eb33fc6b638245154da95c8bfa8a8809ff7828a",
+    "network-dcc.csv.gz": "4cbd699489de748e8e9b5c81c39317136361b94566c14119c6fd326d3fef92b3",
+    "network-events.csv.gz": "e66fa3336b06fd882eac036f4be84bb70736597397059a73e124b91db1f81e18",
+    "network-opportunities.csv.gz": "1832274108a6384f8b2c3e52f0b51f778871f1b9513704dfc4a39f44b027aa05",
+    "network-positions.csv.gz": "8e6ff9168214ae50bac5dd6de92a9652d2a12bc02da05d956867f8341bb6f67b"
+  }
+}

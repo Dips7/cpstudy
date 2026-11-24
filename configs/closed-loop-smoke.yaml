@@ -1,0 +1,14 @@
+schema_version: 1
+scenario: intersection
+sources: 12
+duration_s: 6.0
+warmup_s: 1.0
+opportunity_hz: 10.0
+max_rate_hz: 10.0
+min_rate_hz: 1.0
+deadline_ms: 100.0
+policy: joint
+radio: ns3-closed-loop
+feedback_ms: 200.0
+feedback_stale_ms: 600.0
+output: results/raw/closed-loop-smoke

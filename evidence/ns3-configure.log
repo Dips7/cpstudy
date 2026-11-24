@@ -1,0 +1,138 @@
+The --warn-uninitialized option is deprecated.  Use -Wuninitialized instead.
+-- Using default output directory /Users/dips/.cache/cpstudy-toolchains/ns-3.46.1/build
+CMake Warning (uninitialized) at build-support/3rd-party/find-program-hints.cmake:9 (set):
+  uninitialized variable 'ProgramFiles'
+Call Stack (most recent call first):
+  build-support/macros-and-definitions.cmake:47 (include)
+  CMakeLists.txt:116 (include)
+
+
+CMake Warning (uninitialized) at build-support/3rd-party/find-program-hints.cmake:9 (set):
+  uninitialized variable 'ProgramFiles(x86)'
+Call Stack (most recent call first):
+  build-support/macros-and-definitions.cmake:47 (include)
+  CMakeLists.txt:116 (include)
+
+
+CMake Warning (uninitialized) at build-support/3rd-party/find-program-hints.cmake:9 (set):
+  uninitialized variable 'ProgramFiles'
+Call Stack (most recent call first):
+  build-support/macros-and-definitions.cmake:47 (include)
+  CMakeLists.txt:116 (include)
+
+
+CMake Warning (uninitialized) at build-support/custom-modules/ns3-ns3rc-parser.cmake:13 (find_file):
+  uninitialized variable 'USERPROFILE'
+Call Stack (most recent call first):
+  CMakeLists.txt:137 (parse_ns3rc)
+
+
+-- [33mProceeding without cmake-format[0m
+-- [33mThis clang version 21.0.0.21000334 requires libc++ to use std::tuple as std::map keys[0m
+CMake Warning (uninitialized) at build-support/3rd-party/FindEigen3.cmake:82 (find_path):
+  uninitialized variable 'KDE4_INCLUDE_DIR'
+Call Stack (most recent call first):
+  build-support/macros-and-definitions.cmake:553 (find_package)
+  CMakeLists.txt:178 (process_options)
+
+
+CMake Warning (uninitialized) at build-support/3rd-party/FindHarfBuzz.cmake:70 (set):
+  uninitialized variable 'PC_HARFBUZZ_CFLAGS_VERSION'
+Call Stack (most recent call first):
+  build-support/macros-and-definitions.cmake:573 (find_package)
+  CMakeLists.txt:178 (process_options)
+
+
+CMake Warning (uninitialized) at build-support/3rd-party/FindHarfBuzz.cmake:72 (find_path):
+  uninitialized variable 'PC_HARFBUZZ_INCLUDE_DIRS'
+Call Stack (most recent call first):
+  build-support/macros-and-definitions.cmake:573 (find_package)
+  CMakeLists.txt:178 (process_options)
+
+
+CMake Warning (uninitialized) at build-support/3rd-party/FindHarfBuzz.cmake:79 (find_library):
+  uninitialized variable 'HarfBuzz_NAMES'
+Call Stack (most recent call first):
+  build-support/macros-and-definitions.cmake:573 (find_package)
+  CMakeLists.txt:178 (process_options)
+
+
+CMake Warning (uninitialized) at build-support/3rd-party/FindHarfBuzz.cmake:79 (find_library):
+  uninitialized variable 'PC_HARFBUZZ_LIBRARY_DIRS'
+Call Stack (most recent call first):
+  build-support/macros-and-definitions.cmake:573 (find_package)
+  CMakeLists.txt:178 (process_options)
+
+
+CMake Warning (uninitialized) at build-support/3rd-party/FindHarfBuzz.cmake:96 (if):
+  uninitialized variable 'HarfBuzz_FIND_VERSION'
+Call Stack (most recent call first):
+  build-support/macros-and-definitions.cmake:573 (find_package)
+  CMakeLists.txt:178 (process_options)
+
+
+-- [33mPython: development libraries were not found[0m
+-- [33mBoost was not found[0m
+-- [33mdocs: doxygen documentation not enabled due to missing dependencies: doxygen dot dia[0m
+-- Failed to locate sphinx-build executable (missing: SPHINX_EXECUTABLE) 
+-- [33mdocs: sphinx documentation not enabled due to missing dependencies: Sphinx epstopdf pdflatex latexmk convert dvipng dia[0m
+-- Platform doesn't support TAP and EMU features. Continuing without them.
+-- Precompiled headers were enabled
+-- Processing src/applications
+-- Processing src/internet
+-- Processing src/mobility
+-- Processing src/wifi
+-- Processing src/bridge
+-- Processing src/network
+-- Processing src/stats
+-- Processing src/core
+-- Boost Units are an optional feature of length.cc.  Ubuntu ships it within the libboost-dev package.  You may need to clean up the CMake cache after installing it to pass this check.
+-- Processing src/traffic-control
+-- Processing src/antenna
+-- Boost Bessel function is required for CircularApertureAntennaModel  on platforms using Clang libc++ such as macOS.  You may need to clean up the CMake cache after installing it to pass this check.
+-- Processing src/energy
+-- Processing src/spectrum
+-- Processing src/propagation
+-- Processing src/buildings
+-- ---- Summary of ns-3 settings:
+Build profile                 : release
+Build directory               : /Users/dips/.cache/cpstudy-toolchains/ns-3.46.1/build
+Build with runtime asserts    : OFF (not requested)
+Build with runtime logging    : OFF (not requested)
+Build version embedding       : OFF (not requested)
+BRITE Integration             : [31mOFF (missing dependency)[0m
+DES Metrics event collection  : OFF (not requested)
+DPDK NetDevice                : OFF (not requested)
+Emulation FdNetDevice         : OFF (not requested)
+Examples                      : [32mON[0m
+File descriptor NetDevice     : [31mOFF (missing dependency)[0m
+GNU Scientific Library (GSL)  : [31mOFF (GSL was not found)[0m
+GtkConfigStore                : [31mOFF (Harfbuzz is required by GTK3 and was not found)[0m
+LibXml2 support               : [32mON[0m
+MPI Support                   : OFF (not requested)
+ns-3 Click Integration        : [31mOFF (missing dependency)[0m
+ns-3 OpenFlow Integration     : [31mOFF (missing dependency)[0m
+Netmap emulation FdNetDevice  : OFF (not requested)
+PyViz visualizer              : [31mOFF (Python Bindings are disabled)[0m
+Python Bindings               : OFF (not requested)
+SQLite support                : [32mON[0m
+Eigen3 support                : [31mOFF (Eigen was not found)[0m
+Tap Bridge                    : OFF (not requested)
+Tap FdNetDevice               : OFF (not requested)
+Tests                         : [32mON[0m
+
+
+Modules configured to be built:
+antenna                   applications              bridge                    
+buildings                 core                      energy                    
+internet                  mobility                  network                   
+propagation               spectrum                  stats                     
+test                      traffic-control           wifi                      
+
+
+
+-- Configuring done (4.3s)
+-- Generating done (0.5s)
+-- Build files have been written to: /Users/dips/.cache/cpstudy-toolchains/ns-3.46.1/cmake-cache
+Finished executing the following commands:
+/Users/dips/Library/CloudStorage/OneDrive-LordBuddhaEducationFoundation/Working Paper/cpstudy/.venv/bin/cmake -S /Users/dips/.cache/cpstudy-toolchains/ns-3.46.1 -B /Users/dips/.cache/cpstudy-toolchains/ns-3.46.1/cmake-cache -DCMAKE_BUILD_TYPE=release -DNS3_ASSERT=OFF -DNS3_LOG=OFF -DNS3_WARNINGS_AS_ERRORS=OFF -DNS3_NATIVE_OPTIMIZATIONS=OFF -DNS3_EXAMPLES=ON -DNS3_TESTS=ON -DNS3_ENABLED_MODULES=wifi,mobility,internet,applications --warn-uninitialized

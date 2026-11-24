@@ -1,0 +1,9 @@
+{
+  "version": "ns-3.46.1",
+  "source_url": "https://www.nsnam.org/releases/ns-3.46.1.tar.bz2",
+  "published_sha1": "a02ce48bf2cb46ab8bcc0da10e47bfca1e13cdf3",
+  "sha256": "fd3255df035a52008638fb5d81f77685260fd607be107eaf8e5116bcf1fd2c03",
+  "local_source": "/Users/dips/.cache/cpstudy-toolchains/ns-3.46.1",
+  "pilot_sha256": "f72cdc01222d03063dd872e2c7806c1c08d4776743f2df35de589d6e69bf7a4d",
+  "closed_loop_sha256": "9dd49e72c00fec0646935c78377082715995108e33b7e846e3c71d98e7ce88fb"
+}

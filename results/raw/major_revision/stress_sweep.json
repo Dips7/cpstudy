@@ -1,0 +1,252 @@
+[
+  {
+    "verify_ms": 1.0,
+    "policy": "fixed",
+    "mean_succ": 0.9429354919116991,
+    "std_succ": 0.031847909800341516,
+    "mean_lat": 16.906743463246546,
+    "mean_q_drop": 0.0,
+    "mean_expired": 0.0,
+    "mean_supp": 0.0
+  },
+  {
+    "verify_ms": 1.0,
+    "policy": "radio",
+    "mean_succ": 0.7732098162769047,
+    "std_succ": 0.053472439157621475,
+    "mean_lat": 16.66404616091399,
+    "mean_q_drop": 0.0,
+    "mean_expired": 0.0,
+    "mean_supp": 3407.0
+  },
+  {
+    "verify_ms": 1.0,
+    "policy": "dcc",
+    "mean_succ": 0.4379630165949397,
+    "std_succ": 0.01983790860226204,
+    "mean_lat": 16.91285614865784,
+    "mean_q_drop": 0.0,
+    "mean_expired": 0.0,
+    "mean_supp": 10384.666666666666
+  },
+  {
+    "verify_ms": 1.0,
+    "policy": "calibrated",
+    "mean_succ": 0.5352372002702589,
+    "std_succ": 0.01158506886341929,
+    "mean_lat": 16.697121921152306,
+    "mean_q_drop": 0.0,
+    "mean_expired": 0.0,
+    "mean_supp": 8386.0
+  },
+  {
+    "verify_ms": 1.0,
+    "policy": "joint",
+    "mean_succ": 0.5351602292938719,
+    "std_succ": 0.011890827783728023,
+    "mean_lat": 16.69703098828496,
+    "mean_q_drop": 0.0,
+    "mean_expired": 0.0,
+    "mean_supp": 8385.666666666666
+  },
+  {
+    "verify_ms": 3.0,
+    "policy": "fixed",
+    "mean_succ": 0.9429354919116991,
+    "std_succ": 0.031847909800341516,
+    "mean_lat": 20.858798428801148,
+    "mean_q_drop": 0.0,
+    "mean_expired": 0.0,
+    "mean_supp": 0.0
+  },
+  {
+    "verify_ms": 3.0,
+    "policy": "radio",
+    "mean_succ": 0.7732098162769047,
+    "std_succ": 0.053472439157621475,
+    "mean_lat": 20.06386676981788,
+    "mean_q_drop": 0.0,
+    "mean_expired": 0.0,
+    "mean_supp": 3407.0
+  },
+  {
+    "verify_ms": 3.0,
+    "policy": "dcc",
+    "mean_succ": 0.4379630165949397,
+    "std_succ": 0.01983790860226204,
+    "mean_lat": 20.804454830262106,
+    "mean_q_drop": 0.0,
+    "mean_expired": 0.0,
+    "mean_supp": 10384.666666666666
+  },
+  {
+    "verify_ms": 3.0,
+    "policy": "calibrated",
+    "mean_succ": 0.5390268787338646,
+    "std_succ": 0.018381926026329976,
+    "mean_lat": 35.802725047303525,
+    "mean_q_drop": 1.0,
+    "mean_expired": 135.0,
+    "mean_supp": 8017.0
+  },
+  {
+    "verify_ms": 3.0,
+    "policy": "joint",
+    "mean_succ": 0.11415973338831602,
+    "std_succ": 0.024336518935975406,
+    "mean_lat": 24.969469893519147,
+    "mean_q_drop": 0.0,
+    "mean_expired": 0.0,
+    "mean_supp": 17090.0
+  },
+  {
+    "verify_ms": 6.0,
+    "policy": "fixed",
+    "mean_succ": 0.010498899665571599,
+    "std_succ": 0.012752687835877196,
+    "mean_lat": 69.56679765377028,
+    "mean_q_drop": 6366.666666666667,
+    "mean_expired": 11308.0,
+    "mean_supp": 0.0
+  },
+  {
+    "verify_ms": 6.0,
+    "policy": "radio",
+    "mean_succ": 0.015819917635043135,
+    "std_succ": 0.019406779425450178,
+    "mean_lat": 42.10353058190071,
+    "mean_q_drop": 3901.3333333333335,
+    "mean_expired": 10521.333333333334,
+    "mean_supp": 3407.0
+  },
+  {
+    "verify_ms": 6.0,
+    "policy": "dcc",
+    "mean_succ": 0.43258007852270125,
+    "std_succ": 0.018243626606420024,
+    "mean_lat": 52.04037224358071,
+    "mean_q_drop": 0.0,
+    "mean_expired": 114.0,
+    "mean_supp": 10384.666666666666
+  },
+  {
+    "verify_ms": 6.0,
+    "policy": "calibrated",
+    "mean_succ": 0.022471957641933927,
+    "std_succ": 0.011208313034102097,
+    "mean_lat": 67.57958405099275,
+    "mean_q_drop": 106.33333333333333,
+    "mean_expired": 1584.3333333333333,
+    "mean_supp": 17156.333333333332
+  },
+  {
+    "verify_ms": 6.0,
+    "policy": "joint",
+    "mean_succ": 0.025035425173154796,
+    "std_succ": 0.011485430604068255,
+    "mean_lat": 69.34744503249401,
+    "mean_q_drop": 167.66666666666666,
+    "mean_expired": 1189.6666666666667,
+    "mean_supp": 17314.666666666668
+  },
+  {
+    "verify_ms": 7.5,
+    "policy": "fixed",
+    "mean_succ": 0.0,
+    "std_succ": 0.0,
+    "mean_lat": null,
+    "mean_q_drop": 8781.333333333334,
+    "mean_expired": 9016.0,
+    "mean_supp": 0.0
+  },
+  {
+    "verify_ms": 7.5,
+    "policy": "radio",
+    "mean_succ": 0.006740235164040739,
+    "std_succ": 0.011674429759080904,
+    "mean_lat": 51.52216289589905,
+    "mean_q_drop": 6091.333333333333,
+    "mean_expired": 8427.666666666666,
+    "mean_supp": 3407.0
+  },
+  {
+    "verify_ms": 7.5,
+    "policy": "dcc",
+    "mean_succ": 0.29351136090167623,
+    "std_succ": 0.08698010981464209,
+    "mean_lat": 62.278339033981986,
+    "mean_q_drop": 66.0,
+    "mean_expired": 2766.3333333333335,
+    "mean_supp": 10384.666666666666
+  },
+  {
+    "verify_ms": 7.5,
+    "policy": "calibrated",
+    "mean_succ": 0.0012916275381793293,
+    "std_succ": 0.002033712681826055,
+    "mean_lat": 60.650834140350874,
+    "mean_q_drop": 293.6666666666667,
+    "mean_expired": 1946.3333333333333,
+    "mean_supp": 16884.333333333332
+  },
+  {
+    "verify_ms": 7.5,
+    "policy": "joint",
+    "mean_succ": 0.0009772447374670704,
+    "std_succ": 0.001071251074170682,
+    "mean_lat": 68.14594909383754,
+    "mean_q_drop": 604.0,
+    "mean_expired": 1142.6666666666667,
+    "mean_supp": 17329.666666666668
+  },
+  {
+    "verify_ms": 10.0,
+    "policy": "fixed",
+    "mean_succ": 0.0,
+    "std_succ": 0.0,
+    "mean_lat": null,
+    "mean_q_drop": 11487.0,
+    "mean_expired": 6275.666666666667,
+    "mean_supp": 0.0
+  },
+  {
+    "verify_ms": 10.0,
+    "policy": "radio",
+    "mean_succ": 0.0,
+    "std_succ": 0.0,
+    "mean_lat": null,
+    "mean_q_drop": 8617.333333333334,
+    "mean_expired": 5974.333333333333,
+    "mean_supp": 3407.0
+  },
+  {
+    "verify_ms": 10.0,
+    "policy": "dcc",
+    "mean_succ": 0.0673848164831858,
+    "std_succ": 0.014197396868091619,
+    "mean_lat": 63.249723328487285,
+    "mean_q_drop": 1168.0,
+    "mean_expired": 5585.666666666667,
+    "mean_supp": 10384.666666666666
+  },
+  {
+    "verify_ms": 10.0,
+    "policy": "calibrated",
+    "mean_succ": 0.0,
+    "std_succ": 0.0,
+    "mean_lat": null,
+    "mean_q_drop": 7020.0,
+    "mean_expired": 4948.333333333333,
+    "mean_supp": 6480.0
+  },
+  {
+    "verify_ms": 10.0,
+    "policy": "joint",
+    "mean_succ": 0.0,
+    "std_succ": 0.0,
+    "mean_lat": null,
+    "mean_q_drop": 781.0,
+    "mean_expired": 1022.3333333333334,
+    "mean_supp": 17325.0
+  }
+]

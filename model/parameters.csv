@@ -1,0 +1,42 @@
+parameter,unit,study_value,source_or_configuration,status_and_limitation
+simulator,version,ns-3.46.1,evidence/ns3_source.json; simulator/cp-closed-loop.cc,software version; per-run binary hash missing in major-revision historical records
+radio_standard,enum,WIFI_STANDARD_80211p,simulator/cp-closed-loop.cc,PHY/MAC configuration only; not full ITS-G5 stack or conformance
+mac,enum,AdhocWifiMac,simulator/cp-closed-loop.cc,ad hoc broadcast experiment
+channel_mode,Mbps and MHz,6 Mbps OFDM; 10 MHz,simulator/cp-closed-loop.cc,configured constant-rate PHY mode
+channel_number,integer,172,simulator/cp-closed-loop.cc,configured channel setting in 5 GHz band
+transmit_power,dBm,23,simulator/cp-closed-loop.cc,configured simulator value; no field calibration
+propagation,model,LogDistancePropagationLossModel,simulator/cp-closed-loop.cc,No building blockage; no shadowing; no calibrated NLOS or measured channel traces
+propagation_exponent,dimensionless,2.5,simulator/cp-closed-loop.cc,synthetic engineering parameter
+propagation_reference_loss,dB,47.86,simulator/cp-closed-loop.cc,configured reference loss; not a calibrated road model
+propagation_delay,model,ConstantSpeedPropagationDelayModel,simulator/cp-closed-loop.cc,simulator propagation delay
+source_opportunity_rate,Hz,10,configs/evaluation.yaml; scripts/run_major_revision.py,exogenous periodic demand; not complete CPM generation behavior
+evaluation_deadline,ms,100,cpstudy/config.py; configs/evaluation.yaml,simulation design choice; not a certified maneuver deadline
+minimum_sender_rate,Hz,1,cpstudy/config.py; configs/evaluation.yaml,controller design bound
+maximum_sender_rate,Hz,10,cpstudy/config.py; configs/evaluation.yaml,controller design bound
+inference_delay,ms,10,configs/evaluation.yaml; cpstudy/config.py,synthetic fixed delay; no sensing/inference execution
+signing_delay,ms,1,configs/evaluation.yaml; cpstudy/config.py,synthetic fixed delay; no cryptographic signing implementation
+verification_service_ms,ms,1 and 3 factorial; 1/3/6/7.5/10 stress; 3 paired,configs/evaluation.yaml; scripts/run_major_revision.py; scripts/run_20seeds_paired.py,synthetic service budget; not calibrated ECDSA or ECU/HSM timing
+service_time_coefficient_of_variation,ratio,0 in main study,cpstudy/config.py default; experiment configuration,deterministic service in main runs; service-variability sensitivity not established
+fusion_availability_delay,ms,2,cpstudy/config.py; configs/evaluation.yaml,synthetic fixed delay; no shared fusion worker or GPU queue
+verification_worker,count,1,simulator/cp-closed-loop.cc; cpstudy/receiver.py,one non-preemptive FCFS worker per receiver in model
+waiting_queue_capacity,messages,32,configs/evaluation.yaml; cpstudy/config.py,waiting capacity excludes active service; max modeled system population is 33
+data_payload,bytes,1100,configs/evaluation.yaml; cpstudy/config.py,synthetic experiment payload; not encoded CPM
+data_security_overhead,bytes,100,configs/evaluation.yaml; cpstudy/config.py,synthetic size overhead; not a signed IEEE 1609.2 message measurement
+feedback_payload,bytes,96,cpstudy/config.py,synthetic feedback payload
+feedback_interval,ms,200,cpstudy/config.py; configs/evaluation.yaml,controller feedback interval; reports share verification worker
+feedback_staleness_limit,ms,600,cpstudy/config.py,controller rule; missing/stale report behavior is policy-specific
+control_interval,ms,100,configs/evaluation.yaml; cpstudy/config.py,controller update interval
+radio_busy_high_threshold,fraction,0.65,configs/evaluation.yaml; cpstudy/config.py,internal policy threshold; not a standard-mandated value
+radio_busy_low_threshold,fraction,0.40,configs/evaluation.yaml; cpstudy/config.py,internal policy threshold; not a standard-mandated value
+queue_high_threshold,messages,8 default; 16 calibrated paired; ablation 4/8/16/24,configs/evaluation.yaml; scripts/run_major_revision.py; scripts/run_20seeds_paired.py,controller parameter; ablation is exploratory and selected on these outcomes
+queue_low_threshold,messages,2 default; 6 calibrated paired,configs/evaluation.yaml; scripts/run_major_revision.py; scripts/run_20seeds_paired.py,controller parameter; internal design choice
+rate_decrease,multiplier,0.8,cpstudy/config.py,internal AIMD design parameter
+rate_increase,Hz per update,0.5,cpstudy/config.py,internal AIMD design parameter
+eligible_pair_range,m,150,configs/evaluation.yaml; cpstudy/config.py,simulation eligibility geometry; distinct from actual radio reception
+vehicle_speed,both scenarios m/s,10 (36 km/h),configs/evaluation.yaml; cpstudy/config.py,constant speed in intersection and highway; no measured or SUMO trajectories
+intersection_scenario,design,48-source stress/paired; 12/24/48 factorial,simulator/cp-closed-loop.cc; campaign configs,synthetic perpendicular two-way flows; not a calibrated urban intersection
+highway_scenario,design,12/24/48 factorial,simulator/cp-closed-loop.cc; campaign configs,synthetic six-lane straight flows at configured 10 m/s; not a validated highway traffic profile
+factorial_campaign,design,2 scenarios x 3 source counts x 2 service times x 5 policies x 3 seeds = 180,configs/evaluation.yaml; results/raw/evaluation/campaign_manifest.json,exploratory; seeds 101-103; no calibrated policy
+stress_sweep,design,5 service times x 5 policies x 3 seeds = 75; 65 pass trace audit,scripts/run_major_revision.py; scripts/run_dcc_sweep.py; evidence/outcome_audit.json,exploratory; ten preserved runs have incomplete traces
+threshold_ablation,design,7 conditions x 5 seeds = 35,scripts/run_major_revision.py; evidence/outcome_audit.json,exploratory; all 35 pass trace audit
+paired_comparison,design,4 policies x 20 seeds = 80,scripts/run_20seeds_paired.py; evidence/outcome_audit.json,exploratory; one operating point; all pass audit; excludes DCC

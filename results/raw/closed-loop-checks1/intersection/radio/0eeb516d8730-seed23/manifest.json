@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "config_hash": "0eeb516d87304151c65a20d0628e2b2b05a3eea924b32e826ad4952dfce6e658",
+  "seed": 23,
+  "wall_seconds": 2.230696167000133,
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "source_hashes": {
+    "cpstudy/__init__.py": "97b115286896ebef45ee79c9d98a2c178d89c5e7132fb309aef3ab8e62ed0182",
+    "cpstudy/__main__.py": "043e118c8adae1b3bd864deef74651d21cb082b48b0f5692895d3318c96a42b7",
+    "cpstudy/closed_loop.py": "beae261428d148367e1e4d03c7face918dbd5ba6f562d6693b47a9aa2a1ffe2e",
+    "cpstudy/config.py": "74e842edfc5d96334e14aa08ce42e834027925ec39fcb490e9c3602595324b9e",
+    "cpstudy/dcc.py": "1cd6d75bd62d48539b23f69c8cad0dcbd1cf127cfe861de3d415f9eaf3559798",
+    "cpstudy/engine.py": "ad940f24acde448d8249ee4a673a898dc070bad8feb182e871f420115db9c42e",
+    "cpstudy/metrics.py": "8b189cd75b64d6d998e1cea81cfababf3957c879567b09f32d56571cf4b30579",
+    "cpstudy/model.py": "7ba22cbf4c2c19c182725795c382c87b0706ceeadc1052ed3fd1a6c2eb0cf618",
+    "cpstudy/network_audit.py": "edc8f758ab03d7a3b1ec341de08d0679397484158d9302578b58e7585d3e2c8d",
+    "cpstudy/policy.py": "f2adfd29fd075708557a719cbedb444ab390793fc5f53eb08579d462c90455e9",
+    "cpstudy/radio.py": "3392969cd15bd8d7b0c0065b0add6bc708d53759fbfd22d56ab9f846501388e3",
+    "cpstudy/receiver.py": "a5aa6c901777358e08052c05667cc138a5df81ed83f9cdbc0ce44e7377fc4076"
+  },
+  "radio_binary_sha256": "de6dc670d5e108e9ef64f145398891100f3e51ee304ac7d96d8bffe681dda5d3",
+  "files": {
+    "config.json": "85767a66a717ff3f1045586e40f1531b8ea53ef9c18471d0ab06495d34cab8ef",
+    "summary.json": "c902a6dd85221ab2c3c8337898ac0c99c4b73d10cdd5c3364a307622100dad0a",
+    "events.jsonl.gz": "f74654b4f4ea3118fe5e1e471e94af62be0e9cdfaf528c34206ad47b1b9c59ae",
+    "opportunities.jsonl.gz": "c1462692a03030ee33f025809b648bcc2435f9399d22250a5bf3e60159b3012a",
+    "radio-process.log": "564873f27ed487805503f974627f6ff6083a900ac29010e200f39d6fff8fa3f5",
+    "network-controls.csv.gz": "667ce0e8722deaf57a0c91eaa55173a27bd4da7e69f3010e9a1cda74afc798d4",
+    "network-dcc.csv.gz": "0bbab5b01debdc0c5d7feea7df0167a690ddb9b7afdf16015c60810262eca427",
+    "network-events.csv.gz": "d2c8a9b269753bb65b081a920f7b64122ac58b9aaa8c0d5710b44277caf886d9",
+    "network-opportunities.csv.gz": "134d4082eae3e1d3f815b9e48a268fdc79b1587ed19e4e1413566c9176674b1d",
+    "network-positions.csv.gz": "ddfb4902265ff893952486aaf8095abd42ac24b3caa85779b55e97c89624d33e"
+  }
+}

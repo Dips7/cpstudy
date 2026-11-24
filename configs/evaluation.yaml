@@ -1,0 +1,49 @@
+schema_version: 1
+output: results/raw/evaluation
+base_config:
+  radio: ns3-closed-loop
+  duration_s: 6.0
+  warmup_s: 1.0
+  opportunity_hz: 10.0
+  max_rate_hz: 10.0
+  min_rate_hz: 1.0
+  deadline_ms: 100.0
+  feedback_ms: 200.0
+  feedback_stale_ms: 600.0
+  queue_capacity: 32
+  inference_ms: 10.0
+  sign_ms: 1.0
+  fusion_ms: 2.0
+  payload_bytes: 1100
+  security_bytes: 100
+  feedback_bytes: 96
+  control_ms: 100.0
+  radio_high: 0.65
+  radio_low: 0.4
+  queue_high: 8
+  queue_low: 2
+  decrease: 0.8
+  increase_hz: 0.5
+  range_m: 150.0
+  speed_mps: 10.0
+matrix:
+  scenarios:
+    - intersection
+    - highway
+  sources:
+    - 12
+    - 24
+    - 48
+  verify_ms:
+    - 1.0
+    - 3.0
+  policies:
+    - fixed
+    - radio
+    - receiver
+    - joint
+    - dcc
+  seeds:
+    - 101
+    - 102
+    - 103

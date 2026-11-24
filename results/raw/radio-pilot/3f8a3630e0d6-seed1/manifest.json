@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "config_hash": "3f8a3630e0d65e714ded4576e6adc7e335e7486da18da15c409f7a99a4dd6e3a",
+  "seed": 1,
+  "wall_seconds": 10.536153584002022,
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "source_hashes": {
+    "cpstudy/__init__.py": "97b115286896ebef45ee79c9d98a2c178d89c5e7132fb309aef3ab8e62ed0182",
+    "cpstudy/__main__.py": "f19613f0185f89707eab6f8dc85900f1ba77dd2d3443c9bbf3e38a831a4c5f38",
+    "cpstudy/config.py": "107f98ad09fb67f19d255faf0eef8a051c87f383f05f1819d3dbb8b7359f410c",
+    "cpstudy/engine.py": "d3a0843305ac933b944da53df6746a7b2e924efbd84c8314c8062c3402d3ab11",
+    "cpstudy/metrics.py": "8b189cd75b64d6d998e1cea81cfababf3957c879567b09f32d56571cf4b30579",
+    "cpstudy/model.py": "7ba22cbf4c2c19c182725795c382c87b0706ceeadc1052ed3fd1a6c2eb0cf618",
+    "cpstudy/policy.py": "f2adfd29fd075708557a719cbedb444ab390793fc5f53eb08579d462c90455e9",
+    "cpstudy/radio.py": "3392969cd15bd8d7b0c0065b0add6bc708d53759fbfd22d56ab9f846501388e3",
+    "cpstudy/receiver.py": "a5aa6c901777358e08052c05667cc138a5df81ed83f9cdbc0ce44e7377fc4076"
+  },
+  "radio_binary_sha256": "2525d63ff34f965d53b78745ff9da232501a25b39ed3db17ed3090e930fe9cff",
+  "files": {
+    "config.json": "c825daaca77d7ea303f4a6e8cd7d16ed757475fd99db041a4c5e3c03a73c311d",
+    "summary.json": "c81ceb59f798876a7147b1d44d726c1281d57cb83403202d4aa4bfb206a4204c",
+    "events.jsonl.gz": "079050f07e7b8225f619d6e82df686b1e722af3396e491917e5b7f9011b2c454",
+    "opportunities.jsonl.gz": "6ce48b37d58231db745ad4b22a5dc12dcf31534d20d85041ff7e8203bbc85481",
+    "radio.csv": "dec1a84037f48a9b6e912480146a6c2dac0103ca782bbb9b2b157a3ad5a9741f",
+    "radio-process.log": "259ab5e9aa5d7f980ca1fc28dd60045bfc496cf62e8a315abe88ad12f81a792f"
+  }
+}

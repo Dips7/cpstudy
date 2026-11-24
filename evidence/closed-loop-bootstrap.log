@@ -1,0 +1,4 @@
+Running ['/Users/dips/Library/CloudStorage/OneDrive-LordBuddhaEducationFoundation/Working Paper/cpstudy/.venv/bin/python', 'ns3', 'configure', '--enable-modules=wifi,mobility,internet,applications', '--enable-examples', '--enable-tests', '--build-profile=release']
+Running ['/Users/dips/Library/CloudStorage/OneDrive-LordBuddhaEducationFoundation/Working Paper/cpstudy/.venv/bin/python', 'ns3', 'build', 'cp-radio-pilot', '-j', '4']
+Running ['/Users/dips/Library/CloudStorage/OneDrive-LordBuddhaEducationFoundation/Working Paper/cpstudy/.venv/bin/python', 'ns3', 'build', 'cp-closed-loop', '-j', '4']
+Pinned radio pilot build completed

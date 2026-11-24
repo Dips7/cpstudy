@@ -1,0 +1,1 @@
+{"audit": "passed", "message_receiver_pairs": 112354, "evaluated_opportunity_receiver_pairs": 95807, "terminal_counts": {"success": 89663, "radio_not_received": 6144}, "network_check": {"control_decisions_checked": 7140, "feedback_visibility": "verified causal replay"}}
