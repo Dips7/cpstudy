@@ -6,7 +6,7 @@ This repository contains the complete reproducible simulation artifacts, ns-3 sc
 
 > **"Receiver Feedback and Timely Source-Update Availability in a Cooperative-Perception Simulation"**  
 > **Authors:** Dipesh Gurung¹ (M.Sc.), Binod Bhattarai²* (Ph.D. Scholar), Prof. Dr. R. N. Thakur¹  
-> ¹ *Intel AI Unnati Lab, Lord Buddha Education Foundation (LBEF College), Kathmandu, Nepal*  
+> ¹ *Lord Buddha Education Foundation (LBEF College), Kathmandu, Nepal*  
 > ² *Department of Computer Science and Engineering, School of Sciences, Noida International University (NIU), Greater Noida, India*  
 > \* *Corresponding author: Binod Bhattarai (`binoth25@gmail.com`)*  
 > **Target Journal:** Elsevier *Vehicular Communications* (Original Research Article)  
