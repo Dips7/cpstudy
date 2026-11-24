@@ -5,3 +5,11 @@ __pycache__/
 .DS_Store
 Autonomous Vehicles, Immersive Realities and Intelligent IoT/
 results/raw/pilot/*.jsonl
+manuscript/
+submission_package/
+submission_package.zip
+submission_package.sha256
+FULL_REWORK_INSTRUCTIONS.md
+MANUSCRIPT_REVIEW.md
+Manuscript Rebuild Plan.md
+author_details.md
