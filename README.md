@@ -1,5 +1,7 @@
 # Reviewer Replication Package: V2V Cooperative Perception Simulation
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24498751.svg)](https://doi.org/10.5281/zenodo.24498751)
+
 This repository contains the complete reproducible simulation artifacts, ns-3 scenarios, trace datasets, publication figures, and dynamic audit verification suite for the research paper:
 
 > **"Receiver Feedback and Timely Source-Update Availability in a Cooperative-Perception Simulation"**  
@@ -7,7 +9,8 @@ This repository contains the complete reproducible simulation artifacts, ns-3 sc
 > ¹ *Intel AI Unnati Lab, Lord Buddha Education Foundation (LBEF College), Kathmandu, Nepal*  
 > ² *Department of Computer Science and Engineering, School of Sciences, Noida International University (NIU), Greater Noida, India*  
 > \* *Corresponding author: Binod Bhattarai (`binoth25@gmail.com`)*  
-> **Target Journal:** Elsevier *Vehicular Communications* (Original Research Article)
+> **Target Journal:** Elsevier *Vehicular Communications* (Original Research Article)  
+> **Permanent Archive:** [DOI: 10.5281/zenodo.24498751](https://doi.org/10.5281/zenodo.24498751)
 
 ---
 
